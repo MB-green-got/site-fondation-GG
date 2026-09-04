@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Fondation Green-Got//Evenements//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:depollution-seine-2026-09-17@fondation.green-got.com
+DTSTAMP:20260904T120000Z
+DTSTART;TZID=Europe/Paris:20260917T170000
+DTEND;TZID=Europe/Paris:20260917T200000
+SUMMARY:On ramasse la Seine avec Wings of the Ocean · Fondation Green-Got
+LOCATION:Paris\, quais de Seine (lieu exact envoyé aux inscrits)
+DESCRIPTION:Ramassage de déchets et de mégots le long de la Seine à Paris\, verre partagé en fin de parcours. Gants\, pinces et sacs fournis. Le lieu de rendez-vous exact est envoyé par mail après inscription. Détails et inscription sur fondation.green-got.com
+URL:https://fondation.green-got.com/#/evenements
+END:VEVENT
+END:VCALENDAR
