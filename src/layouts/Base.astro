@@ -51,6 +51,20 @@ const organisation = {
   knowsAbout: fondation.perimetre,
 };
 
+/*
+  Le site lui-même. Il est déclaré sur chaque page et non sur la seule page
+  d'accueil, pour que toute page renvoyée seule à un robot porte un graphe
+  complet, sans référence pendante.
+*/
+const site = {
+  '@type': 'WebSite',
+  '@id': new URL('/#site', Astro.site).href,
+  name: fondation.nom,
+  url: new URL('/', Astro.site).href,
+  inLanguage: 'fr-FR',
+  publisher: { '@id': new URL('/#organisation', Astro.site).href },
+};
+
 /* Le fil d'Ariane, construit depuis les mêmes données que celui qui s'affiche. */
 const fil = [{ libelle: 'Accueil', url: '/' }, ...chemin];
 const breadcrumb = fil.length > 1 ? [{
@@ -63,7 +77,7 @@ const breadcrumb = fil.length > 1 ? [{
   })),
 }] : [];
 
-const graphe = [organisation, ...breadcrumb, ...jsonLd];
+const graphe = [organisation, site, ...breadcrumb, ...jsonLd];
 ---
 <!doctype html>
 <html lang="fr">

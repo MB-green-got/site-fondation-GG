@@ -27,22 +27,33 @@ Le plan posait seize décisions. Faute de réponse point par point, je travaille
 
 ## Ce qui reste À VALIDER
 
-Ces éléments s'affichent en clair et en orange dans les pages concernées. Aucun n'est comblé par une estimation.
+**Cent une mentions** s'affichent en clair et en orange dans les pages. Aucune donnée manquante n'a été comblée par une estimation. Le détail par page se lit avec `npm run verifier`.
 
-| Élément | Où il manque |
+| Élément manquant | Où il s'affiche |
 |---|---|
-| Phrase exacte du statut, fondation abritée ou fonds abrité | Fiche d'identité, donc toutes les pages |
-| Année de création de la Fondation | La Fondation, Faits et chiffres, balisage `foundingDate` |
-| Montant cumulé versé et sa date d'arrêté | Faits et chiffres |
-| Montant du soutien, projet par projet | Les huit pages de projet |
-| Composition du comité, noms et rôles confirmés | La Fondation |
+| Phrase exacte du statut, fonds abrité ou fondation abritée | La Fondation, mentions légales |
+| Année de création de la Fondation | La Fondation, Faits et chiffres |
+| Montant cumulé versé et sa date d'arrêté | La Fondation, Faits et chiffres |
+| Part reversée par Green-Got, la maquette disait 5 à 10 % sans source | La Fondation |
+| Affirmation « sans frais ni commission », non sourcée et probablement fausse | La Fondation |
 | Valeurs de la Fondation | La Fondation |
-| Nom de l'auteur affiché sur les pages de contenu | Toutes les pages de contenu |
-| Adresse de la fiche dans l'annuaire Fondation de France | Balisage `sameAs` |
-| Adresse de la page LinkedIn de la Fondation | Balisage `sameAs` |
-| Deux combats ou trois | Nos combats, navigation, balisage |
-| Photos de Planète Urgence et Coral Guardian | Deux pages de projet |
-| Nom de personne, lieu et date pour six des huit projets | Les pages de projet concernées |
+| Composition du comité et rôle de chaque membre | La Fondation, Faits et chiffres |
+| Nom de l'auteur affiché | Les quinze pages de contenu |
+| Deux combats ou trois | Nos combats |
+| Montant du soutien, projet par projet | Les huit pages de projet |
+| Adresse de source pour vingt-quatre chiffres de projet | Les huit pages de projet |
+| Nom de personne, lieu ou date | Tara Océan, École de la Réparation, Planète Urgence, Coral Guardian |
+| Récit, chiffres et photo | Planète Urgence, Coral Guardian |
+| Adresse du site partenaire | École de la Réparation |
+| Dates, lieux et liens d'inscription | Les quatre rendez-vous |
+| Cinéaste, durée et date de sortie | Les trois publications |
+| Voie de don qui ne passe pas par un compte | Faits et chiffres |
+| Adresses électroniques, presse, générale, délégué à la protection des données | Contact, confidentialité |
+| Adresse postale | Contact |
+| Éditeur, hébergeur, crédits photo | Mentions légales |
+| Durée de conservation des données d'inscription | Confidentialité |
+| Outil de mesure d'audience | Confidentialité |
+| Adresse de la fiche annuaire Fondation de France, page LinkedIn | Balisage sameAs |
 
 ---
 
@@ -182,3 +193,68 @@ Deux défauts trouvés et corrigés au passage. Les listes de définitions étai
 **Écart avec le plan, second point.** La page Nous soutenir n'est pas reprise. La seule voie de soutien que décrivait le site en ligne passe par la carte Green-Got et l'arrondi des dépenses, ce que les règles éditoriales interdisent. Son adresse redirige vers Faits et chiffres, où la question figure, marquée À VALIDER, en attente d'une voie de don qui ne passe pas par l'ouverture d'un compte.
 
 Trois outils sont ajoutés, `npm run images`, `npm run lighthouse` et `npm run responsive`.
+
+### Lots 9, 12 et 13, données structurées, recette et note de bascule, 18 septembre 2026
+
+**Données structurées.** Un contrôle automatique, `outils/jsonld.mjs`, lit les vingt-sept pages construites, vérifie que chaque JSON est valide, que chaque type est connu, que les pages portent les types attendus, que les dates sont bien formées et qu'aucune référence interne ne pointe vers un identifiant absent.
+
+Un défaut a été trouvé et corrigé. Le nœud `WebSite` n'était déclaré que sur la page d'accueil, alors que quatre pages y renvoyaient. Une page renvoyée seule à un robot portait donc une référence pendante. Il est maintenant déclaré sur chaque page, comme l'organisation.
+
+Les types posés sur l'ensemble du site. Organization sur les vingt-sept pages, avec `parentOrganization` vers Green-Got et `sameAs` vers Wikipédia, Instagram et YouTube. WebSite sur les vingt-sept. BreadcrumbList sur vingt-cinq. Article sur treize. FAQPage sur Faits et chiffres, avec ses douze questions. Person sur les cinq membres du comité. HowTo sur Associations. ContactPage, AboutPage, CollectionPage, ItemList, VideoObject et Event.
+
+Un seul `Event` est posé, celui du 17 septembre. Les trois autres rendez-vous n'ont pas de date arrêtée et ne reçoivent donc pas de `startDate` inventée.
+
+**Liens.** Six cent quatre-vingt-dix-sept liens internes vérifiés, ancres comprises, contre les fichiers réellement produits. **Aucun lien interne cassé.** Trente-deux liens externes interrogés, vingt-sept répondent 200, cinq renvoient un blocage anti-robot, trois profils LinkedIn, l'OCDE et ScienceDirect. Ce ne sont pas des liens morts, ils sont à ouvrir une fois à la main.
+
+**Cohérence de la fiche d'identité.** La phrase du statut apparaît trente-sept fois sur le site, à l'identique. Aucune variante orthographique du nom de la Fondation. Les trois occurrences restantes de « fonds abrité » sont à l'intérieur des mentions À VALIDER qui expliquent justement l'écart.
+
+**Le mot banque.** Onze occurrences sur le site, toutes contrôlées une par une. Neuf désignent les banques tierces et portent le positionnement de la maison, « les mêmes banques financent les pétroliers », « les banques financent le bâti et le matériel, rarement la terre ». Deux nient explicitement l'association, sur la page Faits et chiffres. **Aucune n'associe Green-Got à une banque.**
+
+**Recette finale, requête HTTP sans JavaScript.**
+
+```
+  Type de page          Code  Octets  Texte éditorial servi sans JavaScript
+  Accueil               200     8910     272 caractères
+  La Fondation          200    16597    4064 caractères
+  Faits et chiffres     200    18740    4861 caractères
+  Nos combats           200    18361    4849 caractères
+  Index des projets     200    13282     822 caractères
+  Une page projet       200    13687    2653 caractères
+  Programme             200    11214     708 caractères
+  Un évènement          200    11890     985 caractères
+  Publications          200    11314    1028 caractères
+  Une publication       200    10380     503 caractères
+  Associations          200    11197     989 caractères
+  Contact               200    10276     802 caractères
+  Mentions légales      200    10484    1799 caractères
+  Confidentialité       200    10695    1956 caractères
+  Page introuvable      200     8391     250 caractères
+
+  Fichier               Code  Octets
+  /robots.txt           200     1464
+  /sitemap.xml          200     3242
+  /llms.txt             200     6647
+  /_redirects           200     1410
+```
+
+Pour mémoire, la même requête sur le site actuel renvoie 1 887 octets et zéro caractère de contenu éditorial, sur toutes ses adresses.
+
+**Note de bascule.** `BASCULE.md` décrit ce qu'il reste à faire pour mettre le site en ligne, qui fait quoi, et les sept requêtes à passer le jour de la bascule pour vérifier que tout répond. Je n'ai rien déployé et rien poussé.
+
+---
+
+## Critères de fin de chantier
+
+| Critère demandé | État |
+|---|---|
+| Une requête curl sur chaque type de page renvoie le contenu éditorial complet | Tenu, quinze types de page vérifiés |
+| robots.txt, sitemap.xml et llms.txt répondent en 200 | Tenu |
+| Le JSON-LD de chaque page passe le validateur sans erreur | Tenu au contrôle automatique, le passage au validateur en ligne reste à faire une fois le site déployé |
+| Aucun lien interne cassé | Tenu, 697 liens vérifiés |
+| La fiche d'identité est identique sur toutes les pages | Tenu, 37 occurrences identiques, vérifié par recherche dans le code |
+| Aucune occurrence de « banque » associée à Green-Got | Tenu, 11 occurrences contrôlées une par une |
+| Score Lighthouse mobile supérieur à 90 | Tenu, performance 99 à 100, accessibilité 100, référencement 100 |
+| Responsive à 360, 768 et 1440 px | Tenu, seize pages, aucun débordement horizontal |
+| Un fichier CHANGELOG.md | Ce fichier |
+
+Deux critères ne peuvent pas être tenus depuis ce dépôt. Le passage au validateur schema.org en ligne demande une adresse publique. La vérification des vraies 301 et de la vraie 404 demande un hébergement qui lit `_redirects`, un serveur de fichiers local n'en fait rien. Les deux sont dans `BASCULE.md`.
