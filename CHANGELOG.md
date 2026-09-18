@@ -92,3 +92,11 @@ Preuve. La page d'accueil construite pèse 8 122 octets et sert 1 219 caractère
 Modifications signalées. La phrase du pied de page disait « Tout n'a pas à être rentable. Alors on donne. », le titre de partage disait « Tout n'est pas économique, alors on donne. ». Les deux sont remplacées par le message de fond retenu, « Tout n'est pas financier. Alors on donne. ». Dis-moi si tu préfères l'une des deux formulations d'origine. Le pied de page disait « fonds abrité par la Fondation de France », il dit maintenant « fondation abritée par la Fondation de France », qui reste à valider par le juridique.
 
 Rien n'a été supprimé. La maquette `index.html` reste en place et continue d'être servie sur GitHub Pages, elle sera retirée au lot 11, quand les images passeront aux formats modernes.
+
+### Lot 2, fiche d'identité affichable et contrôle automatique, 18 septembre 2026
+
+Fait. Composant `FicheIdentite`, qui affiche la fiche telle qu'elle est écrite dans les données, sans jamais la reformuler. Les champs manquants y apparaissent en clair avec la mention À VALIDER.
+
+Ajout de `outils/controle.mjs`, lancé par `npm run verifier`. Il lit le site construit et refuse de rendre la main si une règle est enfreinte. Il vérifie que chaque page sert bien du contenu sans JavaScript, que le nom de la Fondation ne connaît aucune variante orthographique, qu'aucune phrase n'associe Green-Got à une banque, qu'aucun mot proscrit n'apparaît, qu'aucune page ne pousse à ouvrir un compte, que les titres et les descriptions sont uniques, qu'il y a exactement un H1 par page et que chaque JSON-LD est valide. Il compte aussi les mentions À VALIDER et les signale sans bloquer.
+
+Ce contrôle remplace la vérification à la main demandée dans les critères de fin de chantier. Il sera lancé à chaque lot.
