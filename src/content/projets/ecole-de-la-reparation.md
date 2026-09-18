@@ -18,9 +18,6 @@ personne:
   lieu: Roubaix
   date: '2024-09-01'
 
-montant: null
-montantDate: null
-
 chiffres:
   - valeur: '20'
     libelle: élèves dans la première promotion

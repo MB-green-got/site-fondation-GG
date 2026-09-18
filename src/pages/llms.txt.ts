@@ -40,6 +40,7 @@ ${ligne(par('/nos-combats'))}
 
 ${ligne(par('/projets'))}
 ${plan.projets.map(ligne).join('\n')}
+${ligne(par('/soutiens-passes'))}
 
 ## Les rendez-vous
 

@@ -10,7 +10,6 @@ import FilAriane from '../../components/FilAriane.astro';
 import Signature from '../../components/Signature.astro';
 import LigneIndex from '../../components/LigneIndex.astro';
 import CarteProjets from '../../components/CarteProjets.astro';
-import AValider from '../../components/AValider.astro';
 import { fondation } from '../../data/fondation.js';
 
 /* Les trois piliers, leur forme et leur couleur, repris de la maquette. */
@@ -96,7 +95,7 @@ const jsonLd = [{
         </div>
       </div>
 
-      <AValider quoi="Les montants des soutiens financiers, qui ne sont pas publiés à ce jour. Chaque page de projet leur garde une ligne." />
+      <p class="srcline">Chaque page de projet indique le montant versé et sa date d'arrêté. D'autres associations ont été soutenues par le passé, <a href="/soutiens-passes">elles figurent ici</a>.</p>
     </div>
   </section>
 </Base>

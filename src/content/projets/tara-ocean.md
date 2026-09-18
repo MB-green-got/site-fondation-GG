@@ -18,9 +18,6 @@ personne:
   lieu: Lorient
   date: null
 
-montant: null
-montantDate: null
-
 chiffres:
   - valeur: 100 %
     libelle: des échantillons d'eau de 9 fleuves européens contenaient des microplastiques

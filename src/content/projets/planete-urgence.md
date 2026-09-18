@@ -20,9 +20,6 @@ personne:
   lieu: Delta de la Mahakam, Indonésie
   date: null
 
-montant: null
-montantDate: null
-
 chiffres: []
 
 partenaire:

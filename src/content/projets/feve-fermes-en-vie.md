@@ -18,9 +18,6 @@ personne:
   lieu: Saint-Astier, Dordogne
   date: '2023-12-01'
 
-montant: null
-montantDate: null
-
 chiffres:
   - valeur: 2 064 ha
     libelle: convertis à l'agroécologie

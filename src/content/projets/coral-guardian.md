@@ -20,9 +20,6 @@ personne:
   lieu: Indonésie et Espagne
   date: null
 
-montant: null
-montantDate: null
-
 chiffres: []
 
 partenaire:

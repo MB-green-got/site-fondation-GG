@@ -1,0 +1,76 @@
+---
+/*
+  Soutiens passés.
+
+  Le site présente huit projets, le registre financier en compte vingt-trois.
+  Cette page dit lesquels, combien et quand, plutôt que de laisser l'écart
+  inexpliqué. C'est la page qu'un lecteur qui recoupe cherchera.
+*/
+import Base from '../layouts/Base.astro';
+import FilAriane from '../components/FilAriane.astro';
+import Signature from '../components/Signature.astro';
+import { soutiensCourants, soutiensPasses, euros, periode, ARRETE_AU } from '../data/soutiens.js';
+import { fondation } from '../data/fondation.js';
+import { enClair } from '../lib/dates.js';
+
+const chemin = [{ libelle: 'Projets', url: '/projets' }, { libelle: 'Soutiens passés' }];
+const publieLe = '2026-09-18';
+const modifieLe = '2026-09-18';
+
+const courants = Object.values(soutiensCourants).reduce((s, x) => s + x.montant, 0);
+const passes = soutiensPasses.reduce((s, x) => s + x.montant, 0);
+const liste = [...soutiensPasses].sort((a, b) => b.montant - a.montant);
+
+const jsonLd = [{
+  '@type': 'Article',
+  '@id': 'https://fondation.green-got.com/soutiens-passes#article',
+  headline: 'Les associations soutenues par le passé',
+  description: 'La liste des associations que la Fondation Green-Got a soutenues et qui n\'ont plus de projet en cours, avec le montant versé et les années.',
+  inLanguage: 'fr-FR',
+  datePublished: publieLe,
+  dateModified: modifieLe,
+  publisher: { '@id': 'https://fondation.green-got.com/#organisation' },
+  mainEntityOfPage: 'https://fondation.green-got.com/soutiens-passes',
+}];
+---
+<Base
+  titre={`Quelles associations la Fondation Green-Got a-t-elle soutenues par le passé ? · ${fondation.nom}`}
+  description="La liste complète des associations soutenues par la Fondation Green-Got qui n'ont plus de projet en cours, avec le montant versé à chacune et les années concernées."
+  route="/projets"
+  chemin={chemin}
+  image="/img/partage-projets.jpg"
+  imageAlt="Les projets financés par la Fondation Green-Got"
+  jsonLd={jsonLd}
+>
+  <section class="phero simple">
+    <div class="container lisible">
+      <FilAriane chemin={chemin} />
+      <h1>Ce qu'on a financé avant.</h1>
+      <p class="body lg">Le site présente les projets en cours. D'autres associations ont été soutenues et ne le sont plus. Les voici, avec ce qu'elles ont reçu et quand.</p>
+      <Signature publieLe={publieLe} modifieLe={modifieLe} />
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="container">
+      <h2>Les associations soutenues par le passé</h2>
+      <dl class="dl">
+        {liste.map((a) => (
+          <div>
+            <dt>{a.nom}</dt>
+            <dd>{euros(a.montant)}, {periode(a.de, a.a)}.</dd>
+          </div>
+        ))}
+      </dl>
+
+      <h2>Le compte y est</h2>
+      <p class="body">
+        Les projets en cours ont reçu {euros(courants)}, les associations ci-dessus {euros(passes)},
+        soit {euros(courants + passes)} versés en tout depuis 2022. Montants arrêtés au
+        {' '}<time datetime={ARRETE_AU}>{enClair(ARRETE_AU)}</time>, d'après le registre de suivi
+        financier de la Fondation. <a href="/projets">Les projets en cours</a>.
+      </p>
+      <p class="srcline">Ces montants recouvrent deux natures de versement, les subventions décidées par le comité de la Fondation et les sommes que les membres Green‑Got ont eux-mêmes fléchées vers une association. Le détail par nature est tenu dans le registre financier de la Fondation.</p>
+    </div>
+  </section>
+</Base>

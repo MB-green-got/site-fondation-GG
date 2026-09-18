@@ -18,9 +18,6 @@ personne:
   lieu: Sète
   date: '2018-05-01'
 
-montant: null
-montantDate: null
-
 chiffres:
   - valeur: 15,1 t
     libelle: de déchets collectés

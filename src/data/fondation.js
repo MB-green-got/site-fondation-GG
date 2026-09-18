@@ -68,16 +68,19 @@ export const fondation = {
     deux dates ne disent donc pas la même chose et le site ne doit jamais
     attribuer à la Fondation un versement antérieur à sa création.
   */
+  /*
+    Décision de Marie Bénédicte du 18 septembre 2026, maintenue après
+    réconciliation. Le registre financier et les tableaux de suivi donnent
+    1 668 582 € versés à ce jour, et 1 868 582 € si le plan 2026 est tenu
+    jusqu'en décembre. L'écart avec le chiffre affiché est consigné dans
+    CHANGELOG.md. La page Soutiens passés publie le détail par association,
+    dont la somme est vérifiable.
+  */
   montantCumule: {
     valeur: 'Plus de 2,5 millions d\'euros versés aux associations depuis 2022',
     sourceTitre: 'FAQ Green-Got',
     sourceUrl: 'https://faq.green-got.com',
-    /*
-      La FAQ annonce aujourd'hui « près de 2 millions ». Tant qu'elle n'est
-      pas mise à jour, la source dit moins que le site, ce qui est exactement
-      le genre d'écart que les moteurs de réponse relèvent.
-    */
-    aValider: 'La mise à jour de la FAQ de Green-Got, qui annonce encore près de 2 millions d\'euros là où le site en annonce plus de 2,5. Et la date d\'arrêté de ce montant.',
+    aValider: 'La mise à jour de la FAQ de Green-Got, qui annonce encore près de 2 millions d\'euros. Le détail publié sur la page Soutiens passés totalise 1 668 582 € versés à ce jour, arrêtés au 18 septembre 2026.',
   },
   anneeCreation: '2026',
   /* Green-Got finance ces projets depuis cette année-là, avant la Fondation. */

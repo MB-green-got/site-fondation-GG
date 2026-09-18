@@ -18,9 +18,6 @@ personne:
   lieu: Ille-et-Vilaine
   date: '2024-11-29'
 
-montant: null
-montantDate: null
-
 chiffres:
   - valeur: 8 000
     libelle: contributions à la Grande Consultation des Agriculteurs

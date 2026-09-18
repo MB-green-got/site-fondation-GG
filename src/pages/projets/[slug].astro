@@ -16,6 +16,7 @@ import Chiffre from '../../components/Chiffre.astro';
 import AValider from '../../components/AValider.astro';
 import { fondation } from '../../data/fondation.js';
 import { enClair } from '../../lib/dates.js';
+import { soutiensCourants, euros, depuis, ARRETE_AU } from '../../data/soutiens.js';
 
 export async function getStaticPaths() {
   const projets = await getCollection('projets');
@@ -24,6 +25,9 @@ export async function getStaticPaths() {
 
 const { projet } = Astro.props;
 const d = projet.data;
+/* Le montant vient du registre financier, pas de la fiche, pour qu'une
+   seule source le porte et qu'aucune fiche ne puisse diverger. */
+const soutien = soutiensCourants[projet.id] ?? null;
 const url = `https://fondation.green-got.com/projets/${projet.id}`;
 
 
@@ -118,10 +122,10 @@ const jsonLd = [
           </div>
 
           <div>
-            <dt>Montant du soutien</dt>
-            <dd>{d.montant
-              ? <>{d.montant}{d.montantDate && <>, au {enClair(d.montantDate)}</>}</>
-              : <AValider quoi="Le montant du soutien de la Fondation et sa date d'arrêté. Les montants ne sont pas publiés à ce jour." />}</dd>
+            <dt>Montant versé</dt>
+            <dd>{soutien
+              ? <>{euros(soutien.montant)} {depuis(soutien.de)}, arrêté au <time datetime={ARRETE_AU}>{enClair(ARRETE_AU)}</time>.{soutien.plan2026 && <> Engagement 2026, {euros(soutien.plan2026)}.</>}</>
+              : <AValider quoi="Le montant versé à ce projet et sa date d'arrêté." />}</dd>
           </div>
 
           <div>

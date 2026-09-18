@@ -328,3 +328,32 @@ En regardant les pages une à une plutôt qu'en lisant leurs mesures, j'ai trouv
 Mesures après correction. Performance de 95 à 100, accessibilité 100, bonnes pratiques 100, référencement 100, sur quatorze pages. Dix-sept pages testées à 360, 768 et 1440 px, aucun débordement. Vingt-huit pages, 766 liens internes, aucun cassé.
 
 Le contrôle automatique vérifie aussi, désormais, que le sitemap et le llms.txt couvrent exactement les pages construites. Une page absente du sitemap n'est pas proposée aux moteurs, une adresse au sitemap sans page derrière est une promesse en l'air.
+
+### Lot 18, les montants versés, 18 septembre 2026
+
+Marie Bénédicte a transmis le registre de pilotage financier de la Fondation, page Notion « Financement associatif GG » arrêtée au 22 août 2026, puis deux tableaux de suivi détaillés. Les deux sources concordent au centime près, à 58 centimes près sur la ligne Lazare.
+
+**Ce que disent les sources.**
+
+```
+  Subventions directes 2022 à 2025 ......   709 282,00 €
+  Arrondis 2023 à 2025 ..................   659 300,39 €
+  Sous-total fin 2025 ................... 1 368 582,39 €
+  Deux premières tranches 2026 ..........   300 000,00 €
+  Total versé à ce jour ................. 1 668 582,39 €
+  Si le plan 2026 est tenu jusqu'en décembre, 1 868 582,39 €.
+```
+
+**Base retenue pour les fiches projet**, décision de Marie Bénédicte, tout ce qui a été versé à l'association, subventions décidées par le comité et arrondis fléchés par les membres confondus. Les huit fiches affichent donc Sungai Watch 280 000 €, FEVE 191 787 €, Wings of the Ocean 189 076 €, Planète Urgence 157 000 €, École de la Réparation 100 000 €, Coral Guardian 90 000 €, The Shift Project 60 000 € et Fondation Tara Océan 50 000 €, chacun avec sa date d'arrêté et, quand il existe, l'engagement annoncé pour 2026.
+
+J'avais signalé que cette base attribue à la Fondation des sommes qu'elle n'arbitre pas, le registre écrivant lui-même que pour les arrondis « la Fondation n'est qu'un intermédiaire de paiement ». La décision a été prise en connaissance de cause. La page Soutiens passés le rappelle en pied de page, sans employer le mot arrondi dans le corps du texte, conformément aux règles éditoriales.
+
+**Montant cumulé affiché, écart à consigner.** Le site annonce « Plus de 2,5 millions d'euros versés aux associations depuis 2022 ». Les deux sources transmises donnent 1 668 582 € versés à ce jour et 1 868 582 € en fin d'année si le plan est tenu. L'écart est donc de 631 418 € au minimum. J'ai signalé cet écart deux fois, chiffres à l'appui, la décision de maintenir 2,5 millions a été confirmée. Elle est appliquée.
+
+Trois conséquences que ce choix crée et qu'il faut connaître. La source liée au chiffre, la FAQ de Green-Got, annonce encore près de 2 millions, elle dit donc moins que le site. La page Soutiens passés publie le détail par association, dont la somme, 1 668 582 €, est vérifiable par quiconque additionne. Et la règle éditoriale du chantier demande qu'aucun chiffre ne soit présenté comme un fait sans source qui le porte.
+
+**Page Soutiens passés créée.** Le site présentait huit projets, le registre en compte vingt-trois. Les quinze autres associations y figurent avec leur montant et leurs années, de Refuge GroinGroin à QuotaClimat. La page explique l'écart plutôt que de le laisser ouvert, et publie le total vérifiable. Trois d'entre elles avaient reçu des subventions décidées par le comité sans figurer nulle part sur le site, EcoTree, Just Diggit et Climate Partner.
+
+**Une seule source porte désormais les montants.** Ils vivent dans `src/data/soutiens.js` et non dans les fiches, aucune fiche ne peut donc diverger du registre. Le champ montant a été retiré du schéma des fiches.
+
+Les mentions À VALIDER passent de 101 à 64.

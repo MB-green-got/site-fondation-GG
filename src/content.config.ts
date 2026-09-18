@@ -47,8 +47,6 @@ const projets = defineCollection({
 
     /* Les cinq éléments exigés sur chaque page de projet. */
     personne,
-    montant: z.string().nullable(),
-    montantDate: z.string().nullable(),
     chiffres: z.array(chiffre),
     partenaire: z.object({ nom: z.string(), url: z.string().url().nullable() }),
 

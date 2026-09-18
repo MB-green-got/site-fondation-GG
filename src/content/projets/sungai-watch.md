@@ -20,9 +20,6 @@ personne:
   lieu: Bali, Indonésie
   date: '2020-01-01'
 
-montant: null
-montantDate: null
-
 chiffres:
   - valeur: 1 078 t
     libelle: de déchets interceptés dans les rivières
