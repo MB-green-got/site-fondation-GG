@@ -8,6 +8,7 @@ import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import FilAriane from '../../components/FilAriane.astro';
 import AValider from '../../components/AValider.astro';
+import LigneIndex from '../../components/LigneIndex.astro';
 import { fondation } from '../../data/fondation.js';
 
 const pubs = (await getCollection('publications')).sort((a, b) => a.data.ordre - b.data.ordre);
@@ -49,23 +50,25 @@ const jsonLd = [{
   <section class="sect">
     <div class="container">
       <h2>Films et documentaires</h2>
-      <ul class="alist plain">
+      <div class="alist">
         {pubs.filter((p) => p.data.type !== 'article').map((p) => (
-          <li>
-            <a class="arow" href={`/publications/${p.id}`}>
-              <span class="an">{p.data.titre}</span>
-              <span class="ao">{p.data.resume}</span>
-              <span class="al">{p.data.duree ?? ''}</span>
-            </a>
-          </li>
+          <LigneIndex
+            url={`/publications/${p.id}`}
+            vignette={p.data.image.fichier}
+            forme="s"
+            couleur="#FFAD5C"
+            nom={p.data.titre}
+            complement={p.data.duree}
+            objet={p.data.resume}
+          />
         ))}
-      </ul>
+      </div>
 
       <h2>Articles</h2>
       {articles.length > 0
-        ? <ul class="alist plain">{articles.map((p) => (
-            <li><a class="arow" href={`/publications/${p.id}`}><span class="an">{p.data.titre}</span><span class="ao">{p.data.resume}</span></a></li>
-          ))}</ul>
+        ? <div class="alist">{articles.map((p) => (
+            <LigneIndex url={`/publications/${p.id}`} vignette={p.data.image.fichier} forme="s" couleur="#FFAD5C" nom={p.data.titre} objet={p.data.resume} />
+          ))}</div>
         : <AValider quoi="Les articles de la Fondation. Aucun n'est publié à ce jour. Chaque article portera une date, un auteur nommé et ses sources, comme les autres pages du site." />}
     </div>
   </section>

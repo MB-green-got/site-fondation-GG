@@ -1,0 +1,26 @@
+# Redirections permanentes, format Cloudflare Pages et Netlify.
+#
+# Toute adresse qui existait et qui change reçoit une 301. Les adresses de
+# l'ancien site, construit avec Lovable, sont listées ici. Les adresses par
+# ancre de la maquette, du type /#/actions/feve, ne peuvent pas être
+# redirigées par le serveur, ce qui suit le dièse ne lui est jamais envoyé.
+# Elles sont aiguillées par src/scripts/interface.js.
+
+# Ancien site
+/histoire                          /la-fondation              301
+/productions                       /publications              301
+/contacter                         /contact                   301
+
+# Nous soutenir. La page n'est pas reprise, la seule voie de soutien décrite
+# par l'ancien site passait par la carte et l'arrondi, ce que les règles
+# éditoriales interdisent. La question figure sur Faits et chiffres, marquée
+# À VALIDER, en attente d'une voie de don qui ne passe pas par un compte.
+/nous-soutenir                     /faits-et-chiffres         301
+
+# Les trois combats de l'ancien site deviennent trois ancres d'une seule page.
+/nos-combats/pesticides            /nos-combats#pesticides            301
+/nos-combats/pollution-plastique   /nos-combats#pollution-plastique   301
+/nos-combats/pfas                  /nos-combats#pfas                  301
+
+# Ancienne maquette servie sur GitHub Pages
+/index.html                        /                          301

@@ -94,8 +94,8 @@ const jsonLd = [
       </div>
 
       <aside>
-        <div class="dl">
-          <h2>La fiche</h2>
+        <h2>La fiche</h2>
+        <dl class="dl">
 
           <div><dt>Porté par</dt><dd>{d.partenaire.nom}</dd></div>
 
@@ -130,7 +130,7 @@ const jsonLd = [
               ? <a href={d.partenaire.url} target="_blank" rel="noopener">{d.partenaire.url.replace(/^https?:\/\/(www\.)?/, '')}</a>
               : <AValider quoi={`L'adresse du site de ${d.partenaire.nom}.`} />}</dd>
           </div>
-        </div>
+        </dl>
 
         {d.chiffres.length > 0 ? (
           <div class="stats">

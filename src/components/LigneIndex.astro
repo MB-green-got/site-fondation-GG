@@ -1,0 +1,16 @@
+---
+/*
+  Une ligne d'index, avec les classes de la feuille de style de la maquette.
+  Elle sert aux projets et aux publications, c'est la même grille.
+*/
+const { url, vignette, forme, couleur, nom, complement, objet } = Astro.props;
+---
+<a class="arow" href={url}>
+  {vignette
+    ? <span class="th" aria-hidden="true" style={`background-image:var(--img-${vignette})`}></span>
+    : <span class={`th flat ${forme === 'd' ? 'terre' : forme === 'c' ? 'mer' : 'recherche'}`} aria-hidden="true"></span>}
+  <i class={forme} aria-hidden="true" style={couleur ? `background:${couleur}` : undefined}></i>
+  <span class="nm">{nom}{complement && <span class="lc"> · {complement}</span>}</span>
+  <span class="ob">{objet}</span>
+  <span class="ar" aria-hidden="true">→</span>
+</a>

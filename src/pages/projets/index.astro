@@ -7,7 +7,15 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import FilAriane from '../../components/FilAriane.astro';
+import LigneIndex from '../../components/LigneIndex.astro';
 import { fondation } from '../../data/fondation.js';
+
+/* Les trois piliers, leur forme et leur couleur, repris de la maquette. */
+const PILIERS = {
+  'Terre': { forme: 'd', couleur: '#CDFB6E' },
+  'Mer': { forme: 'c', couleur: '#C2E9FF' },
+  'Recherche et éducation': { forme: 's', couleur: '#FFAD5C' },
+};
 
 const projets = (await getCollection('projets')).sort((a, b) => a.data.ordre - b.data.ordre);
 const piliers = ['Terre', 'Mer', 'Recherche et éducation'];
@@ -46,22 +54,24 @@ const jsonLd = [{
 
   <section class="sect">
     <div class="container">
-      {piliers.map((pilier) => (
-        <div class="grp">
-          <h2>{pilier}</h2>
-          <ul class="alist plain">
+      <div class="alist">
+        {piliers.map((pilier) => (
+          <>
+            <h2 class="agrp">{pilier}</h2>
             {projets.filter((p) => p.data.pilier === pilier).map((p) => (
-              <li>
-                <a class="arow" href={`/projets/${p.id}`}>
-                  <span class="an">{p.data.nom}</span>
-                  <span class="ao">{p.data.objet}</span>
-                  <span class="al">{p.data.lieu}</span>
-                </a>
-              </li>
+              <LigneIndex
+                url={`/projets/${p.id}`}
+                vignette={p.data.image.fichier}
+                forme={PILIERS[p.data.pilier].forme}
+                couleur={PILIERS[p.data.pilier].couleur}
+                nom={p.data.nom}
+                complement={p.data.lieu}
+                objet={p.data.objet}
+              />
             ))}
-          </ul>
-        </div>
-      ))}
+          </>
+        ))}
+      </div>
     </div>
   </section>
 </Base>

@@ -22,6 +22,9 @@
   --border:rgba(148,156,132,.28);
   --border-strong:rgba(183,190,170,.5);
   --blue:#C2E9FF; --orange:#FFAD5C;
+  /* L'orange des mentions A VALIDER tombe a 1,80 pour 1 sur la bande
+     claire, il est illisible. Cette variante donne 5,19 pour 1. */
+  --orange-clair:#A85408;
   --r:16px; --r-xl:20px; --r-2xl:24px;
   --w70:rgba(252,252,252,.74); --w50:rgba(252,252,252,.52); --w40:rgba(252,252,252,.5);
   --l15:rgba(247,255,234,.15); --l30:rgba(247,255,234,.3); --l10:rgba(247,255,234,.1);
@@ -147,6 +150,8 @@ body[data-route=accueil] .topbar:not(.scrolled):not(.menu-open){background:trans
 .note{font-size:12.5px;line-height:1.6;color:var(--w50)}
 /* les champs a completer avant mise en ligne, signales en orange comme l'annoncent les mentions legales */
 .todo{color:var(--orange);font-weight:600}
+.light .todo,.light .flag b{color:var(--orange-clair)}
+.light .flag{border-left-color:var(--orange-clair)}
 .note b{color:var(--light);font-weight:600}/* ---------- schéma ---------- */
 
 /* ---------- carte ---------- */
@@ -595,22 +600,26 @@ footer .fnav a{cursor:pointer}
 }
 html.ev-open{overflow:hidden}
 
-:root{--img-agro:url(/img/agro.jpg);
---img-card:url(/img/card.jpg);
---img-depol:url(/img/depol.jpg);
---img-ecole:url(/img/ecole.jpg);
---img-feve:url(/img/feve.jpg);
---img-forest:url(/img/forest.jpg);
---img-fox:url(/img/fox.jpg);
---img-hero:url(/img/hero.jpg);
---img-pesticides:url(/img/pesticides.jpg);
---img-pollution:url(/img/pollution.jpg);
---img-rech:url(/img/rech.jpg);
---img-rejoindre:url(/img/rejoindre.jpg);
---img-shift:url(/img/shift.jpg);
---img-sungai:url(/img/sungai.jpg);
---img-tara:url(/img/tara.jpg);
---img-wings:url(/img/wings.jpg);
+:root{
+/* Repli pour les navigateurs sans image-set, ces declarations sont
+   remplacees juste apres par les formats modernes. */
+--img-agro:url(/img/agro.jpg);--img-card:url(/img/card.jpg);--img-depol:url(/img/depol.jpg);--img-ecole:url(/img/ecole.jpg);--img-feve:url(/img/feve.jpg);--img-forest:url(/img/forest.jpg);--img-fox:url(/img/fox.jpg);--img-hero:url(/img/hero.jpg);--img-pesticides:url(/img/pesticides.jpg);--img-pollution:url(/img/pollution.jpg);--img-rech:url(/img/rech.jpg);--img-rejoindre:url(/img/rejoindre.jpg);--img-shift:url(/img/shift.jpg);--img-sungai:url(/img/sungai.jpg);--img-tara:url(/img/tara.jpg);--img-wings:url(/img/wings.jpg);
+--img-agro:image-set(url(/img/agro.avif) type("image/avif"),url(/img/agro.webp) type("image/webp"),url(/img/agro.jpg) type("image/jpeg"));
+--img-card:image-set(url(/img/card.avif) type("image/avif"),url(/img/card.webp) type("image/webp"),url(/img/card.jpg) type("image/jpeg"));
+--img-depol:image-set(url(/img/depol.avif) type("image/avif"),url(/img/depol.webp) type("image/webp"),url(/img/depol.jpg) type("image/jpeg"));
+--img-ecole:image-set(url(/img/ecole.avif) type("image/avif"),url(/img/ecole.webp) type("image/webp"),url(/img/ecole.jpg) type("image/jpeg"));
+--img-feve:image-set(url(/img/feve.avif) type("image/avif"),url(/img/feve.webp) type("image/webp"),url(/img/feve.jpg) type("image/jpeg"));
+--img-forest:image-set(url(/img/forest.avif) type("image/avif"),url(/img/forest.webp) type("image/webp"),url(/img/forest.jpg) type("image/jpeg"));
+--img-fox:image-set(url(/img/fox.avif) type("image/avif"),url(/img/fox.webp) type("image/webp"),url(/img/fox.jpg) type("image/jpeg"));
+--img-hero:image-set(url(/img/hero.avif) type("image/avif"),url(/img/hero.webp) type("image/webp"),url(/img/hero.jpg) type("image/jpeg"));
+--img-pesticides:image-set(url(/img/pesticides.avif) type("image/avif"),url(/img/pesticides.webp) type("image/webp"),url(/img/pesticides.jpg) type("image/jpeg"));
+--img-pollution:image-set(url(/img/pollution.avif) type("image/avif"),url(/img/pollution.webp) type("image/webp"),url(/img/pollution.jpg) type("image/jpeg"));
+--img-rech:image-set(url(/img/rech.avif) type("image/avif"),url(/img/rech.webp) type("image/webp"),url(/img/rech.jpg) type("image/jpeg"));
+--img-rejoindre:image-set(url(/img/rejoindre.avif) type("image/avif"),url(/img/rejoindre.webp) type("image/webp"),url(/img/rejoindre.jpg) type("image/jpeg"));
+--img-shift:image-set(url(/img/shift.avif) type("image/avif"),url(/img/shift.webp) type("image/webp"),url(/img/shift.jpg) type("image/jpeg"));
+--img-sungai:image-set(url(/img/sungai.avif) type("image/avif"),url(/img/sungai.webp) type("image/webp"),url(/img/sungai.jpg) type("image/jpeg"));
+--img-tara:image-set(url(/img/tara.avif) type("image/avif"),url(/img/tara.webp) type("image/webp"),url(/img/tara.jpg) type("image/jpeg"));
+--img-wings:image-set(url(/img/wings.avif) type("image/avif"),url(/img/wings.webp) type("image/webp"),url(/img/wings.jpg) type("image/jpeg"));
 }
 
 /* ---- page Nos combats, un axe central et deux colonnes de même anatomie ---- */
@@ -1017,3 +1026,7 @@ body[data-route=accueil] footer .sources p{position:absolute;left:50%;transform:
   body[data-route=accueil] .fullhero.solo .fh-sub{margin-top:11px}
   body[data-route=accueil] .fullhero.solo .cta{margin-top:15px}
 }
+
+/* Les listes de definitions sont de vraies balises dl, on neutralise
+   les marges que le navigateur y met par defaut. */
+dl.dl{margin:0}

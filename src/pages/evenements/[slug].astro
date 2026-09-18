@@ -84,8 +84,8 @@ jsonLd.push({
 
   <section class="sect">
     <div class="container">
-      <div class="dl">
-        <h2>En pratique</h2>
+      <h2>En pratique</h2>
+      <dl class="dl">
         {d.pratique.map((c) => (
           <div><dt>{c.intitule}</dt><dd>{c.valeur}. {c.precision}</dd></div>
         ))}
@@ -95,7 +95,7 @@ jsonLd.push({
             ? <a href={d.inscription} target="_blank" rel="noopener">S'inscrire</a>
             : <AValider quoi={d.inscriptionAValider} />}</dd>
         </div>
-      </div>
+      </dl>
       <p class="body"><a class="btn" href="/evenements">Tous les rendez-vous</a></p>
     </div>
   </section>

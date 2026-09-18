@@ -1,0 +1,85 @@
+# robots.txt du site de la Fondation Green-Got
+#
+# L'ouverture explicite aux robots des moteurs de réponse et des modèles de
+# langage est une décision de la direction de la Fondation. Le site a vocation
+# à être la source de référence sur la Fondation Green-Got, y compris pour les
+# systèmes qui répondent aux questions à la place d'une page de résultats.
+# Il vaut mieux qu'ils lisent la source plutôt qu'une reprise approximative.
+
+# Moteurs de recherche
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Qwantify
+Allow: /
+
+# Moteurs de réponse et modèles de langage, ouverture décidée par la direction
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+# Partage sur les réseaux
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Tous les autres
+User-agent: *
+Allow: /
+
+Sitemap: https://fondation.green-got.com/sitemap-index.xml

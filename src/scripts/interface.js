@@ -63,3 +63,55 @@
     if (r.height && r.top < window.innerHeight - 40) { el.classList.add('in'); io.unobserve(el); }
   });
 })();
+
+/*
+  Aiguillage des anciennes adresses par ancre.
+
+  La maquette naviguait par ancre, du type /#/actions/feve. Ce qui suit le
+  dièse n'est jamais envoyé au serveur, aucune redirection 301 ne peut donc
+  les rattraper. Ce petit aiguillage les renvoie vers la bonne adresse. Il
+  n'a d'effet que sur un lien ancien, il ne sert à rien d'autre et pourra
+  être retiré quand ces liens auront disparu.
+*/
+(function () {
+  var h = window.location.hash;
+  if (!h || h.slice(0, 2) !== '#/') return;
+
+  var PAGES = {
+    '': '/',
+    'fondation': '/la-fondation',
+    'euro': '/la-fondation',
+    'combats': '/nos-combats',
+    'actions': '/projets',
+    'evenements': '/evenements',
+    'associations': '/associations',
+    'mentions-legales': '/mentions-legales',
+    'confidentialite': '/confidentialite'
+  };
+
+  var PROJETS = {
+    'feve': 'feve-fermes-en-vie',
+    'planete': 'planete-urgence',
+    'sungai': 'sungai-watch',
+    'wings': 'wings-of-the-ocean',
+    'tara': 'tara-ocean',
+    'coral': 'coral-guardian',
+    'shift': 'the-shift-project',
+    'ecole': 'ecole-de-la-reparation'
+  };
+
+  var reste = h.slice(2);
+  var ancre = '';
+  var d = reste.indexOf('#');
+  if (d >= 0) { ancre = reste.slice(d); reste = reste.slice(0, d); }
+  var bouts = reste.split('/').filter(Boolean);
+
+  var cible = null;
+  if (bouts[0] === 'actions' && bouts[1] && PROJETS[bouts[1]]) cible = '/projets/' + PROJETS[bouts[1]];
+  else if (bouts[0] === 'actions' && bouts[1] === 'pilier') cible = '/projets';
+  else if (PAGES[bouts[0] || ''] !== undefined) cible = PAGES[bouts[0] || ''];
+
+  if (cible && cible + ancre !== window.location.pathname + window.location.hash) {
+    window.location.replace(cible + ancre);
+  }
+})();

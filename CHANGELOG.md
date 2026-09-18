@@ -156,3 +156,29 @@ Une mention a été ajoutée aux mentions légales. La qualification juridique y
 Le contrôle automatique a été affiné. Il refusait la page Faits et chiffres à cause de la question « La Fondation Green-Got est-elle une banque ? ». Il découpe maintenant le texte en phrases, ignore les questions et les négations, et ignore les tournures qui désignent les banques tierces, qui sont le positionnement de la maison.
 
 Trouvé dans le site en ligne et non repris. Une adresse électronique, `contact@fondation-greengot.org`, sur un nom de domaine qui n'est pas celui du site. Elle n'est pas publiée, la page Contact porte une mention À VALIDER à la place.
+
+### Lots 10 et 11, fichiers pour les robots, redirections, images et performance, 18 septembre 2026
+
+**robots.txt.** Réécrit. Il nomme et autorise explicitement GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-User, Claude-SearchBot, PerplexityBot, Perplexity-User, Google-Extended, Applebot et Applebot-Extended, plus Bytespider, meta-externalagent, Amazonbot, cohere-ai et MistralAI-User. Le commentaire en tête indique que cette ouverture est une décision de la direction, et pourquoi, il vaut mieux qu'un moteur de réponse lise la source plutôt qu'une reprise approximative. Il déclare le sitemap.
+
+**sitemap.xml.** Écrit à la main plutôt que par une extension, pour que la date de dernière modification soit celle du contenu et non celle du fichier sur le disque. Une correction de code ne fait donc plus passer toutes les pages pour modifiées. Vingt-sept adresses.
+
+**llms.txt.** La carte du site pour les modèles de langage, une ligne de description par page canonique. Il commence par la fiche d'identité, dit que ce site est la source de référence et que Faits et chiffres est la page canonique, rappelle que Green-Got n'est pas une banque, et prévient que les informations marquées À VALIDER ne doivent pas être citées comme des faits établis.
+
+**Page 404.** Le site en ligne répondait 200 sur n'importe quelle adresse, ce qui fabrique des pages fantômes dans l'index des moteurs. Une vraie page 404 est en place, avec les sept portes d'entrée du site.
+
+**Redirections.** Fichier `_redirects`, au format Cloudflare Pages. Huit redirections permanentes depuis les adresses du site en ligne. Les adresses par ancre de la maquette ne peuvent pas être redirigées par le serveur, ce qui suit le dièse ne lui est jamais envoyé, elles sont donc aiguillées par un petit bloc ajouté à `src/scripts/interface.js`, qui couvre les neuf pages et les huit projets.
+
+**Images.** Les seize photos ont désormais une variante AVIF et une variante WebP à côté du JPEG, proposées par `image-set` dans la feuille de style, avec repli JPEG pour les navigateurs qui ne connaissent pas `image-set`. Le poids passe de 1 056 Ko à 536 Ko au meilleur format, soit 49 % de moins. Aucune image n'a été agrandie, les fichiers d'origine restent trop petits pour leur usage et seuls de nouveaux fichiers peuvent le corriger.
+
+**Lighthouse, profil mobile.** Mesuré sur douze pages. Performance de 99 à 100, accessibilité 100, bonnes pratiques 100, référencement 100. La consigne demandait plus de 90 sur trois de ces quatre notes.
+
+Deux défauts trouvés et corrigés au passage. Les listes de définitions étaient des `div` portant des `dt` et des `dd` sans balise `dl`, ce qui coûtait cinq points d'accessibilité, elles sont maintenant de vraies balises `dl`. L'orange des mentions À VALIDER tombait à 1,80 pour 1 sur la bande claire, il était illisible, une variante à 5,19 pour 1 lui est substituée sur ce fond.
+
+**Responsive.** Seize pages testées à 360, 768 et 1440 px, aucun débordement horizontal. Un défaut a été trouvé et corrigé, l'index des projets débordait de 63 px à 360 px et de 47 px à 768 px, mes lignes n'utilisaient pas les classes de la feuille de style de la maquette. Elles ont été reprises dans un composant unique.
+
+**Écart avec le plan, à te signaler.** Le plan prévoyait de retirer `index.html` à ce lot. Je ne l'ai pas fait. Cette maquette est encore servie sur GitHub Pages et c'est ton seul aperçu visible tant que le nouveau site n'est pas déployé. La retirer casserait cet aperçu sans rien apporter. Elle sera retirée au moment de la bascule.
+
+**Écart avec le plan, second point.** La page Nous soutenir n'est pas reprise. La seule voie de soutien que décrivait le site en ligne passe par la carte Green-Got et l'arrondi des dépenses, ce que les règles éditoriales interdisent. Son adresse redirige vers Faits et chiffres, où la question figure, marquée À VALIDER, en attente d'une voie de don qui ne passe pas par l'ouverture d'un compte.
+
+Trois outils sont ajoutés, `npm run images`, `npm run lighthouse` et `npm run responsive`.

@@ -47,6 +47,8 @@ export const fondation = {
   fondateur: {
     nom: 'Green-Got',
     qualite: 'établissement de paiement et service financier',
+    /* Phrase autonome, pour les endroits qui la citent seule. */
+    qualitePhrase: 'un établissement de paiement et un service financier',
     url: 'https://green-got.com',
   },
 

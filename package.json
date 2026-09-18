@@ -8,7 +8,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "controle": "node outils/controle.mjs",
-    "verifier": "astro build && node outils/controle.mjs"
+    "verifier": "astro build && node outils/controle.mjs",
+    "images": "node outils/images.mjs",
+    "lighthouse": "node outils/lighthouse.mjs",
+    "responsive": "node outils/responsive.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

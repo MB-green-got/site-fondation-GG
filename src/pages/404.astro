@@ -1,0 +1,30 @@
+---
+/*
+  Page introuvable. Le site en ligne répondait 200 sur n'importe quelle
+  adresse, ce qui fabrique des pages fantômes dans l'index des moteurs.
+  Cette page est servie avec un vrai code 404 par l'hébergement statique.
+*/
+import Base from '../layouts/Base.astro';
+import { fondation } from '../data/fondation.js';
+---
+<Base
+  titre={`Page introuvable · ${fondation.nom}`}
+  description="Cette adresse n'existe pas sur le site de la Fondation Green-Got. Voici par où reprendre."
+  route="/404"
+>
+  <section class="phero">
+    <div class="container">
+      <h1>Cette page n'existe pas.</h1>
+      <p class="body lg">L'adresse a peut-être changé. Voici par où reprendre.</p>
+      <ul class="plain">
+        <li><a href="/la-fondation">La Fondation, qui nous sommes et qui décide</a></li>
+        <li><a href="/faits-et-chiffres">Faits et chiffres, la page de référence</a></li>
+        <li><a href="/projets">Les projets financés</a></li>
+        <li><a href="/nos-combats">Nos combats</a></li>
+        <li><a href="/evenements">Les prochains rendez-vous</a></li>
+        <li><a href="/publications">Les publications</a></li>
+        <li><a href="/contact">Nous écrire</a></li>
+      </ul>
+    </div>
+  </section>
+</Base>

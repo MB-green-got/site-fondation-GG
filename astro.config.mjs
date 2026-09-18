@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
 
 // Le dossier assets reste a la racine du depot, il est servi tel quel.
 // Les polices sortent donc sur /fonts, les images sur /img, la video sur /video.
@@ -12,12 +11,7 @@ export default defineConfig({
   trailingSlash: 'never',
   build: { format: 'directory', inlineStylesheets: 'never' },
   compressHTML: true,
-  integrations: [
-    sitemap({
-      // La date de derniere modification vient du contenu, pas de la date du fichier.
-      serialize(item) {
-        return item;
-      },
-    }),
-  ],
+  // Pas d'extension sitemap. Le sitemap est ecrit dans src/pages/sitemap.xml.ts,
+  // pour que la date de derniere modification soit celle du contenu et non
+  // celle du fichier sur le disque.
 });

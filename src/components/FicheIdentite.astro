@@ -10,8 +10,8 @@ import { fondation } from '../data/fondation.js';
 const { titre = 'La Fondation en bref' } = Astro.props;
 const estAValider = (v) => v && typeof v === 'object' && v.aValider;
 ---
-<div class="dl">
-  <h2>{titre}</h2>
+<h2>{titre}</h2>
+<dl class="dl">
 
   <div><dt>Nom</dt><dd>{fondation.nom}</dd></div>
 
@@ -66,4 +66,4 @@ const estAValider = (v) => v && typeof v === 'object' && v.aValider;
       ? <AValider quoi={fondation.valeurs.quoi} />
       : fondation.valeurs}</dd>
   </div>
-</div>
+</dl>
