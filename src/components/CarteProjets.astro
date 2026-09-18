@@ -1,0 +1,65 @@
+---
+/*
+  La carte des projets, entièrement dessinée dans le HTML servi.
+  Elle ne porte pas le clavier, c'est l'index à côté qui le porte, sinon huit
+  liens coûteraient quatorze arrêts de tabulation. Elle est donc masquée aux
+  lecteurs d'écran, son contenu étant déjà dans l'index, et son intitulé
+  décrit ce qu'elle montre.
+*/
+import { cheminFrance, cheminMonde, projF, projI, marqueur } from '../lib/carte.js';
+
+const { projets } = Astro.props;
+
+const situes = projets.filter((p) => p.coordonnees);
+const enFrance = situes.filter((p) => p.portee === 'point').map((p) => marqueur(p, projF, false));
+const ailleurs = situes.filter((p) => p.portee === 'world').map((p) => marqueur(p, projI, true));
+const nationaux = projets.filter((p) => p.portee === 'national');
+
+const villes = enFrance.map((m) => m.nom).join(', ');
+const lointains = ailleurs.map((m) => m.nom).join(', ');
+---
+<div class="amap">
+  <svg
+    viewBox="0 0 560 535"
+    role="img"
+    aria-label={`Carte de France métropolitaine situant les projets financés, ${villes}. Un encart situe les projets d'Indonésie, ${lointains}.`}
+  >
+    <defs><clipPath id="ic"><rect x="14" y="436" width="222" height="86" rx="10" /></clipPath></defs>
+
+    {/* La France entière est allumée, deux projets ont une portée nationale. */}
+    <g id="f-land" class={nationaux.length ? 'hl' : undefined}>
+      <path class="reg" d={cheminFrance()} />
+    </g>
+
+    <g id="f-marks">
+      {enFrance.map((m) => (
+        <g class="mk" style={`color:${m.couleur}`} aria-hidden="true">
+          <circle cx={m.x} cy={m.y} r={m.rayonHalo} class="halo" />
+          {m.points && <polygon points={m.points} class="core" fill={m.couleur} />}
+          {m.rect && <rect x={m.rect.x} y={m.rect.y} width={m.rect.c} height={m.rect.c} rx="2" class="core" fill={m.couleur} />}
+          {!m.points && !m.rect && <circle cx={m.x} cy={m.y} r={m.rayon} class="core" fill={m.couleur} />}
+          <text class="mlab" x={m.labelX} y={m.labelY} text-anchor={m.aDroite ? undefined : 'end'}>{m.nom}</text>
+        </g>
+      ))}
+    </g>
+
+    <g>
+      <rect x="14" y="436" width="222" height="86" rx="10" class="inset-bg" />
+      <g clip-path="url(#ic)">
+        <g id="i-land"><path class="wland" d={cheminMonde()} /></g>
+        <g id="i-marks">
+          {ailleurs.map((m) => (
+            <g class="mk" style={`color:${m.couleur}`} aria-hidden="true">
+              <circle cx={m.x} cy={m.y} r={m.rayonHalo} class="halo" />
+              {m.points && <polygon points={m.points} class="core" fill={m.couleur} />}
+              {m.rect && <rect x={m.rect.x} y={m.rect.y} width={m.rect.c} height={m.rect.c} rx="2" class="core" fill={m.couleur} />}
+              {!m.points && !m.rect && <circle cx={m.x} cy={m.y} r={m.rayon} class="core" fill={m.couleur} />}
+              <text class="mlab" x={m.labelX} y={m.labelY} text-anchor={m.aDroite ? undefined : 'end'}>{m.nom}</text>
+            </g>
+          ))}
+        </g>
+      </g>
+      <text x="24" y="452" class="inset-t">Indonésie</text>
+    </g>
+  </svg>
+</div>

@@ -8,6 +8,8 @@ import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import FilAriane from '../../components/FilAriane.astro';
 import LigneIndex from '../../components/LigneIndex.astro';
+import CarteProjets from '../../components/CarteProjets.astro';
+import AValider from '../../components/AValider.astro';
 import { fondation } from '../../data/fondation.js';
 
 /* Les trois piliers, leur forme et leur couleur, repris de la maquette. */
@@ -19,6 +21,7 @@ const PILIERS = {
 
 const projets = (await getCollection('projets')).sort((a, b) => a.data.ordre - b.data.ordre);
 const piliers = ['Terre', 'Mer', 'Recherche et éducation'];
+const chemin = [{ libelle: 'Projets' }];
 
 const jsonLd = [{
   '@type': 'CollectionPage',
@@ -41,37 +44,51 @@ const jsonLd = [{
   titre={`Quels projets la Fondation Green-Got finance-t-elle ? · ${fondation.nom}`}
   description="Les projets financés par la Fondation Green-Got, rangés en trois piliers, la terre, la mer, la recherche et l'éducation. Chaque projet a un porteur, un lieu et un objet."
   route="/projets"
-  chemin={[{ libelle: 'Projets' }]}
+  chemin={chemin}
   jsonLd={jsonLd}
 >
-  <section class="phero">
+  <section class="atlas" aria-labelledby="h-carte">
     <div class="container">
-      <FilAriane chemin={[{ libelle: 'Projets' }]} />
-      <h1>Nous soutenons ceux qui agissent.<br>De Roubaix à Bali.</h1>
-      <p class="body lg">Chaque projet a un porteur, un lieu et un objet, et aucun n'aurait trouvé son financement ailleurs.</p>
-    </div>
-  </section>
-
-  <section class="sect">
-    <div class="container">
-      <div class="alist">
-        {piliers.map((pilier) => (
-          <>
-            <h2 class="agrp">{pilier}</h2>
-            {projets.filter((p) => p.data.pilier === pilier).map((p) => (
-              <LigneIndex
-                url={`/projets/${p.id}`}
-                vignette={p.data.image.fichier}
-                forme={PILIERS[p.data.pilier].forme}
-                couleur={PILIERS[p.data.pilier].couleur}
-                nom={p.data.nom}
-                complement={p.data.lieu}
-                objet={p.data.objet}
-              />
-            ))}
-          </>
-        ))}
+      <div class="ahead">
+        <div class="ah-t">
+          <FilAriane chemin={chemin} />
+          <h1 id="h-carte">Nous soutenons ceux qui agissent. <br>De Roubaix à Bali.</h1>
+          <p class="body">Chaque projet a un porteur, un lieu et un objet, et aucun n'aurait trouvé son financement ailleurs.</p>
+        </div>
+        <div class="aleg" role="group" aria-label="Les trois piliers, légende de la carte">
+          {piliers.map((pilier) => (
+            <span>
+              <i class={PILIERS[pilier].forme} aria-hidden="true" style={`background:${PILIERS[pilier].couleur}`}></i>
+              <span class="lb">{pilier}</span>
+              <span class="ct">{projets.filter((p) => p.data.pilier === pilier).length}</span>
+            </span>
+          ))}
+        </div>
       </div>
+
+      <div class="agrid">
+        <CarteProjets projets={projets.map((p) => p.data)} />
+        <div class="alist">
+          {piliers.map((pilier) => (
+            <>
+              <h2 class="agrp">{pilier}</h2>
+              {projets.filter((p) => p.data.pilier === pilier).map((p) => (
+                <LigneIndex
+                  url={`/projets/${p.id}`}
+                  vignette={p.data.image.fichier}
+                  forme={PILIERS[p.data.pilier].forme}
+                  couleur={PILIERS[p.data.pilier].couleur}
+                  nom={p.data.nom}
+                  complement={p.data.lieu}
+                  objet={p.data.objet}
+                />
+              ))}
+            </>
+          ))}
+        </div>
+      </div>
+
+      <AValider quoi="Les montants des soutiens financiers, qui ne sont pas publiés à ce jour. Chaque page de projet leur garde une ligne." />
     </div>
   </section>
 </Base>

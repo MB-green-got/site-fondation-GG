@@ -7,6 +7,8 @@ pilier: Mer
 lieu: Bali et Java, Indonésie
 lieuPrecision: rivières
 portee: world
+# Le côté du libellé sur la carte, deux points de l'encart se touchent.
+labelADroite: false
 coordonnees: { lon: 115.1, lat: -8.5 }
 
 finance: Installation et entretien de barrières flottantes sur les rivières les plus polluées d'Indonésie, pour intercepter le plastique avant l'océan, le trier et identifier les marques responsables.

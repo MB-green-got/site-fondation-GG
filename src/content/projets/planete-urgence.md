@@ -7,6 +7,8 @@ pilier: Terre
 lieu: Delta de la Mahakam, Indonésie
 lieuPrecision: mangroves, Kalimantan oriental
 portee: world
+# Le côté du libellé sur la carte, deux points de l'encart se touchent.
+labelADroite: true
 coordonnees: { lon: 117.3, lat: -0.6 }
 
 finance: Soutien à la restauration et à la préservation des forêts et des mangroves, menées avec les communautés qui en vivent.

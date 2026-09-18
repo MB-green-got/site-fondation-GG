@@ -7,6 +7,8 @@ pilier: Mer
 lieu: Indonésie et Espagne
 lieuPrecision: récifs coralliens, Flores et Méditerranée
 portee: world
+# Le côté du libellé sur la carte, deux points de l'encart se touchent.
+labelADroite: true
 coordonnees: { lon: 119.9, lat: -8.55 }
 
 finance: Soutien à la restauration d'écosystèmes coralliens avec les communautés de pêcheurs, en Indonésie et en Méditerranée espagnole.

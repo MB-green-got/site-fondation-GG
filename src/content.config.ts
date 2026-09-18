@@ -39,6 +39,8 @@ const projets = defineCollection({
     lieuPrecision: z.string().nullable(),
     portee: z.enum(['national', 'point', 'world']),
     coordonnees: z.object({ lon: z.number(), lat: z.number() }).nullable(),
+    /* Le côté du libellé sur la carte. null laisse le calcul automatique. */
+    labelADroite: z.boolean().nullable().default(null),
 
     finance: z.string(),
     levier: z.string(),

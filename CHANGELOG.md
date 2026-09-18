@@ -218,7 +218,7 @@ Un seul `Event` est posé, celui du 17 septembre. Les trois autres rendez-vous n
   La Fondation          200    16597    4064 caractères
   Faits et chiffres     200    18740    4861 caractères
   Nos combats           200    18361    4849 caractères
-  Index des projets     200    13282     822 caractères
+  Index des projets     200    66183     830 caractères
   Une page projet       200    13687    2653 caractères
   Programme             200    11214     708 caractères
   Un évènement          200    11890     985 caractères
@@ -258,3 +258,19 @@ Pour mémoire, la même requête sur le site actuel renvoie 1 887 octets et zér
 | Un fichier CHANGELOG.md | Ce fichier |
 
 Deux critères ne peuvent pas être tenus depuis ce dépôt. Le passage au validateur schema.org en ligne demande une adresse publique. La vérification des vraies 301 et de la vraie 404 demande un hébergement qui lit `_redirects`, un serveur de fichiers local n'en fait rien. Les deux sont dans `BASCULE.md`.
+
+### Lot 14, la carte des projets, 18 septembre 2026
+
+**Contenu récupéré, à te signaler.** J'avais laissé de côté la carte de la page des projets, la carte de France avec son encart Indonésie. Je l'ai reprise.
+
+Dans la maquette, cette carte était dessinée par le navigateur, à partir de deux fonds de carte en JSON et d'une centaine de lignes de JavaScript. Elle n'existait donc ni pour un robot, ni pour un visiteur dont le script n'avait pas chargé. Les mêmes calculs sont maintenant faits une fois pour toutes au moment de la construction du site, et le HTML servi contient un vrai dessin, deux tracés, six marqueurs et six libellés. Les projections et les arrondis sont ceux de la maquette, au chiffre près.
+
+La carte ne porte pas le clavier, c'est l'index à côté qui le porte, sinon huit liens coûteraient quatorze arrêts de tabulation. Son intitulé accessible nomme les six lieux qu'elle situe.
+
+Trois défauts trouvés et corrigés en la regardant. Le côté des libellés était mal calculé, un champ valant `null` et non `undefined`, et les trois libellés de la côte ouest sortaient du cadre. Les tracés n'avaient pas leur classe de remplissage et la France apparaissait noire au lieu d'être allumée. Et la page tombait à 85 en performance, le tracé de la France pesait 66 Ko.
+
+Deux corrections pour le poids. Une simplification de Douglas-Peucker à un demi-pixel, invisible à cette échelle, et le rejet des anneaux entièrement hors du cadre découpé de l'encart Indonésie, qui n'avaient aucune raison d'être dans le HTML. La page passe de 105 363 à 66 183 octets et la performance remonte à 95.
+
+**Mesures finales, onze formes de page.** Performance de 95 à 100, accessibilité 100, bonnes pratiques 100, référencement 100. Seize pages testées à 360, 768 et 1440 px, aucun débordement horizontal. Vingt-sept pages contrôlées, 697 liens internes, aucun cassé, aucune erreur dans les données structurées, aucune infraction aux règles éditoriales.
+
+Trois outils sont maintenant inscrits dans le dépôt comme dépendances de développement, Lighthouse, chrome-launcher et puppeteer-core, pour que tu puisses relancer les mesures toi-même avec `npm run lighthouse`, `npm run responsive` et `node outils/captures.mjs`.
