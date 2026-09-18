@@ -116,3 +116,19 @@ Ce qui manque, projet par projet. Les huit pages signalent l'absence du montant 
 Modification signalée. Le vocabulaire bascule d'actions à projets, dans les adresses, la navigation et les titres, conformément à l'arborescence cible. Le texte des pages suit.
 
 Le tableau `ACTIONS` de la maquette n'a pas été supprimé, `index.html` reste intact jusqu'au lot 11.
+
+### Lot 4, La Fondation, Nos combats, Associations et Contact, 18 septembre 2026
+
+Fait. Quatre pages écrites, quatorze pages au total dans le site. La Fondation sert 4 028 caractères sans JavaScript, Nos combats 4 797, Associations 973, Contact 790.
+
+Les titres sont posés en forme de question là où la page répond à une question. « Qu'est-ce que la Fondation Green-Got et qui décide ? », « Pourquoi le plastique et les pesticides viennent du pétrole ? », « Comment candidater à un soutien de la Fondation Green-Got ? », « Comment contacter la Fondation Green-Got ? ».
+
+Tous les chiffres de Nos combats portent leur source liée et leur date, quinze chiffres, quinze liens vers Inserm, FAO, ministère de la Transition écologique, PLOS ONE, OCDE, US EPA, Frontiers in Public Health, Environment International, Polymers, UFC Que Choisir, Sungai Watch et Tara Océan.
+
+**Contenu retiré, à te signaler.** La page La Fondation portait une bande intitulée « D'un paiement par carte à une berge nettoyée », qui déroulait le mécanisme en quatre temps, la commission d'interchange plafonnée à 0,2 %, les 5 à 10 % du chiffre d'affaires reversés, l'arrondi des dépenses des membres, puis le vote et le versement. Cette bande relie la Fondation aux cartes, aux paiements et aux arrondis, ce que les règles éditoriales interdisent dans le corps des pages. Elle est remplacée par trois phrases sobres sur la même page, qui disent que la Fondation est financée par le mécénat de Green-Got, comment les projets sont votés et ce que fait la Fondation de France. Rien d'autre n'a été retiré. Dis-moi si tu veux récupérer une partie de ce texte, il est intact dans `index.html` et dans l'historique.
+
+**Deux chiffres sortis de l'affichage pour la même raison.** Les 5 à 10 % du chiffre d'affaires reversés et la promesse « sans frais ni commission » ne sont sourcés nulle part. Ils sont maintenant signalés en À VALIDER sur la page La Fondation, avec la réserve que la maquette portait elle-même, les fondations abritantes prélèvent en général des frais de gestion.
+
+Récupéré de la maquette et ajouté à la fiche d'identité. Les rôles des cinq membres du comité, Andréa Ganovelli président, Aurélie Baulard directrice, Chloé Charrier voix des salariés, Marianne Josselin administratrice ChangeNOW, Thibaut Gabrillargues administrateur rivaje. L'ensemble reste marqué À VALIDER jusqu'à ta confirmation. La maquette portait aussi « près de 2 millions d'euros collectés depuis 2022 », sans source liée, cette valeur est rappelée dans le texte de la mention À VALIDER du montant cumulé, sans être présentée comme un fait.
+
+**Écart avec PLAN.md, à te signaler.** Le plan proposait de conserver trois pages de combat séparées, reprises du site en ligne. Elles ne sont pas créées. Ton arborescence cible n'en prévoit pas, la maquette documente deux combats sur une seule page, et créer une page PFAS trancherait à ta place la question du nombre de combats. Les trois adresses du site en ligne recevront donc une redirection permanente vers les ancres de la page Nos combats, `#pesticides`, `#pollution-plastique` et `#pfas`, au lot 10.

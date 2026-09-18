@@ -55,9 +55,17 @@ export const fondation = {
     url: 'https://www.fondationdefrance.org',
   },
 
-  /* En attente de tes réponses. */
-  montantCumule: aValider('Le montant cumulé versé par la Fondation et sa date d\'arrêté'),
-  anneeCreation: aValider('L\'année de création de la Fondation'),
+  /*
+    En attente de tes réponses. Quand la maquette portait déjà une valeur,
+    elle est rappelée dans le texte de la mention, sans être présentée comme
+    un fait, puisqu'elle n'a pas de source liée.
+  */
+  montantCumule: aValider(
+    'Le montant cumulé versé par la Fondation et sa date d\'arrêté. La maquette portait « près de 2 millions d\'euros collectés depuis 2022 », sans source liée, à confirmer et à sourcer sur le rapport annuel.'
+  ),
+  anneeCreation: aValider(
+    'L\'année de création de la Fondation. La maquette mentionnait une collecte « depuis 2022 », ce qui n\'est pas la même chose qu\'une date de création.'
+  ),
   valeurs: aValider('Les valeurs de la Fondation'),
 
   /*
@@ -68,11 +76,11 @@ export const fondation = {
     aValider: true,
     quoi: 'La composition du comité et le rôle de chaque membre',
     membres: [
-      { nom: 'Andréa Ganovelli', role: null, linkedin: 'https://www.linkedin.com/in/andr%C3%A9a-ganovelli/' },
-      { nom: 'Aurélie Baulard', role: null, linkedin: 'https://www.linkedin.com/in/baulardaurelie/' },
-      { nom: 'Chloé Charrier', role: null, linkedin: 'https://www.linkedin.com/in/chlo%C3%A9-charrier-%F0%9F%A6%8A-3549a210b/' },
-      { nom: 'Marianne Josselin', role: null, linkedin: 'https://www.linkedin.com/in/marianne-josselin-785b03a4/' },
-      { nom: 'Thibaut Gabrillargues', role: null, linkedin: 'https://www.linkedin.com/in/thibaut-gabrillargues-09863566/' },
+      { nom: 'Andréa Ganovelli', role: 'président', linkedin: 'https://www.linkedin.com/in/andr%C3%A9a-ganovelli/' },
+      { nom: 'Aurélie Baulard', role: 'directrice', linkedin: 'https://www.linkedin.com/in/baulardaurelie/' },
+      { nom: 'Chloé Charrier', role: 'voix des salariés', linkedin: 'https://www.linkedin.com/in/chlo%C3%A9-charrier-%F0%9F%A6%8A-3549a210b/' },
+      { nom: 'Marianne Josselin', role: 'administratrice, ChangeNOW', linkedin: 'https://www.linkedin.com/in/marianne-josselin-785b03a4/' },
+      { nom: 'Thibaut Gabrillargues', role: 'administrateur, rivaje', linkedin: 'https://www.linkedin.com/in/thibaut-gabrillargues-09863566/' },
     ],
   },
 

@@ -1,0 +1,78 @@
+---
+/*
+  Contact. La maquette n'avait pas cette page, le site en ligne l'avait sous
+  le nom Contacter. Les coordonnées exactes manquent, elles s'affichent donc
+  marquées À VALIDER plutôt que d'être inventées.
+*/
+import Base from '../layouts/Base.astro';
+import FilAriane from '../components/FilAriane.astro';
+import Signature from '../components/Signature.astro';
+import AValider from '../components/AValider.astro';
+import { fondation } from '../data/fondation.js';
+
+const chemin = [{ libelle: 'Contact' }];
+const publieLe = '2026-09-18';
+const modifieLe = '2026-09-18';
+
+const jsonLd = [{
+  '@type': 'ContactPage',
+  '@id': 'https://fondation.green-got.com/contact#page',
+  name: 'Contacter la Fondation Green-Got',
+  inLanguage: 'fr-FR',
+  datePublished: publieLe,
+  dateModified: modifieLe,
+  about: { '@id': 'https://fondation.green-got.com/#organisation' },
+}];
+---
+<Base
+  titre={`Comment contacter la Fondation Green-Got ? · ${fondation.nom}`}
+  description="Qui joindre à la Fondation Green-Got selon votre sujet, une candidature de projet, une question de presse, une question pratique sur les dons."
+  route="/contact"
+  chemin={chemin}
+  jsonLd={jsonLd}
+>
+  <section class="phero">
+    <div class="container">
+      <FilAriane chemin={chemin} />
+      <h1>Nous écrire.</h1>
+      <p class="body lg">Selon votre sujet, voici où s'adresser.</p>
+      <Signature publieLe={publieLe} modifieLe={modifieLe} />
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="container">
+      <div class="dl">
+        <div>
+          <dt>Vous portez un projet et cherchez un financement</dt>
+          <dd>Le dossier se dépose sur <a href="https://candidaturefondation.green-got.com/" target="_blank" rel="noopener">candidaturefondation.green-got.com</a>. L'équipe revient vers vous sous un mois.</dd>
+        </div>
+
+        <div>
+          <dt>Une question pratique, les dons, la déduction d'impôt</dt>
+          <dd>Les réponses sont sur notre page <a href="/faits-et-chiffres">Faits et chiffres</a> et dans la <a href="https://faq.green-got.com" target="_blank" rel="noopener">FAQ de Green‑Got</a>.</dd>
+        </div>
+
+        <div>
+          <dt>Presse</dt>
+          <dd><AValider quoi="L'adresse électronique de contact presse de la Fondation." /></dd>
+        </div>
+
+        <div>
+          <dt>Adresse électronique générale</dt>
+          <dd><AValider quoi="L'adresse électronique générale de la Fondation, à publier ou non selon ton choix." /></dd>
+        </div>
+
+        <div>
+          <dt>Adresse postale</dt>
+          <dd><AValider quoi="L'adresse postale de la Fondation, celle de Green-Got ou celle de la Fondation de France selon le cadre juridique retenu." /></dd>
+        </div>
+
+        <div>
+          <dt>Nous suivre</dt>
+          <dd><a href="https://www.instagram.com/fondation_green_got/" target="_blank" rel="noopener">Instagram</a> et <a href="https://www.youtube.com/@green-got" target="_blank" rel="noopener">YouTube</a>.</dd>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

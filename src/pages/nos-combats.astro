@@ -1,0 +1,138 @@
+---
+/*
+  Nos combats. Le raisonnement chiffré et sourcé, repris de la maquette.
+  Chaque chiffre porte sa source liée et sa date.
+
+  Le nombre de combats reste À VALIDER. Le site en ligne en annonce trois,
+  pesticides, pollution plastique et PFAS. La maquette en documente deux et
+  traite les PFAS à l'intérieur du second. C'est la maquette qui est reprise
+  ici, parce que c'est elle qui porte les sources.
+*/
+import Base from '../layouts/Base.astro';
+import FilAriane from '../components/FilAriane.astro';
+import Signature from '../components/Signature.astro';
+import Chiffre from '../components/Chiffre.astro';
+import AValider from '../components/AValider.astro';
+import { fondation } from '../data/fondation.js';
+
+const chemin = [{ libelle: 'Nos combats' }];
+const publieLe = '2026-09-18';
+const modifieLe = '2026-09-18';
+
+const chaine = [
+  ['01', 'Banque', 'Le crédit part d\'ici'],
+  ['02', 'Pétrole', 'Extraction et raffinage'],
+  ['03', 'Pétrochimie', 'Molécules de base'],
+  ['04', 'Pesticides et plastique', 'Produits finis'],
+  ['05', 'Sols et rivières', 'Dispersion'],
+  ['06', 'Chaîne alimentaire', 'Retour dans l\'assiette'],
+];
+
+const pesticides = [
+  { valeur: '3,7 Mt', libelle: 'de substances actives utilisées dans l\'agriculture mondiale', date: '2022-12-31', sourceTitre: 'FAO, FAOSTAT', sourceUrl: 'https://www.fao.org/statistics/highlights-archive/highlights-detail/pesticides-use-and-trade-1990-2022/en' },
+  { valeur: '42 928 t', libelle: 'de substances actives vendues en France, hors biocontrôle, en hausse de 3,6 % sur un an', date: '2024-12-31', sourceTitre: 'Ministère de la Transition écologique', sourceUrl: 'https://www.ecologie.gouv.fr/publication-des-donnees-provisoires-des-ventes-produits-phytopharmaceutiques' },
+  { valeur: '≈ 400 M', libelle: 'd\'empoisonnements aigus non intentionnels par an dans le monde, environ 11 000 décès, estimation débattue', date: '2026-01-01', sourceTitre: 'Boedeker et al., Frontiers in Public Health', sourceUrl: 'https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2026.1825899/full' },
+  { valeur: '−75 %', libelle: 'de biomasse d\'insectes volants en 27 ans dans des aires protégées allemandes', date: '2017-10-18', sourceTitre: 'Hallmann et al., PLOS ONE', sourceUrl: 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0185809' },
+];
+
+const plastique = [
+  { valeur: '460 Mt', libelle: 'de plastique produites, deux fois plus qu\'en 2000', date: '2019-12-31', sourceTitre: 'OCDE, Global Plastics Outlook, 2022', sourceUrl: 'https://www.oecd.org/en/publications/2022/02/global-plastics-outlook_a653d1c9.html' },
+  { valeur: '22 Mt', libelle: 'rejetées dans l\'environnement la même année, et 9 % seulement des déchets plastique recyclés', date: '2019-12-31', sourceTitre: 'OCDE', sourceUrl: 'https://www.oecd.org/en/about/news/press-releases/2022/02/plastic-pollution-is-growing-relentlessly-as-waste-management-and-recycling-fall-short.html' },
+  { valeur: '12 000', libelle: 'substances au moins dans la famille des PFAS, selon l\'inventaire de l\'agence américaine de l\'environnement', date: null, sourceTitre: 'US EPA, CompTox, liste PFASMASTER', sourceUrl: 'https://comptox.epa.gov/dashboard/chemical-lists/PFASMASTER' },
+  { valeur: '100 %', libelle: 'des échantillons d\'eau de neuf fleuves européens contenaient des microplastiques', date: '2019-11-30', sourceTitre: 'Fondation Tara Océan, Mission Microplastiques', sourceUrl: 'https://fondationtaraocean.org' },
+];
+
+const corps = [
+  { valeur: '77 %', ou: 'Dans le sang', libelle: 'des donneurs testés portaient des microplastiques dans le sang, 17 sur 22.', date: '2022-05-01', sourceTitre: 'Leslie et al., Environment International', sourceUrl: 'https://www.sciencedirect.com/science/article/pii/S0160412022001258' },
+  { valeur: '76 %', ou: 'Dans le lait maternel', libelle: 'des échantillons analysés à Rome en contenaient, 26 sur 34.', date: '2022-06-30', sourceTitre: 'Ragusa et al., Polymers', sourceUrl: 'https://www.mdpi.com/2073-4360/14/13/2700' },
+  { valeur: '96 %', ou: 'Dans l\'eau du robinet', libelle: 'des communes testées présentaient des PFAS, 30 communes analysées.', date: '2025-01-01', sourceTitre: 'UFC Que Choisir et Générations Futures', sourceUrl: 'https://www.quechoisir.org/action-ufc-que-choisir-polluants-eternels-dans-l-eau-du-robinet-une-large-presence-detectee-dans-96-des-communes-testees-n148808/' },
+];
+
+const jsonLd = [{
+  '@type': 'Article',
+  '@id': 'https://fondation.green-got.com/nos-combats#article',
+  headline: 'Le plastique et les pesticides viennent du pétrole',
+  description: 'Les mêmes banques financent les pétroliers, les producteurs de plastique et les géants de l\'agrochimie. Le raisonnement chiffré et sourcé de la Fondation Green-Got.',
+  inLanguage: 'fr-FR',
+  datePublished: publieLe,
+  dateModified: modifieLe,
+  publisher: { '@id': 'https://fondation.green-got.com/#organisation' },
+  mainEntityOfPage: 'https://fondation.green-got.com/nos-combats',
+}];
+---
+<Base
+  titre={`Pourquoi le plastique et les pesticides viennent du pétrole ? · ${fondation.nom}`}
+  description="Les mêmes banques financent les pétroliers, les producteurs de plastique et l'agrochimie. Les deux combats de la Fondation Green-Got, pesticides et sols, pollution plastique et chimique, avec leurs chiffres sourcés."
+  route="/nos-combats"
+  chemin={chemin}
+  image="/img/pesticides.jpg"
+  imageAlt="Un champ traité"
+  jsonLd={jsonLd}
+>
+  <section class="phero">
+    <div class="container">
+      <FilAriane chemin={chemin} />
+      <h1>Le plastique et les pesticides viennent du pétrole.</h1>
+      <p class="body lg">Les mêmes banques financent les pétroliers, les producteurs de plastique et les géants de l'agrochimie. Presque personne ne finance ceux qui réparent les sols et nettoient les rivières. C'est là que la Fondation intervient.</p>
+      <p class="body">On paie deux fois. Une première fois en banque, quand l'épargne finance la pétrochimie. Une seconde en santé, quand ses substances reviennent dans l'assiette. Face à ça, Green‑Got a choisi d'agir plutôt que d'alerter, et d'aligner les moyens sur les mots.</p>
+      <Signature publieLe={publieLe} modifieLe={modifieLe} />
+    </div>
+  </section>
+
+  <section class="sect" id="la-chaine" aria-labelledby="h-ch">
+    <div class="container">
+      <h2 id="h-ch">De l'épargne à l'assiette.</h2>
+      <p class="body">Six maillons. Le premier est le seul qu'une banque décide de financer, et c'est celui qui déclenche les cinq autres.</p>
+      <ol class="chain plain">
+        {chaine.map(([n, titre, sous]) => (
+          <li><span class="idx">{n}</span><b>{titre}</b><span>{sous}</span></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="sect" id="les-combats" aria-labelledby="h-cb">
+    <div class="container">
+      <h2 id="h-cb">Même origine, deux terrains.</h2>
+      <p class="body">Sur chacun, la Fondation finance des associations qui réparent au lieu d'alerter. Voici ce que disent les chiffres, et qui elle soutient.</p>
+
+      <AValider quoi="Le nombre de combats. Le site en ligne en annonce trois, pesticides, pollution plastique et PFAS. Cette page en documente deux et traite les PFAS à l'intérieur du second. Un lecteur qui lit les deux ne sait pas si la Fondation mène deux combats ou trois." />
+
+      <div class="trio" id="pesticides">
+        <h3>Pesticides et sols</h3>
+        <p class="body">Dans le Cotentin, les banques ont accepté de financer le bâtiment et le matériel de Bastien, ancien professeur d'histoire devenu éleveur. Pas la terre. Sans FEVE, qui achète le foncier et le loue avec option d'achat, l'installation ne se faisait pas. <a href="/projets/feve-fermes-en-vie">L'histoire de Bastien et des agriculteurs FEVE</a>.</p>
+        <p class="body">En 2021, l'Inserm a confirmé une présomption forte de lien entre l'exposition professionnelle aux pesticides et six pathologies, dont le lymphome non hodgkinien, le cancer de la prostate et la maladie de Parkinson. Les données s'accumulent depuis trente ans et les ventes ne baissent pas. Le modèle intensif tient parce que le crédit bancaire, les filières d'approvisionnement et la logistique se renforcent mutuellement. <a class="src" href="https://www.inserm.fr/expertise-collective/pesticides-et-sante-nouvelles-donnees-2021/" target="_blank" rel="noopener">Inserm, expertise collective 2021</a></p>
+        {pesticides.map((c) => <Chiffre {...c} />)}
+        <p class="body">Financé sur ce combat, <a href="/projets/feve-fermes-en-vie">FEVE</a>, <a href="/projets/the-shift-project">The Shift Project, Agri2050</a> et <a href="/projets/planete-urgence">Planète Urgence</a>.</p>
+      </div>
+
+      <div class="trio" id="pollution-plastique">
+        <h3>Pollution plastique et chimique</h3>
+        <p class="body">Dans les rivières de Bali, la marque la plus ramassée en 2024 s'appelle Danone, avec AQUA, 36 826 objets sur 623 021 audités. Danone est certifiée B Corp. <a class="src" href="https://sungaiwatch.com" target="_blank" rel="noopener">Sungai Watch, Brand Audit 2024</a></p>
+        <p class="body">La recherche avance, mais trop lentement et avec trop peu de moyens, face à des industriels qui investissent pour ralentir la réglementation. On ne sait toujours pas ce que provoque l'accumulation de ces substances sur une vie entière. Ce qu'on sait, c'est qu'on les retrouve partout où on les cherche.</p>
+        {plastique.map((c) => <Chiffre {...c} />)}
+        <p class="body">Financé sur ce combat, <a href="/projets/sungai-watch">Sungai Watch</a>, <a href="/projets/wings-of-the-ocean">Wings of the Ocean</a>, <a href="/projets/tara-ocean">Tara Océan</a>, <a href="/projets/coral-guardian">Coral Guardian</a> et <a href="/projets/ecole-de-la-reparation">l'École de la Réparation</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect light" id="pfas" aria-labelledby="h-co">
+    <div class="container">
+      <h2 id="h-co">On les cherche dans les corps. On les trouve.</h2>
+      <p class="body">Les microplastiques et les PFAS, on ne les mesure que depuis quelques années. Voici ce que trois analyses ont trouvé là où elles ont regardé.</p>
+      {corps.map((c) => (
+        <div class="trio">
+          <h3>{c.ou}</h3>
+          <Chiffre valeur={c.valeur} libelle={c.libelle} date={c.date} sourceTitre={c.sourceTitre} sourceUrl={c.sourceUrl} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="container">
+      <p class="body">Ces deux combats se jouent sur le terrain. <a class="btn btn-p" href="/projets">Voir les projets financés</a></p>
+      <p class="srcline">Chaque chiffre renvoie vers sa source. L'estimation des empoisonnements aux pesticides est signalée comme débattue, la version 2020 de cette étude a été rétractée pour une question de méthode et ses auteurs ont publié une réévaluation en 2026.</p>
+    </div>
+  </section>
+</Base>

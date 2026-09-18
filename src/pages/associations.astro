@@ -1,0 +1,69 @@
+---
+/*
+  Associations, candidater. Reprise de la maquette. Le formulaire reste
+  externe, sur candidaturefondation.green-got.com, tant que l'équipe n'a
+  pas décidé de l'intégrer.
+*/
+import Base from '../layouts/Base.astro';
+import FilAriane from '../components/FilAriane.astro';
+import Signature from '../components/Signature.astro';
+import { fondation } from '../data/fondation.js';
+
+const chemin = [{ libelle: 'Associations' }];
+const publieLe = '2026-09-18';
+const modifieLe = '2026-09-18';
+
+const etapes = [
+  ['01', 'Vous candidatez', 'Un dossier décrivant le projet, son territoire, son budget et ce que le soutien permettrait de faire.'],
+  ['02', 'Analyse par l\'équipe', 'L\'équipe de la Fondation évalue le dossier en suivant une grille de critères et présélectionne les projets. Elle revient vers vous sous un mois.'],
+  ['03', 'Sélection par le comité', 'Le comité exécutif évalue et valide. Chaque projet financé est sélectionné par ses cinq administrateurs.'],
+  ['04', 'Financement et mise en avant', 'Le soutien est versé par la Fondation de France, le plus souvent sur une durée d\'un an, et la Fondation s\'engage à faire connaître vos projets. Plus ils seront connus, plus nous serons nombreux à les financer.'],
+];
+
+const jsonLd = [{
+  '@type': 'HowTo',
+  '@id': 'https://fondation.green-got.com/associations#howto',
+  name: 'Comment candidater à un soutien de la Fondation Green-Got',
+  inLanguage: 'fr-FR',
+  datePublished: publieLe,
+  dateModified: modifieLe,
+  step: etapes.map(([n, titre, texte], i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: titre,
+    text: texte,
+  })),
+}];
+---
+<Base
+  titre={`Comment candidater à un soutien de la Fondation Green-Got ? · ${fondation.nom}`}
+  description="Vous menez un projet contre la pollution ou pour la santé environnementale ? Les quatre étapes de la candidature à un soutien de la Fondation Green-Got, et le délai de réponse."
+  route="/associations"
+  chemin={chemin}
+  image="/img/rejoindre.jpg"
+  imageAlt="Une équipe de terrain au travail"
+  jsonLd={jsonLd}
+>
+  <section class="phero">
+    <div class="container">
+      <FilAriane chemin={chemin} />
+      <h1>Vous menez des projets contre la pollution ? Candidatez.</h1>
+      <p class="body lg">Pollution plastique, agroécologie, santé environnementale. Vous menez un combat pour notre santé et notre environnement ? Vous êtes au bon endroit.</p>
+      <div class="cta">
+        <a class="btn btn-p" href="https://candidaturefondation.green-got.com/" target="_blank" rel="noopener">Je candidate</a>
+      </div>
+      <Signature publieLe={publieLe} modifieLe={modifieLe} />
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="container">
+      <h2>Comment ça se passe</h2>
+      <ol class="mflow plain">
+        {etapes.map(([n, titre, texte]) => (
+          <li><span class="idx">{n}</span><b>{titre}</b><p class="body">{texte}</p></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+</Base>

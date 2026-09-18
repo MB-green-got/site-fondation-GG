@@ -1,0 +1,109 @@
+---
+/*
+  La Fondation. Qui nous sommes, les deux convictions, la gouvernance,
+  l'hébergement par la Fondation de France, le comité.
+
+  Le mécanisme en quatre temps de la maquette a été retiré. Il partait d'un
+  paiement par carte et de la commission d'interchange pour arriver à une
+  berge nettoyée, ce qui relie la Fondation aux cartes et aux paiements et
+  la transforme en argument commercial. Le financement est maintenant dit
+  en une phrase, sobrement, et sur cette seule page.
+*/
+import Base from '../layouts/Base.astro';
+import FilAriane from '../components/FilAriane.astro';
+import Signature from '../components/Signature.astro';
+import FicheIdentite from '../components/FicheIdentite.astro';
+import AValider from '../components/AValider.astro';
+import { fondation } from '../data/fondation.js';
+
+const chemin = [{ libelle: 'La Fondation' }];
+const publieLe = '2026-09-18';
+const modifieLe = '2026-09-18';
+
+const jsonLd = [
+  {
+    '@type': 'AboutPage',
+    '@id': 'https://fondation.green-got.com/la-fondation#page',
+    name: 'La Fondation Green-Got',
+    inLanguage: 'fr-FR',
+    datePublished: publieLe,
+    dateModified: modifieLe,
+    isPartOf: { '@id': 'https://fondation.green-got.com/#site' },
+    about: { '@id': 'https://fondation.green-got.com/#organisation' },
+  },
+  ...fondation.comite.membres.map((m) => ({
+    '@type': 'Person',
+    name: m.nom,
+    ...(m.role ? { jobTitle: m.role } : {}),
+    ...(m.linkedin ? { sameAs: [m.linkedin] } : {}),
+    memberOf: { '@id': 'https://fondation.green-got.com/#organisation' },
+  })),
+];
+---
+<Base
+  titre={`Qu'est-ce que la Fondation Green-Got et qui décide ? · ${fondation.nom}`}
+  description="La Fondation Green-Got est une fondation abritée par la Fondation de France. Qui nous sommes, comment les projets sont choisis, qui siège au comité et d'où vient l'argent."
+  route="/la-fondation"
+  chemin={chemin}
+  image="/img/hero.jpg"
+  imageAlt="Une femme porte son enfant dans un sous-bois au soleil couchant"
+  jsonLd={jsonLd}
+>
+  <section class="mhero" aria-labelledby="h-fond">
+    <div class="container">
+      <FilAriane chemin={chemin} />
+      <h1 id="h-fond">Nous finançons les combats que le système bancaire ignore.</h1>
+      <p class="body lg">Des associations soutenues de Roubaix à Bali. Une berge qu'on nettoie, une ferme qui s'installe, des chercheurs qui mesurent ce que personne ne mesure.</p>
+      <div class="cta">
+        <a class="btn btn-p" href="/projets">Voir les projets</a>
+        <a class="btn" href="/evenements">Venir sur le terrain</a>
+      </div>
+      <Signature publieLe={publieLe} modifieLe={modifieLe} />
+    </div>
+  </section>
+
+  <section class="sect" id="manifeste" aria-label="Nos deux convictions">
+    <div class="container">
+      <div class="big rv">
+        <span class="idx">01</span>
+        <h2>Un compte courant n'est pas un coffre‑fort.</h2>
+        <p class="body">L'argent posé sur un compte ne dort pas, il est prêté, et il est prêté à quelque chose. Un forage, un terminal gazier, une usine qui fabrique les molécules de départ des pesticides et du plastique.</p>
+        <p class="body">Green‑Got a été créé pour qu'il ne serve plus à ça. La Fondation s'occupe de l'autre bout de la chaîne, là où ces substances finissent, dans les sols, dans les rivières, dans les corps.</p>
+        <p class="body"><a href="/nos-combats">La chaîne, de l'épargne à l'assiette</a></p>
+      </div>
+
+      <div class="big rv">
+        <span class="idx">02</span>
+        <h2>Personne ne gagne d'argent à réparer.</h2>
+        <p class="body">À Roubaix, dans une ancienne usine textile, vingt élèves apprennent la cordonnerie et la retouche pendant un an, payés au SMIC. Il faut les payer parce que le métier a presque disparu, 45 000 cordonniers en France en 1950, 3 500 aujourd'hui. <a href="/projets/ecole-de-la-reparation">L'École de la Réparation, à Roubaix</a>.</p>
+        <p class="body">Ce qui est vrai d'une paire de chaussures l'est d'une rivière et d'une terre épuisée. Réparer coûte plus que ça ne rapporte, et c'est exactement pour cette raison que personne ne s'en charge. La Fondation finance ce que rien ne rembourse.</p>
+        <p class="body"><a href="/projets">Les projets que la Fondation finance</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect light" id="gouvernance" aria-labelledby="h-gv">
+    <div class="container">
+      <h2 id="h-gv">Qui décide, et qui verse.</h2>
+
+      <p class="body">La Fondation Green‑Got est une {fondation.statut}. Elle est financée par le mécénat de <a href={fondation.fondateur.url} target="_blank" rel="noopener">Green‑Got</a>, {fondation.fondateur.qualite}.</p>
+
+      <p class="body">L'équipe instruit les dossiers, les administrateurs votent, une voix chacun, personne n'est rémunéré. Aucun projet n'est financé sans ce vote. La <a href={fondation.abriteur.url} target="_blank" rel="noopener">Fondation de France</a>, reconnue d'utilité publique en 1969, valide et exécute chaque versement, émet les reçus fiscaux et porte le cadre juridique de la Fondation Green‑Got.</p>
+
+      <p class="body">Les questions pratiques, la déduction d'impôt sur les dons et le fonctionnement du comité sont détaillés dans la <a href="https://faq.green-got.com/impact/aJ2GPASSFuqSHiu5tVHBie/le-comit%C3%A9-de-la-fondation-green-got/6zvvrCiaTZHZ2hvw9xvawx" target="_blank" rel="noopener">FAQ de Green‑Got</a> et sur notre page <a href="/faits-et-chiffres">Faits et chiffres</a>.</p>
+
+      <AValider quoi="La part exactement reversée par Green-Got à la Fondation et sa source. La maquette annonçait 5 à 10 % du chiffre d'affaires, sans source liée. La maquette affirmait aussi que le soutien voté arrive à l'association « sans frais ni commission », or les fondations abritantes prélèvent en général des frais de gestion, à confirmer avec la Fondation de France." />
+
+      <FicheIdentite />
+    </div>
+  </section>
+
+  <section class="fin" id="rencontrer" aria-labelledby="h-fin">
+    <div class="container">
+      <h2 id="h-fin">Le reste ne s'écrit pas. On vous emmène.</h2>
+      <p class="body">Une berge qu'on nettoie, une ferme qui s'installe, des chercheurs qui montrent leurs relevés. Nos rendez‑vous sont gratuits et ouverts à tous, et les questions se posent à ceux qui font le travail.</p>
+      <p class="body">Le programme des prochains rendez‑vous dit le lieu, l'horaire et qui peut venir. <a href="/evenements">Nous rencontrer</a>.</p>
+      <p class="body">Vous portez un projet de terrain et il vous manque l'argent pour le mener ? La Fondation étudie les dossiers et répond sous un mois. <a href="/associations">Comment candidater</a>.</p>
+    </div>
+  </section>
+</Base>
