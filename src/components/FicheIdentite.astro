@@ -31,16 +31,16 @@ const estAValider = (v) => v && typeof v === 'object' && v.aValider;
 
   <div>
     <dt>Année de création</dt>
-    <dd>{estAValider(fondation.anneeCreation)
-      ? <AValider quoi={fondation.anneeCreation.quoi} />
-      : fondation.anneeCreation}</dd>
+    <dd>{fondation.anneeCreation}. Green‑Got finance ces projets depuis {fondation.anneeFinancementParGreenGot}, la Fondation porte désormais ces financements.</dd>
   </div>
 
   <div>
     <dt>Montant cumulé versé</dt>
-    <dd>{estAValider(fondation.montantCumule)
-      ? <AValider quoi={fondation.montantCumule.quoi} />
-      : fondation.montantCumule}</dd>
+    <dd>
+      {fondation.montantCumule.valeur}.
+      {' '}<a class="src" href={fondation.montantCumule.sourceUrl} target="_blank" rel="noopener">{fondation.montantCumule.sourceTitre}</a>
+      {fondation.montantCumule.aValider && <AValider quoi={fondation.montantCumule.aValider} />}
+    </dd>
   </div>
 
   <div>
@@ -60,10 +60,4 @@ const estAValider = (v) => v && typeof v === 'object' && v.aValider;
     </dd>
   </div>
 
-  <div>
-    <dt>Valeurs</dt>
-    <dd>{estAValider(fondation.valeurs)
-      ? <AValider quoi={fondation.valeurs.quoi} />
-      : fondation.valeurs}</dd>
-  </div>
 </dl>

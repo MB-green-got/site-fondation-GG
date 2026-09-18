@@ -43,7 +43,7 @@ const ATTENDU = [
   [/^\/associations\/$/, ['HowTo', 'BreadcrumbList']],
 ];
 
-const DATE = /^\d{4}-\d{2}-\d{2}(T.*)?$/;
+const DATE = /^\d{4}(-\d{2}-\d{2}(T.*)?)?$/;
 const CHAMPS_DATE = ['datePublished', 'dateModified', 'startDate', 'endDate', 'foundingDate'];
 
 function parcourir(n, visite) {

@@ -3,16 +3,15 @@
   Nos combats. Le raisonnement chiffré et sourcé, repris de la maquette.
   Chaque chiffre porte sa source liée et sa date.
 
-  Le nombre de combats reste À VALIDER. Le site en ligne en annonce trois,
-  pesticides, pollution plastique et PFAS. La maquette en documente deux et
-  traite les PFAS à l'intérieur du second. C'est la maquette qui est reprise
-  ici, parce que c'est elle qui porte les sources.
+  Deux combats, arrêté le 18 septembre 2026. Les PFAS sont traités à
+  l'intérieur du second, pollution plastique et chimique, et non comptés
+  comme un troisième. Le site en ligne en annonçait trois, cette page fait
+  désormais foi.
 */
 import Base from '../layouts/Base.astro';
 import FilAriane from '../components/FilAriane.astro';
 import Signature from '../components/Signature.astro';
 import Chiffre from '../components/Chiffre.astro';
-import AValider from '../components/AValider.astro';
 import { fondation } from '../data/fondation.js';
 
 const chemin = [{ libelle: 'Nos combats' }];
@@ -94,9 +93,7 @@ const jsonLd = [{
   <section class="sect" id="les-combats" aria-labelledby="h-cb">
     <div class="container">
       <h2 id="h-cb">Même origine, deux terrains.</h2>
-      <p class="body">Sur chacun, la Fondation finance des associations qui réparent au lieu d'alerter. Voici ce que disent les chiffres, et qui elle soutient.</p>
-
-      <AValider quoi="Le nombre de combats. Le site en ligne en annonce trois, pesticides, pollution plastique et PFAS. Cette page en documente deux et traite les PFAS à l'intérieur du second. Un lecteur qui lit les deux ne sait pas si la Fondation mène deux combats ou trois." />
+      <p class="body">Sur chacun, la Fondation finance des associations qui réparent au lieu d'alerter. Voici ce que disent les chiffres, et qui elle soutient. Les PFAS, ces polluants qui ne se dégradent pas, relèvent du second combat, on les retrouve dans l'eau et dans les corps au même titre que les microplastiques.</p>
 
       <div class="trio" id="pesticides">
         <h3>Pesticides et sols</h3>

@@ -52,6 +52,7 @@ const organisation = {
     description: 'Établissement de paiement et service financier.',
   },
   ...(fondation.sameAs.length ? { sameAs: fondation.sameAs } : {}),
+  ...(fondation.anneeCreation ? { foundingDate: fondation.anneeCreation } : {}),
   areaServed: 'FR',
   knowsAbout: fondation.perimetre,
 };

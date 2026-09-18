@@ -19,14 +19,12 @@ export const fondation = {
   nom: 'Fondation Green-Got',
 
   /*
-    A VALIDER. Trois formulations coexistent aujourd'hui, « abritée à la
-    Fondation de France » sur le site en ligne, « fonds abrité par la
-    Fondation de France » dans la maquette, et celle retenue ci-dessous.
-    Un fonds abrité et une fondation abritée ne sont pas la même chose,
-    la bonne doit venir du juridique.
+    Formulation validée par Marie Bénédicte le 18 septembre 2026. Une
+    fondation abritée, pas un fonds abrité, les deux ne sont pas la même
+    chose juridiquement. Cette phrase est recopiée telle quelle partout.
   */
   statut: 'fondation abritée par la Fondation de France',
-  statutAValider: true,
+  statutAValider: false,
 
   objectif: '15 millions d\'euros collectés d\'ici 2030',
 
@@ -62,21 +60,33 @@ export const fondation = {
     elle est rappelée dans le texte de la mention, sans être présentée comme
     un fait, puisqu'elle n'a pas de source liée.
   */
-  montantCumule: aValider(
-    'Le montant cumulé versé par la Fondation et sa date d\'arrêté. La maquette portait « près de 2 millions d\'euros collectés depuis 2022 », sans source liée, à confirmer et à sourcer sur le rapport annuel.'
-  ),
-  anneeCreation: aValider(
-    'L\'année de création de la Fondation. La maquette mentionnait une collecte « depuis 2022 », ce qui n\'est pas la même chose qu\'une date de création.'
-  ),
-  valeurs: aValider('Les valeurs de la Fondation'),
-
   /*
-    Comité tel qu'il figure dans la maquette, à confirmer.
-    Les rôles ne sont écrits nulle part dans le dépôt.
+    Arrêté avec Marie Bénédicte le 18 septembre 2026.
+
+    Green-Got finance ces projets depuis 2022. La Fondation, créée en 2026 et
+    abritée par la Fondation de France, porte désormais ces financements. Les
+    deux dates ne disent donc pas la même chose et le site ne doit jamais
+    attribuer à la Fondation un versement antérieur à sa création.
   */
+  montantCumule: {
+    valeur: 'Plus de 2,5 millions d\'euros versés aux associations depuis 2022',
+    sourceTitre: 'FAQ Green-Got',
+    sourceUrl: 'https://faq.green-got.com',
+    /*
+      La FAQ annonce aujourd'hui « près de 2 millions ». Tant qu'elle n'est
+      pas mise à jour, la source dit moins que le site, ce qui est exactement
+      le genre d'écart que les moteurs de réponse relèvent.
+    */
+    aValider: 'La mise à jour de la FAQ de Green-Got, qui annonce encore près de 2 millions d\'euros là où le site en annonce plus de 2,5. Et la date d\'arrêté de ce montant.',
+  },
+  anneeCreation: '2026',
+  /* Green-Got finance ces projets depuis cette année-là, avant la Fondation. */
+  anneeFinancementParGreenGot: '2022',
+
+  /* Composition confirmée par Marie Bénédicte le 18 septembre 2026. */
   comite: {
-    aValider: true,
-    quoi: 'La composition du comité et le rôle de chaque membre',
+    aValider: false,
+    quoi: null,
     membres: [
       { nom: 'Andréa Ganovelli', role: 'président', linkedin: 'https://www.linkedin.com/in/andr%C3%A9a-ganovelli/' },
       { nom: 'Aurélie Baulard', role: 'directrice', linkedin: 'https://www.linkedin.com/in/baulardaurelie/' },
@@ -101,8 +111,8 @@ export const fondation = {
     'Page LinkedIn de la Fondation',
   ],
 
-  /* Auteur affiché sur les pages de contenu. */
-  auteurParDefaut: aValider('Le nom de l\'auteur à afficher sur les pages de contenu'),
+  /* Auteur affiché sur les pages de contenu, arrêté le 18 septembre 2026. */
+  auteurParDefaut: 'L\'équipe de la Fondation Green-Got',
 };
 
 /*

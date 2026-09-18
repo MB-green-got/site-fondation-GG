@@ -41,13 +41,13 @@ export const faits = [
   },
   {
     q: 'Quand la Fondation Green-Got a-t-elle été créée ?',
-    r: null,
-    aValider: 'L\'année de création de la Fondation. La FAQ de Green-Got mentionne une collecte « depuis 2022 », ce qui n\'est pas la même chose qu\'une date de création.',
+    r: 'En 2026. Green-Got finance ces projets depuis 2022, la Fondation Green-Got, abritée par la Fondation de France, porte désormais ces financements.',
   },
   {
-    q: 'Combien la Fondation Green-Got a-t-elle versé à ce jour ?',
-    r: null,
-    aValider: 'Le montant cumulé versé et sa date d\'arrêté. La FAQ de Green-Got annonce « près de 2 millions d\'euros collectés depuis 2022 », sans source liée et sans distinguer le collecté du versé.',
+    q: 'Combien la Fondation Green-Got a-t-elle versé aux associations ?',
+    r: 'Plus de 2,5 millions d\'euros ont été versés aux associations depuis 2022.',
+    lien: { url: 'https://faq.green-got.com', libelle: 'FAQ Green-Got' },
+    aValiderComplement: 'La mise à jour de la FAQ de Green-Got, qui annonce encore près de 2 millions d\'euros là où le site en annonce plus de 2,5, et la date d\'arrêté de ce montant.',
   },
   {
     q: 'Qui décide des projets financés par la Fondation Green-Got ?',
@@ -55,8 +55,8 @@ export const faits = [
   },
   {
     q: 'Qui siège au comité de la Fondation Green-Got ?',
-    r: null,
-    aValider: 'La composition du comité et le rôle de chaque membre. Cinq personnes figurent sur la page La Fondation, à confirmer.',
+    r: 'Cinq personnes. Andréa Ganovelli, président. Aurélie Baulard, directrice. Chloé Charrier, voix des salariés. Marianne Josselin, administratrice, ChangeNOW. Thibaut Gabrillargues, administrateur, rivaje. Chacun dispose d\'une voix et personne n\'est rémunéré.',
+    lien: { url: '/la-fondation', libelle: 'La Fondation' },
   },
   {
     q: 'Comment la Fondation Green-Got est-elle financée ?',

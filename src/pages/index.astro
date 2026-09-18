@@ -14,9 +14,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Signature from '../components/Signature.astro';
-import LigneIndex from '../components/LigneIndex.astro';
 import AValider from '../components/AValider.astro';
-import { PILIERS } from '../lib/carte.js';
 import { fondation } from '../data/fondation.js';
 import { enClair } from '../lib/dates.js';
 
@@ -76,6 +74,7 @@ const description = `${fondation.positionnement} Les projets financés contre le
         sans ce vote. <a href="/la-fondation">Qui nous sommes et qui décide</a>, et
         {' '}<a href="/faits-et-chiffres">la page de référence en questions et réponses</a>.
       </p>
+      <p class="body">Chaque projet financé a un porteur, un lieu et un objet, et aucun n'aurait trouvé son financement ailleurs. <a href="/projets">Les projets financés, situés sur une carte</a>.</p>
       <Signature publieLe={publieLe} modifieLe={modifieLe} />
     </div>
   </section>
@@ -85,27 +84,6 @@ const description = `${fondation.positionnement} Les projets financés contre le
       <h2 id="h-pourquoi">Pourquoi ces combats.</h2>
       <p class="body lg">Le plastique et les pesticides viennent du pétrole. Les mêmes banques financent les pétroliers, les producteurs de plastique et les géants de l'agrochimie. Presque personne ne finance ceux qui réparent les sols et nettoient les rivières.</p>
       <p class="body">On paie deux fois. Une première fois en banque, quand l'épargne finance la pétrochimie. Une seconde en santé, quand ses substances reviennent dans l'assiette. <a href="/nos-combats">Le raisonnement et ses chiffres sourcés</a>.</p>
-    </div>
-  </section>
-
-  <section class="sect" aria-labelledby="h-projets">
-    <div class="container lisible">
-      <h2 id="h-projets">Les projets que nous finançons.</h2>
-      <p class="body">Chaque projet a un porteur, un lieu et un objet, et aucun n'aurait trouvé son financement ailleurs.</p>
-      <div class="alist">
-        {projets.map((p) => (
-          <LigneIndex
-            url={`/projets/${p.id}`}
-            vignette={p.data.image.fichier}
-            forme={PILIERS[p.data.pilier].forme}
-            couleur={PILIERS[p.data.pilier].couleur}
-            nom={p.data.nom}
-            complement={p.data.lieu}
-            objet={p.data.objet}
-          />
-        ))}
-      </div>
-      <p class="body"><a class="btn btn-o" href="/projets">Tous les projets, situés sur une carte</a></p>
     </div>
   </section>
 

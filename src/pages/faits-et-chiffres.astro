@@ -59,7 +59,11 @@ const jsonLd = [
             <dt>{f.q}</dt>
             <dd>
               {f.r
-                ? <>{f.r}{f.lien && <> <a href={f.lien.url}>{f.lien.libelle}</a>.</>}</>
+                ? <>
+                    {f.r}
+                    {f.lien && <> <a href={f.lien.url} target={f.lien.url.startsWith('http') ? '_blank' : undefined} rel={f.lien.url.startsWith('http') ? 'noopener' : undefined}>{f.lien.libelle}</a>.</>}
+                    {f.aValiderComplement && <AValider quoi={f.aValiderComplement} />}
+                  </>
                 : <AValider quoi={f.aValider} />}
             </dd>
           </div>
