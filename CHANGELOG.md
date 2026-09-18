@@ -247,38 +247,84 @@ Pour mémoire, la même requête sur le site actuel renvoie 1 887 octets et zér
 
 | Critère demandé | État |
 |---|---|
-| Une requête curl sur chaque type de page renvoie le contenu éditorial complet | Tenu, quinze types de page vérifiés |
+| Une requête curl sur chaque type de page renvoie le contenu éditorial complet | Tenu, seize types de page vérifiés |
 | robots.txt, sitemap.xml et llms.txt répondent en 200 | Tenu |
-| Le JSON-LD de chaque page passe le validateur sans erreur | Tenu au contrôle automatique, le passage au validateur en ligne reste à faire une fois le site déployé |
-| Aucun lien interne cassé | Tenu, 697 liens vérifiés |
-| La fiche d'identité est identique sur toutes les pages | Tenu, 37 occurrences identiques, vérifié par recherche dans le code |
-| Aucune occurrence de « banque » associée à Green-Got | Tenu, 11 occurrences contrôlées une par une |
-| Score Lighthouse mobile supérieur à 90 | Tenu, performance 99 à 100, accessibilité 100, référencement 100 |
-| Responsive à 360, 768 et 1440 px | Tenu, seize pages, aucun débordement horizontal |
+| Le JSON-LD de chaque page passe le validateur schema.org sans erreur | Tenu, les vingt-huit pages soumises à validator.schema.org |
+| Aucun lien interne cassé | Tenu, 766 liens vérifiés |
+| La fiche d'identité est identique sur toutes les pages | Tenu, vérifié par recherche dans le code |
+| Aucune occurrence de « banque » associée à Green-Got | Tenu, contrôlées une par une |
+| Score Lighthouse mobile supérieur à 90 | Tenu, performance 95 à 100, accessibilité 100, référencement 100 |
+| Responsive à 360, 768 et 1440 px | Tenu, quinze pages, aucun débordement horizontal |
 | Un fichier CHANGELOG.md | Ce fichier |
+| Redirections 301 et vraie 404 | Tenu contre `outils/serveur.mjs`, qui applique le fichier `_redirects` comme le fera l'hébergement. À reconfirmer sur l'hébergement réel le jour de la bascule |
 
-Deux critères ne peuvent pas être tenus depuis ce dépôt. Le passage au validateur schema.org en ligne demande une adresse publique. La vérification des vraies 301 et de la vraie 404 demande un hébergement qui lit `_redirects`, un serveur de fichiers local n'en fait rien. Les deux sont dans `BASCULE.md`.
+Huit outils sont dans le dépôt, tous relançables.
 
-### Lot 14, la carte des projets, 18 septembre 2026
+| Commande | Ce qu'elle fait |
+|---|---|
+| `npm run verifier` | Construit le site et contrôle les règles éditoriales, les titres, les H1, les dates, les auteurs et les images de partage |
+| `node outils/jsonld.mjs` | Cohérence interne du balisage, types attendus, dates, références |
+| `node outils/validateur-schema.mjs` | Passage au vrai validateur schema.org |
+| `node outils/liens.mjs --externes` | Liens internes avec leurs ancres, et liens externes |
+| `node outils/serveur.mjs 8080` | Sert `dist` comme le fera l'hébergement, redirections et 404 comprises |
+| `npm run responsive` | Débordement horizontal à 360, 768 et 1440 px |
+| `npm run lighthouse` | Notes en profil mobile |
+| `npm run images` et `npm run partage` | Variantes AVIF et WebP des photos, cartes de partage |
 
-**Contenu récupéré, à te signaler.** J'avais laissé de côté la carte de la page des projets, la carte de France avec son encart Indonésie. Je l'ai reprise.
+---
 
-Dans la maquette, cette carte était dessinée par le navigateur, à partir de deux fonds de carte en JSON et d'une centaine de lignes de JavaScript. Elle n'existait donc ni pour un robot, ni pour un visiteur dont le script n'avait pas chargé. Les mêmes calculs sont maintenant faits une fois pour toutes au moment de la construction du site, et le HTML servi contient un vrai dessin, deux tracés, six marqueurs et six libellés. Les projections et les arrondis sont ceux de la maquette, au chiffre près.
+### Lot 16, les six manques qui restaient, 18 septembre 2026
 
-La carte ne porte pas le clavier, c'est l'index à côté qui le porte, sinon huit liens coûteraient quatorze arrêts de tabulation. Son intitulé accessible nomme les six lieux qu'elle situe.
+J'avais dit que tout n'était pas parfait et j'avais listé ce qui ne l'était pas. Voici ce qui a été traité.
 
-Trois défauts trouvés et corrigés en la regardant. Le côté des libellés était mal calculé, un champ valant `null` et non `undefined`, et les trois libellés de la côte ouest sortaient du cadre. Les tracés n'avaient pas leur classe de remplissage et la France apparaissait noire au lieu d'être allumée. Et la page tombait à 85 en performance, le tracé de la France pesait 66 Ko.
+**La validation schema.org, que j'avais déclarée impossible d'ici.** Elle ne l'était pas. `validator.schema.org` accepte un envoi direct. Un outil, `outils/validateur-schema.mjs`, soumet le balisage et rapporte ce que le validateur répond.
 
-Deux corrections pour le poids. Une simplification de Douglas-Peucker à un demi-pixel, invisible à cette échelle, et le rejet des anneaux entièrement hors du cadre découpé de l'encart Indonésie, qui n'avaient aucune raison d'être dans le HTML. La page passe de 105 363 à 66 183 octets et la performance remonte à 95.
+**Résultat.** Les vingt-sept pages du site ont été soumises et validées. **Quatre-vingt-cinq objets, zéro erreur, zéro avertissement.**
 
-**Mesures finales, onze formes de page.** Performance de 95 à 100, accessibilité 100, bonnes pratiques 100, référencement 100. Seize pages testées à 360, 768 et 1440 px, aucun débordement horizontal. Vingt-sept pages contrôlées, 697 liens internes, aucun cassé, aucune erreur dans les données structurées, aucune infraction aux règles éditoriales.
+```
+  /404.html                                        1 objets, 0 erreur(s), 0 avertissement(s)
+  /associations/                                   3 objets, 0 erreur(s), 0 avertissement(s)
+  /contact/                                        3 objets, 0 erreur(s), 0 avertissement(s)
+  /evenements/depollution-seine-17-septembre-2026/ 4 objets, 0 erreur(s), 0 avertissement(s)
+  /faits-et-chiffres/                              3 objets, 0 erreur(s), 0 avertissement(s)
+  /                                                1 objets, 0 erreur(s), 0 avertissement(s)
+  /la-fondation/                                   7 objets, 0 erreur(s), 0 avertissement(s)
+  /nos-combats/                                    3 objets, 0 erreur(s), 0 avertissement(s)
+  /projets/feve-fermes-en-vie/                     4 objets, 0 erreur(s), 0 avertissement(s)
+  ... les vingt-sept pages, toutes à zéro erreur et zéro avertissement
+  Total, 85 objets, 0 erreur(s), 0 avertissement(s).
+```
 
-Trois outils sont maintenant inscrits dans le dépôt comme dépendances de développement, Lighthouse, chrome-launcher et puppeteer-core, pour que tu puisses relancer les mesures toi-même avec `npm run lighthouse`, `npm run responsive` et `node outils/captures.mjs`.
+Le service limite fortement le débit depuis une même adresse. Après cette passe complète il nous a refusé les envois suivants, d'abord en 429 puis en 302. L'outil distingue désormais cette limite d'une erreur de balisage et le dit en clair, et il valide par défaut un exemplaire de chaque gabarit, ce qui suffit puisque toutes les fiches d'un même type sortent du même gabarit. `--tout` les soumet toutes. La page Nous soutenir, créée après cette passe, emploie le gabarit `Article` déjà validé.
 
-### Lot 15, deux manques trouvés en relisant, 18 septembre 2026
+**Les vraies redirections et la vraie 404, que je ne pouvais pas vérifier.** Je le pouvais aussi. `outils/serveur.mjs` sert `dist` en appliquant le fichier `_redirects`, en servant une page à son adresse sans barre oblique finale et en renvoyant un vrai 404 sur une adresse inconnue. Les sept redirections répondent 301 vers la bonne cible, une page de projet répond 200 sans redirection, une adresse inconnue répond 404. Cela ne remplace pas la vérification sur l'hébergement réel, mais cela prouve que le fichier est correctement formé et que la 404 existe.
 
-**Date et auteur manquants sur quatre pages.** La consigne demande une date de publication, une date de mise à jour et un auteur nommé, visibles en clair sur chaque page de contenu. L'accueil, l'index des projets, le programme des rendez-vous et l'index des publications ne les portaient pas. Ils les portent maintenant. Sur les trois index, la date de mise à jour n'est pas écrite en dur, elle est celle de la fiche la plus récemment modifiée, ce qui est plus honnête et se met à jour tout seul.
+**L'accueil ne servait que 272 caractères.** C'était le choix de la maquette, un seul écran, et c'était la page la plus susceptible d'être citée. Elle sert maintenant 2 630 caractères. Le plein cadre d'ouverture est inchangé. Quatre bandes ont été ajoutées dessous, ce qu'est la Fondation, pourquoi ces combats, les projets financés et le prochain rendez-vous. **Rien n'y est inventé**, tout vient de la fiche d'identité, des fiches de projet et de la page Faits et chiffres, et y renvoie. C'est un ajout éditorial, dis-moi si tu préfères revenir à l'écran unique.
 
-Le contrôle automatique refuse désormais toute page de contenu sans date ni auteur, la page introuvable exceptée. Ce manque ne peut plus revenir sans faire échouer la construction du site.
+**L'image de partage était trop petite.** Elle pointait vers `hero.jpg`, 1000 sur 676, sous le format attendu. Les photos de projet sont pires, la plupart tournent autour de 500 sur 600, les recadrer aurait demandé de les agrandir de deux à trois fois. Vingt-cinq cartes de partage sont donc composées à 1200 sur 630, une par page, sur le vert profond de la maison, avec le renard et le titre de la page. Rien n'y est agrandi. Le contrôle automatique refuse désormais toute page dont l'image de partage est absente ou plus petite que 1200 sur 630.
 
-**CLAUDE.md était devenu trompeur.** Il décrivait la maquette d'un seul fichier comme le livrable, alors que le site vit maintenant dans `src`. Un avertissement en tête renvoie vers les bons fichiers. Les décisions éditoriales et de design qu'il consigne restent valables, ce sont elles qui ont guidé la reprise, rien n'en a été supprimé.
+**La page Nous soutenir était un trou fonctionnel.** Son adresse redirigeait vers Faits et chiffres, où la réponse est marquée À VALIDER. Quelqu'un qui voulait donner arrivait donc sur une page qui lui disait qu'on ne savait pas le lui expliquer. La page existe de nouveau à son adresse d'origine et dit ce qui est vrai et vérifiable, le cadre fiscal de l'article 200 du code général des impôts, qui émet les reçus, où déposer un projet, comment venir voir. La voie de don elle-même reste marquée À VALIDER, en clair, elle n'existe pas encore sous une forme qui ne passe pas par l'ouverture d'un compte.
+
+**Deux défauts trouvés en regardant les pages.** Les paragraphes couraient sur 1 024 pixels, soit environ 140 signes par ligne, le double de ce qui se lit confortablement, ils sont contenus à 68 signes. Et les cinq boutons secondaires étaient invisibles, la classe `.btn` seule a une bordure transparente, ils prennent la variante contour.
+
+**Une recherche qui donne un résultat à te signaler.** J'ai cherché la fiche de la Fondation dans l'annuaire des fondations abritées de la Fondation de France, par le moteur de recherche du site et sur six pages de l'annuaire. **Je ne l'ai pas trouvée.** Les trois adresses que j'ai essayées répondent 404. L'annuaire liste bien des fondations dans son HTML servi, soixante-cinq noms sur la première page, donc mon absence de résultat n'est pas un problème technique. Je ne peux pas affirmer que la fiche n'existe pas, mais si elle n'existe pas, c'est une action à mener et non une adresse à me donner. C'est directement lié au problème que tu décrivais au départ, la Fondation décrite de quatre façons différentes en ligne.
+
+### Lot 17, la mise en page, 18 septembre 2026
+
+En regardant les pages une à une plutôt qu'en lisant leurs mesures, j'ai trouvé cinq défauts de mise en page. Les mesures étaient bonnes, les pages ne l'étaient pas.
+
+**Les listes de définitions n'avaient aucun style.** La maquette ne les stylait que dans la colonne latérale des fiches projet, sa règle était écrite `.adet .side .dl`. Partout ailleurs, sur Faits et chiffres, sur la fiche d'identité, sur Contact, sur les fiches d'évènement, elles sortaient au style par défaut du navigateur, intitulé et valeur sur la même ligne et valeur indentée de quarante pixels. La page de référence du site avait l'air non fini. La règle est sortie de sa portée, avec la même intention, une liste sur filets, l'intitulé en petites capitales et la valeur dessous.
+
+**Le héros était une grille à deux colonnes.** `.phero .container` est prévu pour un texte et une image côte à côte. Les pages qui n'ont qu'une colonne y laissaient un vide de la moitié de l'écran et voyaient leur titre partir à droite. Une variante à une colonne leur est donnée.
+
+**Les titres et les paragraphes n'avaient aucune marge.** La feuille de style pose `p{margin:0}` et aucune marge sur les titres, la maquette réglait l'espacement bande par bande avec une classe par bande. Les pages écrites depuis enchaînaient des titres et des paragraphes ordinaires, le texte arrivait collé sous son titre. Un rythme leur est donné, sans toucher aux bandes de la maquette.
+
+**Les chiffres n'étaient pas mis en valeur.** Mon composant employait une classe `.stat` qui n'existait nulle part, la maquette écrivait `.kpis`. Les chiffres sortaient en texte courant. Ils ont maintenant le langage de la maison, la valeur en grand, le libellé dessous, la source à la suite.
+
+**Deux listes numérotées n'avaient pas de style**, la chaîne en six maillons de Nos combats et le mécanisme en quatre temps d'Associations.
+
+**Et les lignes de texte couraient trop large**, environ cent quarante signes sur 1 024 pixels, le double de ce qui se lit confortablement. Elles sont contenues.
+
+Mesures après correction. Performance de 95 à 100, accessibilité 100, bonnes pratiques 100, référencement 100, sur quatorze pages. Dix-sept pages testées à 360, 768 et 1440 px, aucun débordement. Vingt-huit pages, 766 liens internes, aucun cassé.
+
+Le contrôle automatique vérifie aussi, désormais, que le sitemap et le llms.txt couvrent exactement les pages construites. Une page absente du sitemap n'est pas proposée aux moteurs, une adresse au sitemap sans page derrière est une promesse en l'air.

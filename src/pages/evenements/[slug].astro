@@ -64,11 +64,11 @@ jsonLd.push({
   route="/evenements"
   classePage="evpage"
   chemin={chemin}
-  image={d.image.fichier ? `/img/${d.image.fichier}.jpg` : '/img/depol.jpg'}
-  imageAlt={d.image.alt ?? 'Un bénévole porte des sacs de déchets collectés'}
+  image={`/img/partage-evenements-${ev.id}.jpg`}
+  imageAlt={`${fondation.nom}, ${d.titrePage ?? d.nom ?? d.titre}`}
   jsonLd={jsonLd}
 >
-  <section class="phero">
+  <section class="phero simple">
     <div class="container">
       <FilAriane chemin={chemin} />
       <p class="ameta">
@@ -96,7 +96,7 @@ jsonLd.push({
             : <AValider quoi={d.inscriptionAValider} />}</dd>
         </div>
       </dl>
-      <p class="body"><a class="btn" href="/evenements">Tous les rendez-vous</a></p>
+      <p class="body"><a class="btn btn-o" href="/evenements">Tous les rendez-vous</a></p>
     </div>
   </section>
 </Base>

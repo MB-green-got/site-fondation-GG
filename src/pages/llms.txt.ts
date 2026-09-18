@@ -53,6 +53,7 @@ ${plan.publications.map(ligne).join('\n')}
 
 ## Pratique
 
+${ligne(par('/nous-soutenir'))}
 ${ligne(par('/associations'))}
 ${ligne(par('/contact'))}
 ${ligne(par('/'))}

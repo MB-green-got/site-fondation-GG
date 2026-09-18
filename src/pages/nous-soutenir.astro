@@ -1,0 +1,75 @@
+---
+/*
+  Nous soutenir.
+
+  Cette page existait sur le site en ligne et son adresse est indexée. Sa
+  seule voie de soutien passait par la carte Green-Got et l'arrondi des
+  dépenses, ce que les règles éditoriales interdisent, elle n'a donc pas été
+  reprise telle quelle et son adresse pointait vers Faits et chiffres, où la
+  réponse est marquée À VALIDER. Quelqu'un qui veut donner arrivait donc sur
+  une page qui lui disait qu'on ne savait pas le lui expliquer.
+
+  Elle dit maintenant ce qui est vrai et vérifiable, le cadre fiscal, qui
+  émet les reçus, et où déposer un projet. La voie de don elle-même reste
+  marquée À VALIDER, en clair, parce qu'elle n'existe pas encore sous une
+  forme qui ne passe pas par l'ouverture d'un compte.
+*/
+import Base from '../layouts/Base.astro';
+import FilAriane from '../components/FilAriane.astro';
+import Signature from '../components/Signature.astro';
+import AValider from '../components/AValider.astro';
+import { fondation } from '../data/fondation.js';
+
+const chemin = [{ libelle: 'Nous soutenir' }];
+const publieLe = '2026-09-18';
+const modifieLe = '2026-09-18';
+
+const jsonLd = [{
+  '@type': 'Article',
+  '@id': 'https://fondation.green-got.com/nous-soutenir#article',
+  headline: 'Soutenir la Fondation Green-Got',
+  description: 'Le cadre fiscal des dons à la Fondation Green-Got, qui émet les reçus, et les autres façons de soutenir son travail.',
+  inLanguage: 'fr-FR',
+  datePublished: publieLe,
+  dateModified: modifieLe,
+  publisher: { '@id': 'https://fondation.green-got.com/#organisation' },
+  mainEntityOfPage: 'https://fondation.green-got.com/nous-soutenir',
+}];
+---
+<Base
+  titre={`Comment soutenir la Fondation Green-Got ? · ${fondation.nom}`}
+  description="Le cadre fiscal des dons à la Fondation Green-Got, qui émet les reçus, et les autres façons de soutenir le travail des projets financés."
+  route="/nous-soutenir"
+  chemin={chemin}
+  image="/img/partage.jpg"
+  imageAlt="Fondation Green-Got, on finance ce qui ne rapporte rien"
+  jsonLd={jsonLd}
+>
+  <section class="phero simple">
+    <div class="container lisible">
+      <FilAriane chemin={chemin} />
+      <h1>Nous soutenir.</h1>
+      <p class="body lg">La Fondation finance des projets que rien ne rembourse. Voici ce qu'on peut dire aujourd'hui de la façon de l'aider, et ce qui n'est pas encore arrêté.</p>
+      <Signature publieLe={publieLe} modifieLe={modifieLe} />
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="container lisible">
+      <h2>Faire un don</h2>
+      <AValider quoi="La voie de don à la Fondation. Le site en ligne répondait par la carte Green-Got et l'arrondi des dépenses, ce qui revient à faire du soutien à la Fondation un argument d'ouverture de compte. Il manque une voie de don ouverte à tous, indépendante de l'ouverture d'un compte, et son adresse." />
+
+      <h2>Le cadre fiscal</h2>
+      <p class="body">Un don à la Fondation Green‑Got ouvre droit à une réduction d'impôt de 66 % du montant versé, dans la limite de 20 % du revenu imposable, au titre de l'article 200 du code général des impôts. C'est la <a href={fondation.abriteur.url} target="_blank" rel="noopener">Fondation de France</a>, reconnue d'utilité publique, qui émet les reçus fiscaux. Même lorsque le donateur déduit une partie de son don, les associations reçoivent 100 % de la somme.</p>
+
+      <h2>Vous portez un projet</h2>
+      <p class="body">La Fondation étudie les dossiers et répond sous un mois. Le dossier décrit le projet, son territoire, son budget et ce que le soutien permettrait de faire. <a href="/associations">Comment candidater</a>.</p>
+
+      <h2>Venir voir</h2>
+      <p class="body">La façon la plus directe de soutenir ce travail est d'aller le voir et d'en parler. Les rendez‑vous sur le terrain disent le lieu, l'horaire et qui peut venir. <a href="/evenements">Les prochains rendez‑vous</a>.</p>
+
+      <h2>Comprendre avant de donner</h2>
+      <p class="body">Ce que la Fondation est, qui décide des projets financés et d'où vient l'argent sont écrits en clair. <a href="/faits-et-chiffres">Faits et chiffres</a>, la page de référence, et <a href="/la-fondation">La Fondation</a>.</p>
+    </div>
+  </section>
+</Base>

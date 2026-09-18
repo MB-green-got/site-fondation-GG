@@ -12,7 +12,7 @@
 
   Usage, node outils/controle.mjs
 */
-import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
 const DIST = 'dist';
@@ -154,6 +154,64 @@ for (const f of liste) {
   /* Mentions À VALIDER, comptées et signalées, ce n'est pas une erreur */
   const nb = (txt.match(/À VALIDER/g) || []).length;
   if (nb) alertes.push(`${nom} porte ${nb} mention${nb > 1 ? 's' : ''} À VALIDER.`);
+}
+
+/*
+  8. L'image de partage doit exister et faire au moins 1200 sur 630, c'est le
+  format attendu par les réseaux et les cartes de résultat.
+*/
+function tailleJpeg(chemin) {
+  const b = readFileSync(chemin);
+  let i = 2;
+  while (i < b.length) {
+    if (b[i] !== 0xff) { i++; continue; }
+    const m = b[i + 1];
+    if ([0xc0, 0xc1, 0xc2, 0xc3].includes(m)) return { h: b.readUInt16BE(i + 5), w: b.readUInt16BE(i + 7) };
+    i += 2 + b.readUInt16BE(i + 2);
+  }
+  return null;
+}
+
+for (const f of liste) {
+  const nom = '/' + relative(DIST, f).replace(/index\.html$/, '').replace(/\\/g, '/');
+  const html = readFileSync(f, 'utf8');
+  const og = html.match(/property="og:image" content="([^"]*)"/)?.[1];
+  if (!og) { erreurs.push(`${nom} n'a pas d'image de partage.`); continue; }
+  const local = join(DIST, og.replace(/^https?:\/\/[^/]+/, ''));
+  if (!existsSync(local)) { erreurs.push(`${nom} déclare une image de partage absente, ${og}.`); continue; }
+  const t = local.endsWith('.jpg') ? tailleJpeg(local) : null;
+  if (t && (t.w < 1200 || t.h < 630)) {
+    erreurs.push(`${nom} a une image de partage de ${t.w} sur ${t.h}, il en faut au moins 1200 sur 630.`);
+  }
+}
+
+/*
+  9. Le sitemap et le llms.txt doivent couvrir exactement les pages construites,
+  la page introuvable exceptée. Une page absente du sitemap n'est pas proposée
+  aux moteurs, une adresse au sitemap sans page derrière est une promesse en l'air.
+*/
+{
+  const construites = new Set(
+    liste
+      .map((f) => '/' + relative(DIST, f).replace(/index\.html$/, '').replace(/\\/g, '/'))
+      .map((u) => u.replace(/\/$/, '') || '/')
+      .filter((u) => u !== '/404.html')
+  );
+
+  const sitemap = existsSync(join(DIST, 'sitemap.xml')) ? readFileSync(join(DIST, 'sitemap.xml'), 'utf8') : '';
+  const listees = new Set(
+    [...sitemap.matchAll(/<loc>https:\/\/fondation\.green-got\.com([^<]*)<\/loc>/g)]
+      .map((m) => m[1].replace(/\/$/, '') || '/')
+  );
+  for (const u of construites) if (!listees.has(u)) erreurs.push(`${u} n'est pas au sitemap.`);
+  for (const u of listees) if (!construites.has(u)) erreurs.push(`Le sitemap annonce ${u}, qui n'existe pas.`);
+
+  const llms = existsSync(join(DIST, 'llms.txt')) ? readFileSync(join(DIST, 'llms.txt'), 'utf8') : '';
+  const citees = new Set(
+    [...llms.matchAll(/\(https:\/\/fondation\.green-got\.com([^)]*)\)/g)]
+      .map((m) => m[1].replace(/\/$/, '') || '/')
+  );
+  for (const u of construites) if (!citees.has(u)) erreurs.push(`${u} n'est pas dans llms.txt.`);
 }
 
 console.log(`Pages contrôlées, ${liste.length}.`);

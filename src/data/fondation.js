@@ -120,6 +120,7 @@ export const navigation = [
 export const navigationSecondaire = { url: '/associations', libelle: 'Vous êtes une association ?' };
 
 export const navigationPied = [
+  { url: '/nous-soutenir', libelle: 'Nous soutenir' },
   { url: '/publications', libelle: 'Publications' },
   { url: '/contact', libelle: 'Contact' },
   { url: '/mentions-legales', libelle: 'Mentions légales' },

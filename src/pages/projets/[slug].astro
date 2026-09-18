@@ -58,11 +58,11 @@ const jsonLd = [
   route="/projets"
   classePage="adet"
   chemin={[{ libelle: 'Projets', url: '/projets' }, { libelle: d.nom }]}
-  image={d.image.fichier ? `/img/${d.image.fichier}.jpg` : '/img/hero.jpg'}
-  imageAlt={d.image.alt ?? 'Fondation Green-Got'}
+  image={`/img/partage-projets-${projet.id}.jpg`}
+  imageAlt={`${fondation.nom}, ${d.titrePage ?? d.nom ?? d.titre}`}
   jsonLd={jsonLd}
 >
-  <section class="phero">
+  <section class="phero simple">
     <div class="container">
       <FilAriane chemin={[{ libelle: 'Projets', url: '/projets' }, { libelle: d.nom }]} />
       <p class="ameta"><i class={d.pilier === 'Terre' ? 'd' : d.pilier === 'Mer' ? 's' : ''}></i>{d.pilier}<span>{d.lieu}{d.lieuPrecision ? `, ${d.lieuPrecision}` : ''}</span></p>
@@ -147,7 +147,7 @@ const jsonLd = [
 
   <section class="sect">
     <div class="container">
-      <p class="body"><a class="btn" href="/projets">Tous les projets financés</a></p>
+      <p class="body"><a class="btn btn-o" href="/projets">Tous les projets financés</a></p>
     </div>
   </section>
 </Base>

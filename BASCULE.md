@@ -19,14 +19,20 @@ Ce document décrit ce qu'il reste à faire pour remplacer le site actuel par ce
 
 ```
 npm install
-npm run verifier      # construit le site et contrôle les règles éditoriales
-node outils/jsonld.mjs    # contrôle les données structurées
-node outils/liens.mjs --externes   # contrôle les liens
-npm run responsive http://localhost:PORT /  ...  # contrôle les trois largeurs
-npm run lighthouse http://localhost:PORT/    # mesure les notes
+npm run partage                    # compose les cartes de partage, 1200 sur 630
+npm run images                     # écrit les variantes AVIF et WebP des photos
+npm run verifier                   # construit le site et contrôle les règles éditoriales
+node outils/jsonld.mjs             # cohérence interne du balisage
+node outils/validateur-schema.mjs  # passage au vrai validateur schema.org
+node outils/liens.mjs --externes   # liens internes et externes
+node outils/serveur.mjs 8080 &     # sert dist comme le fera l'hébergement
+npm run responsive http://localhost:8080 / /projets ...
+npm run lighthouse http://localhost:8080/
 ```
 
 Le site construit se trouve dans `dist`. C'est ce dossier qu'il faut publier, rien d'autre.
+
+`outils/serveur.mjs` applique le fichier `_redirects`, sert les pages sans barre oblique finale et renvoie un vrai 404. Il permet de vérifier ici ce que l'hébergement devra faire, avant même de déployer.
 
 ---
 
@@ -70,6 +76,7 @@ curl -sI https://fondation.green-got.com/adresse-qui-nexiste-pas      # doit ré
 curl -s  https://fondation.green-got.com/robots.txt
 curl -s  https://fondation.green-got.com/sitemap.xml
 curl -s  https://fondation.green-got.com/llms.txt
+curl -sI https://fondation.green-got.com/nous-soutenir                 # doit répondre 200
 curl -s  https://fondation.green-got.com/projets/feve-fermes-en-vie | wc -c
 ```
 
@@ -79,4 +86,4 @@ La dernière commande doit renvoyer environ treize mille octets. Si elle en renv
 
 ## Ce qui reste hors du dépôt
 
-Photographies en haute résolution, les seize fichiers actuels sont deux à trois fois trop petits pour leur usage. Photos de Planète Urgence et de Coral Guardian, qui n'en ont aucune. Image de partage au format 1200 × 630. Master vidéo en haute définition, l'actuel fait 854 × 480 pour 6,4 Mo. Fichier vectoriel officiel du renard. Adresse de la fiche de la Fondation dans l'annuaire de la Fondation de France, celle que j'ai testée répond 404. Adresse de la page LinkedIn de la Fondation. Outil de mesure d'audience conforme à la politique de Green-Got, aucun n'est prévu.
+Photographies en haute résolution, les seize fichiers actuels sont deux à trois fois trop petits pour leur usage. Photos de Planète Urgence et de Coral Guardian, qui n'en ont aucune. Master vidéo en haute définition, l'actuel fait 854 × 480 pour 6,4 Mo. Les vingt-cinq cartes de partage sont composées et à la bonne taille, si la communication préfère des visuels photographiques il faudra des fichiers d'au moins 1200 sur 630. Fichier vectoriel officiel du renard. Adresse de la fiche de la Fondation dans l'annuaire de la Fondation de France, celle que j'ai testée répond 404. Adresse de la page LinkedIn de la Fondation. Outil de mesure d'audience conforme à la politique de Green-Got, aucun n'est prévu.

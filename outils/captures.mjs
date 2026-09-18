@@ -12,6 +12,20 @@ for (const largeur of [360, 768, 1440]) {
     const page = await nav.newPage();
     await page.setViewport({ width: largeur, height: 1000, deviceScaleFactor: 1 });
     await page.goto(base + chemin, { waitUntil: 'networkidle0' });
+    /*
+      On fait défiler avant de capturer. Les blocs qui apparaissent au
+      défilement ne se montrent qu'une fois traversés, une capture pleine
+      page sans défilement les laisse invisibles et fait croire à un trou.
+    */
+    await page.evaluate(async () => {
+      const pas = window.innerHeight * 0.6;
+      for (let y = 0; y < document.body.scrollHeight; y += pas) {
+        window.scrollTo(0, y);
+        await new Promise((r) => setTimeout(r, 120));
+      }
+      window.scrollTo(0, 0);
+      await new Promise((r) => setTimeout(r, 400));
+    });
     const nom = (chemin.replace(/\//g, '_') || '_accueil') + `_${largeur}.png`;
     await page.screenshot({ path: `${dossier}/${nom}`, fullPage: true });
     await page.close();

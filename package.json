@@ -11,7 +11,8 @@
     "verifier": "astro build && node outils/controle.mjs",
     "images": "node outils/images.mjs",
     "lighthouse": "node outils/lighthouse.mjs",
-    "responsive": "node outils/responsive.mjs"
+    "responsive": "node outils/responsive.mjs",
+    "partage": "node outils/image-partage.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

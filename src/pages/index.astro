@@ -1,15 +1,35 @@
 ---
 /*
-  Accueil. Reprise de la maquette, un seul écran.
-  La vidéo de fond reste un décor, la photo prend le relais si elle ne joue
-  pas. Tout le texte est dans le HTML servi.
+  Accueil.
+
+  Le plein cadre d'ouverture est celui de la maquette, un seul écran, vidéo
+  de fond et accroche. Ce qui suit a été ajouté. La maquette s'arrêtait à
+  l'écran d'ouverture et ne servait que 272 caractères, or c'est la page la
+  plus susceptible d'être citée par un moteur de réponse, et c'était la plus
+  pauvre du site.
+
+  Rien n'est inventé ici. Tout vient de la fiche d'identité, des fiches de
+  projet et de la page Faits et chiffres, et y renvoie.
 */
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Signature from '../components/Signature.astro';
+import LigneIndex from '../components/LigneIndex.astro';
+import AValider from '../components/AValider.astro';
+import { PILIERS } from '../lib/carte.js';
 import { fondation } from '../data/fondation.js';
+import { enClair } from '../lib/dates.js';
+
+const projets = (await getCollection('projets')).sort((a, b) => a.data.ordre - b.data.ordre);
+const evs = (await getCollection('evenements')).sort((a, b) => a.data.ordre - b.data.ordre);
+const prochain = evs[0];
 
 const publieLe = '2026-09-18';
-const modifieLe = '2026-09-18';
+const modifieLe = [
+  ...projets.map((p) => p.data.modifieLe),
+  ...evs.map((e) => e.data.modifieLe),
+].sort().at(-1);
+
 const titre = 'Fondation Green-Got, on finance ce qui ne rapporte rien';
 const description = `${fondation.positionnement} Les projets financés contre les pesticides et la pollution plastique, de Roubaix à Bali, pour le vivant et la santé environnementale.`;
 ---
@@ -17,8 +37,8 @@ const description = `${fondation.positionnement} Les projets financés contre le
   titre={titre}
   description={description}
   route="/"
-  image="/img/agro.jpg"
-  imageAlt="Champ de céréales au lever du jour"
+  image="/img/partage.jpg"
+  imageAlt="Fondation Green-Got, on finance ce qui ne rapporte rien"
 >
   <section class="fullhero solo" aria-labelledby="h-home">
     {/*
@@ -38,7 +58,70 @@ const description = `${fondation.positionnement} Les projets financés contre le
       <div class="cta">
         <a class="btn btn-p btn-xl" href="/la-fondation">Découvrir la Fondation</a>
       </div>
+    </div>
+  </section>
+
+  <section class="sect" aria-labelledby="h-quoi">
+    <div class="container lisible">
+      <h2 id="h-quoi">Ce qu'est la Fondation Green‑Got.</h2>
+      <p class="body lg">
+        La Fondation Green‑Got est une {fondation.statut}. Elle finance la recherche et les
+        projets de terrain sur {fondation.perimetre.join(', ')}. Son objectif est de
+        {' '}{fondation.objectif}. Elle a été créée par <a href={fondation.fondateur.url} target="_blank" rel="noopener">Green‑Got</a>,
+        {' '}{fondation.fondateur.qualitePhrase}, qui la finance par son mécénat.
+      </p>
+      <p class="body">
+        L'équipe instruit les dossiers, le comité vote, une voix par administrateur, et la
+        Fondation de France valide et exécute chaque versement. Aucun projet n'est financé
+        sans ce vote. <a href="/la-fondation">Qui nous sommes et qui décide</a>, et
+        {' '}<a href="/faits-et-chiffres">la page de référence en questions et réponses</a>.
+      </p>
       <Signature publieLe={publieLe} modifieLe={modifieLe} />
+    </div>
+  </section>
+
+  <section class="sect light" aria-labelledby="h-pourquoi">
+    <div class="container lisible">
+      <h2 id="h-pourquoi">Pourquoi ces combats.</h2>
+      <p class="body lg">Le plastique et les pesticides viennent du pétrole. Les mêmes banques financent les pétroliers, les producteurs de plastique et les géants de l'agrochimie. Presque personne ne finance ceux qui réparent les sols et nettoient les rivières.</p>
+      <p class="body">On paie deux fois. Une première fois en banque, quand l'épargne finance la pétrochimie. Une seconde en santé, quand ses substances reviennent dans l'assiette. <a href="/nos-combats">Le raisonnement et ses chiffres sourcés</a>.</p>
+    </div>
+  </section>
+
+  <section class="sect" aria-labelledby="h-projets">
+    <div class="container lisible">
+      <h2 id="h-projets">Les projets que nous finançons.</h2>
+      <p class="body">Chaque projet a un porteur, un lieu et un objet, et aucun n'aurait trouvé son financement ailleurs.</p>
+      <div class="alist">
+        {projets.map((p) => (
+          <LigneIndex
+            url={`/projets/${p.id}`}
+            vignette={p.data.image.fichier}
+            forme={PILIERS[p.data.pilier].forme}
+            couleur={PILIERS[p.data.pilier].couleur}
+            nom={p.data.nom}
+            complement={p.data.lieu}
+            objet={p.data.objet}
+          />
+        ))}
+      </div>
+      <p class="body"><a class="btn btn-o" href="/projets">Tous les projets, situés sur une carte</a></p>
+    </div>
+  </section>
+
+  <section class="sect" aria-labelledby="h-venir">
+    <div class="container lisible">
+      <h2 id="h-venir">Venir voir plutôt qu'en parler.</h2>
+      {prochain && (
+        <p class="body lg">
+          Prochain rendez‑vous, {prochain.data.resume}, {prochain.data.avec},
+          {' '}{prochain.data.debut
+            ? <time datetime={prochain.data.debut.slice(0, 10)}>le {enClair(prochain.data.debut.slice(0, 10))}</time>
+            : prochain.data.dateIncertaine}, {prochain.data.lieu}. {prochain.data.accesLibelle}.
+          {' '}<a href={`/evenements/${prochain.id}`}>La fiche du rendez‑vous</a>.
+        </p>
+      )}
+      <p class="body">Vous portez un projet de terrain et il vous manque l'argent pour le mener ? La Fondation étudie les dossiers et répond sous un mois. <a href="/associations">Comment candidater</a>.</p>
     </div>
   </section>
 </Base>

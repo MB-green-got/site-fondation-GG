@@ -45,8 +45,8 @@ const jsonLd = [
   description="La Fondation Green-Got est une fondation abritée par la Fondation de France. Qui nous sommes, comment les projets sont choisis, qui siège au comité et d'où vient l'argent."
   route="/la-fondation"
   chemin={chemin}
-  image="/img/hero.jpg"
-  imageAlt="Une femme porte son enfant dans un sous-bois au soleil couchant"
+  image="/img/partage-la-fondation.jpg"
+  imageAlt="La Fondation Green-Got, qui nous sommes et qui décide"
   jsonLd={jsonLd}
 >
   <section class="mhero" aria-labelledby="h-fond">
@@ -56,7 +56,7 @@ const jsonLd = [
       <p class="body lg">Des associations soutenues de Roubaix à Bali. Une berge qu'on nettoie, une ferme qui s'installe, des chercheurs qui mesurent ce que personne ne mesure.</p>
       <div class="cta">
         <a class="btn btn-p" href="/projets">Voir les projets</a>
-        <a class="btn" href="/evenements">Venir sur le terrain</a>
+        <a class="btn btn-o" href="/evenements">Venir sur le terrain</a>
       </div>
       <Signature publieLe={publieLe} modifieLe={modifieLe} />
     </div>
@@ -83,7 +83,7 @@ const jsonLd = [
   </section>
 
   <section class="sect light" id="gouvernance" aria-labelledby="h-gv">
-    <div class="container">
+    <div class="container lisible">
       <h2 id="h-gv">Qui décide, et qui verse.</h2>
 
       <p class="body">La Fondation Green‑Got est une {fondation.statut}. Elle est financée par le mécénat de <a href={fondation.fondateur.url} target="_blank" rel="noopener">Green‑Got</a>, {fondation.fondateur.qualite}.</p>
@@ -99,7 +99,7 @@ const jsonLd = [
   </section>
 
   <section class="fin" id="rencontrer" aria-labelledby="h-fin">
-    <div class="container">
+    <div class="container lisible">
       <h2 id="h-fin">Le reste ne s'écrit pas. On vous emmène.</h2>
       <p class="body">Une berge qu'on nettoie, une ferme qui s'installe, des chercheurs qui montrent leurs relevés. Nos rendez‑vous sont gratuits et ouverts à tous, et les questions se posent à ceux qui font le travail.</p>
       <p class="body">Le programme des prochains rendez‑vous dit le lieu, l'horaire et qui peut venir. <a href="/evenements">Nous rencontrer</a>.</p>

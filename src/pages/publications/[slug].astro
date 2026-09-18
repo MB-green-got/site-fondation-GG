@@ -43,11 +43,11 @@ const jsonLd = [{
   description={d.description}
   route="/publications"
   chemin={chemin}
-  image={d.image.fichier ? `/img/${d.image.fichier}.jpg` : '/img/hero.jpg'}
-  imageAlt={d.image.alt ?? fondation.nom}
+  image={`/img/partage-publications-${pub.id}.jpg`}
+  imageAlt={`${fondation.nom}, ${d.titrePage ?? d.nom ?? d.titre}`}
   jsonLd={jsonLd}
 >
-  <section class="phero">
+  <section class="phero simple">
     <div class="container">
       <FilAriane chemin={chemin} />
       <p class="ameta">{d.type === 'article' ? 'Article' : d.type === 'video' ? 'Vidéo' : 'Documentaire'}{d.duree && <span>{d.duree}</span>}</p>
@@ -75,7 +75,7 @@ const jsonLd = [{
           <dd>{d.duree ?? <AValider court quoi="durée" />}</dd>
         </div>
       </dl>
-      <p class="body"><a class="btn" href="/publications">Toutes les publications</a></p>
+      <p class="body"><a class="btn btn-o" href="/publications">Toutes les publications</a></p>
     </div>
   </section>
 </Base>

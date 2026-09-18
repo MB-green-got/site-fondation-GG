@@ -40,8 +40,8 @@ const jsonLd = [{
   route="/evenements"
   classePage="evpage"
   chemin={chemin}
-  image="/img/depol.jpg"
-  imageAlt="Un bénévole porte des sacs de déchets collectés"
+  image="/img/partage-evenements.jpg"
+  imageAlt="Les rendez-vous de la Fondation Green-Got"
   jsonLd={jsonLd}
 >
   <section class="sect evprog">
@@ -55,16 +55,19 @@ const jsonLd = [{
 
       <div class="evlist">
         {evs.map((e) => (
-          <a class="evrow" href={`/evenements/${e.id}`}>
+          <a class={`evrow${e.data.acces === 'ouvert' ? ' open' : ''}`} href={`/evenements/${e.id}`}>
             <span class={`dt${e.data.debut ? '' : ' soft'}`}>
               {e.data.debut
-                ? <time datetime={e.data.debut.slice(0, 10)}>{enClair(e.data.debut.slice(0, 10))}</time>
-                : e.data.dateIncertaine}
+                ? <time datetime={e.data.debut.slice(0, 10)}>
+                    <span class="d">{Number(e.data.debut.slice(8, 10))}</span>
+                    <span class="m">{new Intl.DateTimeFormat('fr-FR', { month: 'short', year: 'numeric' }).format(new Date(e.data.debut))}</span>
+                  </time>
+                : <><span class="d">{e.data.dateIncertaine.replace(/\s20\d\d$/, '')}</span><span class="m">dates à confirmer</span></>}
             </span>
-            <span class="ob"><b>{e.data.resume}</b><span>{e.data.avec}</span></span>
-            <span class="lo">{e.data.lieu}</span>
-            <span class={`tag${e.data.acces === 'ouvert' ? ' open' : e.data.acces === 'membres' ? ' soon' : ''}`}>{e.data.accesLibelle}</span>
-            <span class="go">Voir la fiche</span>
+            <span class="ti"><b>{e.data.resume}</b><span class="wi">{e.data.avec}</span></span>
+            <span class="pl">{e.data.lieu}{e.data.lieuPrecision && <span>{e.data.lieuPrecision}</span>}</span>
+            <span class="ac"><span class={`tag${e.data.acces === 'ouvert' ? ' open' : e.data.acces === 'membres' ? ' soon' : ''}`}>{e.data.accesLibelle}</span></span>
+            <span class="go">Voir la fiche <span aria-hidden="true">→</span></span>
           </a>
         ))}
       </div>

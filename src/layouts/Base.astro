@@ -23,8 +23,13 @@ const {
   chemin = [],
   classePage = '',
   jsonLd = [],
-  image = '/img/hero.jpg',
-  imageAlt = 'Une femme porte son enfant dans un sous-bois au soleil couchant',
+  /*
+    La carte de partage par défaut, 1200 sur 630, produite par
+    outils/image-partage.mjs. L'ancienne pointait vers hero.jpg, qui fait
+    1000 sur 676 et reste sous le format attendu par les réseaux.
+  */
+  image = '/img/partage.jpg',
+  imageAlt = 'Fondation Green-Got, on finance ce qui ne rapporte rien',
 } = Astro.props;
 
 if (!titre) throw new Error(`Page sans titre, ${Astro.url.pathname}. Le titre est obligatoire.`);

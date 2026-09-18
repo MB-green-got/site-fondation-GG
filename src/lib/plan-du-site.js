@@ -16,6 +16,7 @@ const statiques = [
   { url: '/projets', modifieLe: '2026-09-18', titre: 'Les projets financés', description: 'Tous les projets financés par la Fondation Green-Got, rangés en trois piliers, la terre, la mer, la recherche et l\'éducation.' },
   { url: '/evenements', modifieLe: '2026-09-18', titre: 'Les rendez-vous', description: 'Le programme des rendez-vous de la Fondation Green-Got, dépollutions, visites de fermes et rencontres avec les chercheurs financés.' },
   { url: '/publications', modifieLe: '2026-09-18', titre: 'Publications', description: 'Les documentaires et les films produits dans le cadre de la Fondation Green-Got.' },
+  { url: '/nous-soutenir', modifieLe: '2026-09-18', titre: 'Nous soutenir', description: "Le cadre fiscal des dons à la Fondation Green-Got, qui émet les reçus, et les autres façons de soutenir le travail des projets financés." },
   { url: '/associations', modifieLe: '2026-09-18', titre: 'Associations, candidater', description: 'Les quatre étapes de la candidature à un soutien de la Fondation Green-Got, et le délai de réponse.' },
   { url: '/contact', modifieLe: '2026-09-18', titre: 'Contact', description: 'Qui joindre à la Fondation Green-Got selon le sujet.' },
   { url: '/mentions-legales', modifieLe: '2026-09-18', titre: 'Mentions légales', description: 'Éditeur, hébergement, propriété intellectuelle et crédits du site.' },

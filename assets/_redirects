@@ -11,11 +11,7 @@
 /productions                       /publications              301
 /contacter                         /contact                   301
 
-# Nous soutenir. La page n'est pas reprise, la seule voie de soutien décrite
-# par l'ancien site passait par la carte et l'arrondi, ce que les règles
-# éditoriales interdisent. La question figure sur Faits et chiffres, marquée
-# À VALIDER, en attente d'une voie de don qui ne passe pas par un compte.
-/nous-soutenir                     /faits-et-chiffres         301
+# /nous-soutenir garde son adresse, la page existe de nouveau.
 
 # Les trois combats de l'ancien site deviennent trois ancres d'une seule page.
 /nos-combats/pesticides            /nos-combats#pesticides            301
