@@ -1,0 +1,81 @@
+---
+/*
+  Une page par publication. Les vidéos ne sont pas intégrées directement,
+  une intégration YouTube dépose des traceurs chez le visiteur avant tout
+  consentement. On lie vers la vidéo, la lecture sur place demanderait un
+  lecteur sans cookie et une mention dans la politique de confidentialité.
+*/
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import FilAriane from '../../components/FilAriane.astro';
+import Signature from '../../components/Signature.astro';
+import AValider from '../../components/AValider.astro';
+import { fondation } from '../../data/fondation.js';
+
+export async function getStaticPaths() {
+  const pubs = await getCollection('publications');
+  return pubs.map((p) => ({ params: { slug: p.id }, props: { pub: p } }));
+}
+
+const { pub } = Astro.props;
+const d = pub.data;
+const url = `https://fondation.green-got.com/publications/${pub.id}`;
+const chemin = [{ libelle: 'Publications', url: '/publications' }, { libelle: d.titre }];
+
+const jsonLd = [{
+  '@type': d.type === 'article' ? 'Article' : 'VideoObject',
+  '@id': `${url}#publication`,
+  name: d.titre,
+  headline: d.titrePage,
+  description: d.description,
+  inLanguage: 'fr-FR',
+  datePublished: d.publieLe,
+  dateModified: d.modifieLe,
+  ...(d.auteur ? { author: { '@type': 'Person', name: d.auteur } } : {}),
+  ...(d.image.fichier ? { thumbnailUrl: `https://fondation.green-got.com/img/${d.image.fichier}.jpg` } : {}),
+  ...(d.lien ? { url: d.lien } : {}),
+  publisher: { '@id': 'https://fondation.green-got.com/#organisation' },
+  mainEntityOfPage: url,
+}];
+---
+<Base
+  titre={`${d.titrePage} · ${fondation.nom}`}
+  description={d.description}
+  route="/publications"
+  chemin={chemin}
+  image={d.image.fichier ? `/img/${d.image.fichier}.jpg` : '/img/hero.jpg'}
+  imageAlt={d.image.alt ?? fondation.nom}
+  jsonLd={jsonLd}
+>
+  <section class="phero">
+    <div class="container">
+      <FilAriane chemin={chemin} />
+      <p class="ameta">{d.type === 'article' ? 'Article' : d.type === 'video' ? 'Vidéo' : 'Documentaire'}{d.duree && <span>{d.duree}</span>}</p>
+      <h1>{d.titre}</h1>
+      <p class="body lg">{d.resume}</p>
+      <Signature publieLe={d.publieLe} modifieLe={d.modifieLe} auteur={d.auteur} />
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="container">
+      <div class="dl">
+        <div>
+          <dt>Réalisation</dt>
+          <dd>{d.realisation ?? <AValider quoi={d.realisationAValider} />}</dd>
+        </div>
+        <div>
+          <dt>Où le voir</dt>
+          <dd>{d.lien
+            ? <a href={d.lien} target="_blank" rel="noopener">{d.lien.replace(/^https?:\/\/(www\.)?/, '')}</a>
+            : <AValider quoi={d.lienAValider} />}</dd>
+        </div>
+        <div>
+          <dt>Durée</dt>
+          <dd>{d.duree ?? <AValider court quoi="durée" />}</dd>
+        </div>
+      </div>
+      <p class="body"><a class="btn" href="/publications">Toutes les publications</a></p>
+    </div>
+  </section>
+</Base>

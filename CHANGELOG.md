@@ -132,3 +132,27 @@ Tous les chiffres de Nos combats portent leur source liée et leur date, quinze 
 Récupéré de la maquette et ajouté à la fiche d'identité. Les rôles des cinq membres du comité, Andréa Ganovelli président, Aurélie Baulard directrice, Chloé Charrier voix des salariés, Marianne Josselin administratrice ChangeNOW, Thibaut Gabrillargues administrateur rivaje. L'ensemble reste marqué À VALIDER jusqu'à ta confirmation. La maquette portait aussi « près de 2 millions d'euros collectés depuis 2022 », sans source liée, cette valeur est rappelée dans le texte de la mention À VALIDER du montant cumulé, sans être présentée comme un fait.
 
 **Écart avec PLAN.md, à te signaler.** Le plan proposait de conserver trois pages de combat séparées, reprises du site en ligne. Elles ne sont pas créées. Ton arborescence cible n'en prévoit pas, la maquette documente deux combats sur une seule page, et créer une page PFAS trancherait à ta place la question du nombre de combats. Les trois adresses du site en ligne recevront donc une redirection permanente vers les ancres de la page Nos combats, `#pesticides`, `#pollution-plastique` et `#pfas`, au lot 10.
+
+### Lots 5 à 8, Faits et chiffres, Évènements, Publications et pages légales, 18 septembre 2026
+
+Vingt-six pages dans le site.
+
+**Faits et chiffres**, la source canonique. Seize questions, douze répondues et balisées en `FAQPage`, quatre sans réponse qui gardent leur question, affichent À VALIDER et n'entrent pas dans les données structurées. On ne met pas dans le balisage une réponse qu'on n'a pas. La page le dit en clair, si une information diffère ailleurs, c'est celle-ci qui fait foi.
+
+Les réponses reprises de la FAQ de Green-Got ont été réécrites. Trois d'entre elles enfreignaient les règles. La réponse sur le financement décrivait la commission encaissée par « la banque qui a permis la transaction, celle de votre carte », elle est remplacée par « Par le mécénat de Green-Got » et un renvoi vers la page La Fondation, qui est la seule page où le financement est décrit. La réponse sur la déduction fiscale passait par l'arrondi et la carte, elle est réécrite sur l'article 200 du code général des impôts et la Fondation de France. La réponse sur la façon de soutenir la Fondation était entièrement bâtie sur la carte et l'arrondi, elle n'a pas de remplaçante et passe donc en À VALIDER, il manque une voie de don qui ne passe pas par l'ouverture d'un compte.
+
+Une question a été ajoutée, « La Fondation Green-Got est-elle une banque ? », dont la réponse est non. C'est la question qu'un moteur de réponse posera, autant y répondre nous-mêmes.
+
+**Évènements.** Les quatre rendez-vous sortent du JavaScript et deviennent quatre pages. Le balisage `Event`, qui n'existait que pour le 17 septembre et vivait dans l'en-tête commun, est maintenant posé sur chaque fiche à partir de ses propres données. Un rendez-vous dont la date n'est pas arrêtée ne reçoit pas de `startDate` inventée, il sort du balisage et sa période s'affiche en clair.
+
+**Publications.** Les deux documentaires du site en ligne sont rapatriés, « Les Rivières Mortes » et « Éternels, vivre avec les PFAS », ainsi que le film sur FEVE et son lien YouTube. Aucun n'a de date de sortie, de cinéaste ni de durée pour deux d'entre eux, tout cela est en À VALIDER. Aucun article n'est publié à ce jour et la page le dit, plutôt que d'afficher une liste vide.
+
+La vidéo n'est pas intégrée dans la page. Une intégration YouTube dépose des traceurs chez le visiteur avant tout consentement, ce qui contredirait la politique de confidentialité. Le film est lié.
+
+**Pages légales.** Reprises de la maquette. Les champs manquants s'affichent en À VALIDER, il est donc impossible de publier ces pages sans voir ce qui reste à compléter, ce qui était le défaut de la maquette, sa fonction `pruneTodo` effaçait certaines mentions et en laissait passer d'autres.
+
+Une mention a été ajoutée aux mentions légales. La qualification juridique y est écrite « fondation abritée », alors que la maquette écrivait « fonds abrité ». C'est la page où cette erreur coûte le plus cher, elle porte donc sa propre mention À VALIDER.
+
+Le contrôle automatique a été affiné. Il refusait la page Faits et chiffres à cause de la question « La Fondation Green-Got est-elle une banque ? ». Il découpe maintenant le texte en phrases, ignore les questions et les négations, et ignore les tournures qui désignent les banques tierces, qui sont le positionnement de la maison.
+
+Trouvé dans le site en ligne et non repris. Une adresse électronique, `contact@fondation-greengot.org`, sur un nom de domaine qui n'est pas celui du site. Elle n'est pas publiée, la page Contact porte une mention À VALIDER à la place.

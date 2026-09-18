@@ -1,0 +1,52 @@
+---
+/*
+  Politique de confidentialité. Reprise de la maquette, à faire valider par
+  le juridique. Le site ne fait aucun appel à un tiers, les polices sont
+  servies depuis ce site et aucune vidéo n'est intégrée depuis YouTube.
+*/
+import Base from '../layouts/Base.astro';
+import FilAriane from '../components/FilAriane.astro';
+import Signature from '../components/Signature.astro';
+import AValider from '../components/AValider.astro';
+import { fondation } from '../data/fondation.js';
+
+const chemin = [{ libelle: 'Confidentialité' }];
+const publieLe = '2026-09-18';
+const modifieLe = '2026-09-18';
+---
+<Base
+  titre={`Politique de confidentialité · ${fondation.nom}`}
+  description="Ce que le site de la Fondation Green-Got collecte, ce qu'il ne collecte pas, et comment exercer vos droits sur vos données."
+  route="/confidentialite"
+  chemin={chemin}
+>
+  <section class="phero">
+    <div class="container">
+      <FilAriane chemin={chemin} />
+      <h1>Politique de confidentialité</h1>
+      <Signature publieLe={publieLe} modifieLe={modifieLe} />
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="container">
+      <h2>Ce que ce site collecte</h2>
+      <p class="body">Ce site ne dépose aucun cookie de mesure d'audience ni de publicité et n'utilise aucun traceur tiers. Il ne collecte aucune donnée personnelle par lui‑même. Les polices de caractères sont servies depuis ce site, aucune requête n'est adressée à un service tiers, ni pour les polices, ni pour autre chose. Les vidéos ne sont pas intégrées dans les pages, elles sont liées, une intégration déposerait des traceurs avant votre consentement. Votre adresse IP n'est donc transmise à personne d'autre que l'hébergeur du site.</p>
+
+      <h2>Inscription aux évènements</h2>
+      <p class="body">Lorsque vous vous inscrivez à un rendez-vous, les données saisies dans le formulaire, nom, prénom et adresse électronique, sont traitées par Green‑Got pour organiser le rendez-vous et vous en confirmer les modalités. Base légale, l'exécution de votre demande. Destinataires, l'équipe Impact de Green‑Got et, pour les besoins logistiques, l'association partenaire.</p>
+      <AValider quoi="La durée de conservation des données d'inscription aux rendez-vous." />
+
+      <h2>Vos droits</h2>
+      <p class="body">Conformément au règlement (UE) 2016/679 du 27 avril 2016 et à la loi n° 78‑17 du 6 janvier 1978 modifiée, vous disposez d'un droit d'accès, de rectification, d'effacement, d'opposition et de limitation sur vos données. Vous pouvez aussi saisir la CNIL.</p>
+      <AValider quoi="L'adresse électronique du délégué à la protection des données de Green-Got, auprès de qui ces droits s'exercent." />
+
+      <h2>Mesure d'audience</h2>
+      <p class="body">Aucun outil de mesure d'audience n'est installé sur ce site à ce jour.</p>
+      <AValider quoi="L'outil de mesure d'audience retenu, s'il y en a un, et sa mention ici. Le site actuel charge un traceur qui n'est pas décrit dans cette politique." />
+
+      <h2>Liens externes</h2>
+      <p class="body">Les liens vers les sites des associations partenaires et vers green‑got.com ouvrent des sites tiers, qui appliquent leurs propres politiques de confidentialité.</p>
+    </div>
+  </section>
+</Base>

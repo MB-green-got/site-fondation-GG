@@ -39,13 +39,36 @@ function texte(html) {
     .trim();
 }
 
-/* Formulations interdites, elles associeraient Green-Got à une banque. */
-const BANQUE_INTERDITE = [
+/*
+  Le mot banque associé à Green-Got.
+
+  On découpe le texte en phrases et on ne retient que celles qui parlent à la
+  fois de Green-Got et d'une banque. Une phrase qui nie l'association, du type
+  « Green-Got n'est pas une banque », est correcte et ne doit pas être signalée,
+  sinon la page qui pose la question explicitement serait refusée.
+*/
+const BANQUE_TOUJOURS_INTERDITE = [
   /votre banque/i,
-  /Green[-‑]Got[^.]{0,60}\bbanque\b/i,
   /\bla banque\b[^.]{0,40}\bvotre carte\b/i,
   /banque\s+Green[-‑]Got/i,
 ];
+
+const NEGATION = /\b(n'est (pas|ni)|ne sont pas|pas une banque|ni une banque|non\b|jamais)/i;
+
+function phrasesDouteuses(txt) {
+  const trouvees = [];
+  for (const phrase of txt.split(/(?<=[.!?])\s+/)) {
+    if (!/Green[-‑]Got/i.test(phrase)) continue;
+    if (!/\bbanques?\b|\bbancaires?\b/i.test(phrase)) continue;
+    /* Une question n'affirme rien, « La Fondation Green-Got est-elle une banque ? » est légitime. */
+    if (phrase.trim().endsWith('?')) continue;
+    /* Le système bancaire et les banques tierces sont le positionnement de la maison. */
+    if (/système bancaire|les banques|des banques|crédit bancaire|secteur bancaire|financements bancaires/i.test(phrase)) continue;
+    if (NEGATION.test(phrase)) continue;
+    trouvees.push(phrase.trim());
+  }
+  return trouvees;
+}
 
 const MOTS_PROSCRITS = [
   /éco[-\s]?responsable/i,
@@ -81,9 +104,12 @@ for (const f of liste) {
   }
 
   /* 3. Le mot banque associé à Green-Got */
-  for (const r of BANQUE_INTERDITE) {
+  for (const r of BANQUE_TOUJOURS_INTERDITE) {
     const m = txt.match(r);
     if (m) erreurs.push(`${nom} associe Green-Got à une banque, « ${m[0]} ». Green-Got est un établissement de paiement et un service financier.`);
+  }
+  for (const phrase of phrasesDouteuses(txt)) {
+    erreurs.push(`${nom} associe Green-Got à une banque, « ${phrase.slice(0, 120)} ». Green-Got est un établissement de paiement et un service financier.`);
   }
 
   /* 4. Mots proscrits */

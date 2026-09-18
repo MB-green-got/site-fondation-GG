@@ -1,0 +1,53 @@
+---
+/*
+  Mentions légales. Reprises de la maquette, à faire valider par le juridique.
+  Les champs manquants s'affichent en À VALIDER, il est donc impossible de
+  mettre cette page en ligne sans voir ce qui reste à compléter.
+*/
+import Base from '../layouts/Base.astro';
+import FilAriane from '../components/FilAriane.astro';
+import Signature from '../components/Signature.astro';
+import AValider from '../components/AValider.astro';
+import { fondation } from '../data/fondation.js';
+
+const chemin = [{ libelle: 'Mentions légales' }];
+const publieLe = '2026-09-18';
+const modifieLe = '2026-09-18';
+---
+<Base
+  titre={`Mentions légales · ${fondation.nom}`}
+  description="Éditeur, hébergement, propriété intellectuelle et crédits du site de la Fondation Green-Got."
+  route="/mentions-legales"
+  chemin={chemin}
+>
+  <section class="phero">
+    <div class="container">
+      <FilAriane chemin={chemin} />
+      <h1>Mentions légales</h1>
+      <p class="body">Informations exigées par l'article 6 III de la loi n° 2004‑575 du 21 juin 2004 pour la confiance dans l'économie numérique, applicable à tout éditeur d'un service de communication au public en ligne établi en France.</p>
+      <Signature publieLe={publieLe} modifieLe={modifieLe} />
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="container">
+      <h2>Éditeur du site</h2>
+      <p class="body">Green‑Got, {fondation.fondateur.qualite}.</p>
+      <AValider quoi="La forme sociale, le capital, le numéro RCS et l'adresse du siège de Green-Got, le nom du directeur de la publication et l'adresse électronique de contact." />
+
+      <h2>La Fondation Green‑Got</h2>
+      <p class="body">La Fondation Green‑Got est une {fondation.statut}, fondation reconnue d'utilité publique, 40 avenue Hoche, 75008 Paris. Elle n'a pas de personnalité juridique propre. La Fondation de France porte son cadre juridique, fiscal et administratif, valide et exécute chaque versement et émet les reçus fiscaux.</p>
+      <AValider quoi="La qualification exacte, fonds abrité ou fondation abritée. La maquette écrivait « fonds abrité », qui n'est pas la même chose juridiquement. Cette page est celle où l'erreur coûte le plus cher." />
+
+      <h2>Hébergement</h2>
+      <AValider quoi="Le nom, la raison sociale, l'adresse et le téléphone de l'hébergeur retenu." />
+
+      <h2>Propriété intellectuelle</h2>
+      <p class="body">Les textes, photographies, logos et éléments graphiques de ce site sont la propriété de Green‑Got ou de leurs auteurs respectifs. Les photographies des associations partenaires sont reproduites avec leur accord. Toute reproduction sans autorisation est interdite.</p>
+
+      <h2>Crédits</h2>
+      <p class="body">Conception et réalisation, équipe Impact de Green‑Got. Les polices de caractères sont Terrane Sans pour les titres et Instrument Sans pour le texte courant, cette dernière sous licence SIL Open Font License 1.1.</p>
+      <AValider quoi="Les crédits photographiques, image par image." />
+    </div>
+  </section>
+</Base>

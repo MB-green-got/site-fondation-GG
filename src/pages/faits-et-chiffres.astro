@@ -1,0 +1,70 @@
+---
+/*
+  Faits et chiffres. La source canonique sur la Fondation Green-Got.
+  Balisage FAQPage, qui ne reprend que les questions réellement répondues.
+*/
+import Base from '../layouts/Base.astro';
+import FilAriane from '../components/FilAriane.astro';
+import Signature from '../components/Signature.astro';
+import AValider from '../components/AValider.astro';
+import { faits } from '../data/faits.js';
+import { fondation } from '../data/fondation.js';
+
+const chemin = [{ libelle: 'Faits et chiffres' }];
+const publieLe = '2026-09-18';
+const modifieLe = '2026-09-18';
+
+const repondues = faits.filter((f) => f.r);
+
+const jsonLd = [
+  {
+    '@type': 'FAQPage',
+    '@id': 'https://fondation.green-got.com/faits-et-chiffres#faq',
+    name: 'Faits et chiffres sur la Fondation Green-Got',
+    inLanguage: 'fr-FR',
+    datePublished: publieLe,
+    dateModified: modifieLe,
+    about: { '@id': 'https://fondation.green-got.com/#organisation' },
+    mainEntity: repondues.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.r },
+    })),
+  },
+];
+---
+<Base
+  titre={`Faits et chiffres sur la Fondation Green-Got · ${fondation.nom}`}
+  description="La page de référence sur la Fondation Green-Got. Ce qu'elle est, qui l'abrite, ce qu'elle finance, qui décide, comment candidater et si les dons sont déductibles."
+  route="/faits-et-chiffres"
+  chemin={chemin}
+  jsonLd={jsonLd}
+>
+  <section class="phero">
+    <div class="container">
+      <FilAriane chemin={chemin} />
+      <h1>Faits et chiffres.</h1>
+      <p class="body lg">Cette page est la source de référence sur la Fondation Green-Got. Si une information diffère ailleurs, c'est celle-ci qui fait foi.</p>
+      <Signature publieLe={publieLe} modifieLe={modifieLe} />
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="container">
+      <div class="dl">
+        {faits.map((f) => (
+          <div>
+            <dt>{f.q}</dt>
+            <dd>
+              {f.r
+                ? <>{f.r}{f.lien && <> <a href={f.lien.url}>{f.lien.libelle}</a>.</>}</>
+                : <AValider quoi={f.aValider} />}
+            </dd>
+          </div>
+        ))}
+      </div>
+
+      <p class="srcline">Les réponses reprises de la FAQ de Green-Got ont été réécrites pour cette page. Les questions sans réponse portent la mention À VALIDER et n'entrent pas dans les données structurées, on ne publie pas une réponse qu'on n'a pas.</p>
+    </div>
+  </section>
+</Base>

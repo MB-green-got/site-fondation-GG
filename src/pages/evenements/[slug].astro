@@ -1,0 +1,102 @@
+---
+/*
+  Une page par rendez-vous. Le balisage Event de la maquette, qui n'existait
+  que pour le 17 septembre et vivait dans l'en-tête commun, est maintenant
+  posé sur chaque fiche, à partir de ses propres données.
+
+  Un rendez-vous dont la date n'est pas arrêtée ne reçoit pas de startDate
+  inventée, il sort du balisage Event et sa période s'affiche en clair.
+*/
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import FilAriane from '../../components/FilAriane.astro';
+import Signature from '../../components/Signature.astro';
+import AValider from '../../components/AValider.astro';
+import { fondation } from '../../data/fondation.js';
+
+export async function getStaticPaths() {
+  const evs = await getCollection('evenements');
+  return evs.map((e) => ({ params: { slug: e.id }, props: { ev: e } }));
+}
+
+const { ev } = Astro.props;
+const d = ev.data;
+const url = `https://fondation.green-got.com/evenements/${ev.id}`;
+const chemin = [{ libelle: 'Évènements', url: '/evenements' }, { libelle: d.resume }];
+
+const jsonLd = [];
+if (d.debut) {
+  jsonLd.push({
+    '@type': 'Event',
+    '@id': `${url}#event`,
+    name: `${d.resume}, ${d.avec}`,
+    description: d.lede,
+    startDate: d.debut,
+    ...(d.fin ? { endDate: d.fin } : {}),
+    eventStatus: 'https://schema.org/EventScheduled',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    location: {
+      '@type': 'Place',
+      name: `${d.lieu}${d.lieuPrecision ? `, ${d.lieuPrecision}` : ''}`,
+      address: { '@type': 'PostalAddress', ...(d.ville ? { addressLocality: d.ville } : {}), addressCountry: 'FR' },
+    },
+    organizer: { '@id': 'https://fondation.green-got.com/#organisation' },
+    isAccessibleForFree: d.acces === 'ouvert',
+    url,
+  });
+}
+jsonLd.push({
+  '@type': 'Article',
+  '@id': `${url}#article`,
+  headline: d.titrePage,
+  description: d.description,
+  inLanguage: 'fr-FR',
+  datePublished: d.publieLe,
+  dateModified: d.modifieLe,
+  ...(d.auteur ? { author: { '@type': 'Person', name: d.auteur } } : {}),
+  publisher: { '@id': 'https://fondation.green-got.com/#organisation' },
+  mainEntityOfPage: url,
+});
+---
+<Base
+  titre={`${d.titrePage} · ${fondation.nom}`}
+  description={d.description}
+  route="/evenements"
+  classePage="evpage"
+  chemin={chemin}
+  image={d.image.fichier ? `/img/${d.image.fichier}.jpg` : '/img/depol.jpg'}
+  imageAlt={d.image.alt ?? 'Un bénévole porte des sacs de déchets collectés'}
+  jsonLd={jsonLd}
+>
+  <section class="phero">
+    <div class="container">
+      <FilAriane chemin={chemin} />
+      <p class="ameta">
+        <span class={`tag${d.acces === 'ouvert' ? ' open' : d.acces === 'membres' ? ' soon' : ''}`}>{d.accesLibelle}</span>
+        {d.badge && <span>{d.badge}</span>}
+      </p>
+      <h1>{d.h1}</h1>
+      <p class="body lg">{d.lede}</p>
+      {d.projetLie && <p class="body">Le projet que la Fondation finance sur ce terrain, <a href={`/projets/${d.projetLie}`}>voir la fiche</a>.</p>}
+      <Signature publieLe={d.publieLe} modifieLe={d.modifieLe} auteur={d.auteur} />
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="container">
+      <div class="dl">
+        <h2>En pratique</h2>
+        {d.pratique.map((c) => (
+          <div><dt>{c.intitule}</dt><dd>{c.valeur}. {c.precision}</dd></div>
+        ))}
+        <div>
+          <dt>Inscription</dt>
+          <dd>{d.inscription
+            ? <a href={d.inscription} target="_blank" rel="noopener">S'inscrire</a>
+            : <AValider quoi={d.inscriptionAValider} />}</dd>
+        </div>
+      </div>
+      <p class="body"><a class="btn" href="/evenements">Tous les rendez-vous</a></p>
+    </div>
+  </section>
+</Base>

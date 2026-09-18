@@ -62,4 +62,62 @@ const projets = defineCollection({
   }),
 });
 
-export const collections = { projets };
+const evenements = defineCollection({
+  loader: glob({ base: './src/content/evenements', pattern: '**/*.md' }),
+  schema: z.object({
+    titrePage: z.string(),
+    description: z.string(),
+    h1: z.string(),
+    resume: z.string(),
+    avec: z.string(),
+    /* Une date arrêtée, ou null et alors dateIncertaine porte la période. */
+    debut: z.string().nullable(),
+    fin: z.string().nullable(),
+    dateIncertaine: z.string().nullable(),
+    lieu: z.string(),
+    lieuPrecision: z.string().nullable(),
+    ville: z.string().nullable(),
+    acces: z.enum(['ouvert', 'membres-plus-un', 'membres']),
+    accesLibelle: z.string(),
+    badge: z.string().nullable(),
+    lede: z.string(),
+    projetLie: z.string().nullable(),
+    pratique: z.array(z.object({
+      intitule: z.string(),
+      valeur: z.string(),
+      precision: z.string(),
+    })),
+    inscription: z.string().url().nullable(),
+    inscriptionAValider: z.string().nullable(),
+    image: z.object({ fichier: z.string().nullable(), alt: z.string().nullable() }),
+    ordre: z.number(),
+    publieLe: z.string(),
+    modifieLe: z.string(),
+    auteur: z.string().nullable(),
+  }),
+});
+
+const publications = defineCollection({
+  loader: glob({ base: './src/content/publications', pattern: '**/*.md' }),
+  schema: z.object({
+    titre: z.string(),
+    titrePage: z.string(),
+    description: z.string(),
+    type: z.enum(['documentaire', 'video', 'article']),
+    resume: z.string(),
+    duree: z.string().nullable(),
+    realisation: z.string().nullable(),
+    realisationAValider: z.string().nullable(),
+    lien: z.string().url().nullable(),
+    lienAValider: z.string().nullable(),
+    /* Identifiant YouTube, la vidéo n'est jamais intégrée par défaut, voir la page. */
+    video: z.string().nullable(),
+    image: z.object({ fichier: z.string().nullable(), alt: z.string().nullable() }),
+    ordre: z.number(),
+    publieLe: z.string(),
+    modifieLe: z.string(),
+    auteur: z.string().nullable(),
+  }),
+});
+
+export const collections = { projets, evenements, publications };

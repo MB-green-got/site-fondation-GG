@@ -1,0 +1,67 @@
+---
+/*
+  Le programme. Une ligne par rendez-vous. Aucune phrase de la page ne compte
+  les rendez-vous, la liste compte toute seule.
+*/
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import FilAriane from '../../components/FilAriane.astro';
+import { fondation } from '../../data/fondation.js';
+import { enClair } from '../../lib/dates.js';
+
+const evs = (await getCollection('evenements')).sort((a, b) => a.data.ordre - b.data.ordre);
+const chemin = [{ libelle: 'Évènements' }];
+
+const jsonLd = [{
+  '@type': 'CollectionPage',
+  '@id': 'https://fondation.green-got.com/evenements#page',
+  name: 'Les rendez-vous de la Fondation Green-Got',
+  inLanguage: 'fr-FR',
+  isPartOf: { '@id': 'https://fondation.green-got.com/#site' },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: evs.map((e, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `https://fondation.green-got.com/evenements/${e.id}`,
+      name: e.data.resume,
+    })),
+  },
+}];
+---
+<Base
+  titre={`Où rencontrer la Fondation Green-Got ? · ${fondation.nom}`}
+  description="Les rendez-vous de la Fondation Green-Got. Le 17 septembre 2026 sur les quais de Seine avec Wings of the Ocean est ouvert à tous, les suivants passent d'abord par les membres."
+  route="/evenements"
+  classePage="evpage"
+  chemin={chemin}
+  image="/img/depol.jpg"
+  imageAlt="Un bénévole porte des sacs de déchets collectés"
+  jsonLd={jsonLd}
+>
+  <section class="sect evprog">
+    <div class="container">
+      <div class="head">
+        <FilAriane chemin={chemin} />
+        <h1>On se rencontre ?</h1>
+        <p class="lede">Aller voir les projets qu'on finance plutôt que d'en parler. Les membres Green‑Got sont prévenus en premier. <a href="https://greengot.helpkit.so/%C3%A0-propos-de-green-got/sF7ajAaCZDytPVFBLqsggN/nous-rencontrer/pcaJ34AkGhgAC5c6ocE6D7" target="_blank" rel="noopener">FAQ Green‑Got, « Nous rencontrer »</a></p>
+      </div>
+
+      <div class="evlist">
+        {evs.map((e) => (
+          <a class="evrow" href={`/evenements/${e.id}`}>
+            <span class={`dt${e.data.debut ? '' : ' soft'}`}>
+              {e.data.debut
+                ? <time datetime={e.data.debut.slice(0, 10)}>{enClair(e.data.debut.slice(0, 10))}</time>
+                : e.data.dateIncertaine}
+            </span>
+            <span class="ob"><b>{e.data.resume}</b><span>{e.data.avec}</span></span>
+            <span class="lo">{e.data.lieu}</span>
+            <span class={`tag${e.data.acces === 'ouvert' ? ' open' : e.data.acces === 'membres' ? ' soon' : ''}`}>{e.data.accesLibelle}</span>
+            <span class="go">Voir la fiche</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,72 @@
+---
+/*
+  Publications. Les documentaires et les vidéos produits dans le cadre de la
+  Fondation. Aucun article n'est publié à ce jour, la page le dit plutôt que
+  d'afficher une liste vide ou d'inventer un contenu.
+*/
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import FilAriane from '../../components/FilAriane.astro';
+import AValider from '../../components/AValider.astro';
+import { fondation } from '../../data/fondation.js';
+
+const pubs = (await getCollection('publications')).sort((a, b) => a.data.ordre - b.data.ordre);
+const articles = pubs.filter((p) => p.data.type === 'article');
+const chemin = [{ libelle: 'Publications' }];
+
+const jsonLd = [{
+  '@type': 'CollectionPage',
+  '@id': 'https://fondation.green-got.com/publications#page',
+  name: 'Les publications de la Fondation Green-Got',
+  inLanguage: 'fr-FR',
+  isPartOf: { '@id': 'https://fondation.green-got.com/#site' },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: pubs.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `https://fondation.green-got.com/publications/${p.id}`,
+      name: p.data.titre,
+    })),
+  },
+}];
+---
+<Base
+  titre={`Que publie la Fondation Green-Got ? · ${fondation.nom}`}
+  description="Les documentaires et les films produits dans le cadre de la Fondation Green-Got, sur les cours d'eau contaminés par les pesticides, les familles exposées aux PFAS et l'installation agricole."
+  route="/publications"
+  chemin={chemin}
+  jsonLd={jsonLd}
+>
+  <section class="phero">
+    <div class="container">
+      <FilAriane chemin={chemin} />
+      <h1>Ce qu'on donne à voir.</h1>
+      <p class="body lg">Les chiffres ne disent pas tout. Derrière chaque statistique, il y a des visages, des territoires et des vies. La Fondation travaille avec des cinéastes indépendants.</p>
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="container">
+      <h2>Films et documentaires</h2>
+      <ul class="alist plain">
+        {pubs.filter((p) => p.data.type !== 'article').map((p) => (
+          <li>
+            <a class="arow" href={`/publications/${p.id}`}>
+              <span class="an">{p.data.titre}</span>
+              <span class="ao">{p.data.resume}</span>
+              <span class="al">{p.data.duree ?? ''}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <h2>Articles</h2>
+      {articles.length > 0
+        ? <ul class="alist plain">{articles.map((p) => (
+            <li><a class="arow" href={`/publications/${p.id}`}><span class="an">{p.data.titre}</span><span class="ao">{p.data.resume}</span></a></li>
+          ))}</ul>
+        : <AValider quoi="Les articles de la Fondation. Aucun n'est publié à ce jour. Chaque article portera une date, un auteur nommé et ses sources, comme les autres pages du site." />}
+    </div>
+  </section>
+</Base>
