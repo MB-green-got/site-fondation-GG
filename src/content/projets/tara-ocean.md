@@ -23,17 +23,17 @@ chiffres:
     libelle: des échantillons d'eau de 9 fleuves européens contenaient des microplastiques
     date: '2019-11-30'
     sourceTitre: Fondation Tara Océan, Mission Microplastiques
-    sourceUrl: null
+    sourceUrl: https://fondationtaraocean.org/expedition/tara-microplastiques/
   - valeur: 70 000
     libelle: échantillons prélevés le long des côtes de 22 pays, mission TREC
     date: null
     sourceTitre: Fondation Tara Océan, mission TREC
-    sourceUrl: null
+    sourceUrl: https://fondationtaraocean.org/expedition/tara-microplastiques/
   - valeur: 14 mois
     libelle: de dérive dans la banquise à partir de juillet 2026
     date: '2026-07-01'
     sourceTitre: Fondation Tara Océan, Tara Polar Station
-    sourceUrl: null
+    sourceUrl: https://fondationtaraocean.org/goelette/tara-polar-station/
 
 partenaire:
   nom: Fondation Tara Océan

@@ -23,17 +23,17 @@ chiffres:
     libelle: contributions à la Grande Consultation des Agriculteurs
     date: null
     sourceTitre: The Shift Project, Grande Consultation des Agriculteurs
-    sourceUrl: null
+    sourceUrl: https://theshiftproject.org/publications/grande-consultation-agriculteurs/
   - valeur: 80 %
     libelle: des agriculteurs inquiets pour la viabilité de leur ferme
     date: null
     sourceTitre: The Shift Project, Grande Consultation des Agriculteurs
-    sourceUrl: null
+    sourceUrl: https://theshiftproject.org/publications/grande-consultation-agriculteurs/
   - valeur: 7 %
     libelle: seulement refusent d'engager la transition
     date: null
     sourceTitre: The Shift Project, Grande Consultation des Agriculteurs
-    sourceUrl: null
+    sourceUrl: https://theshiftproject.org/publications/grande-consultation-agriculteurs/
 
 partenaire:
   nom: The Shift Project

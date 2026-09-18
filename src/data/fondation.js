@@ -114,6 +114,9 @@ export const fondation = {
     'Page LinkedIn de la Fondation',
   ],
 
+  /* Adresse de contact, arrêtée le 18 septembre 2026. */
+  contact: 'impact@green-got.com',
+
   /* Auteur affiché sur les pages de contenu, arrêté le 18 septembre 2026. */
   auteurParDefaut: 'L\'équipe de la Fondation Green-Got',
 };

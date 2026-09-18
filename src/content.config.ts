@@ -18,6 +18,8 @@ const chiffre = z.object({
   sourceTitre: z.string(),
   /* L'adresse de la source. null vaut À VALIDER. */
   sourceUrl: z.string().url().nullable(),
+  /* Précision affichée quand la source n'a pas d'adresse publique. */
+  sourceAValider: z.string().nullable().default(null),
 });
 
 const personne = z.object({
@@ -89,6 +91,12 @@ const evenements = defineCollection({
     })),
     inscription: z.string().url().nullable(),
     inscriptionAValider: z.string().nullable(),
+    /*
+      Un rendez-vous envisagé n'est pas un rendez-vous. Il s'affiche avec sa
+      mention en clair, il n'entre pas dans le balisage Event, et sa ligne de
+      programme le dit. Rien d'envisagé n'est présenté comme un fait.
+    */
+    envisage: z.boolean().default(false),
     image: z.object({ fichier: z.string().nullable(), alt: z.string().nullable() }),
     ordre: z.number(),
     publieLe: z.string(),

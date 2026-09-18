@@ -357,3 +357,27 @@ Trois conséquences que ce choix crée et qu'il faut connaître. La source liée
 **Une seule source porte désormais les montants.** Ils vivent dans `src/data/soutiens.js` et non dans les fiches, aucune fiche ne peut donc diverger du registre. Le champ montant a été retiré du schéma des fiches.
 
 Les mentions À VALIDER passent de 101 à 64.
+
+### Lot 19, sources trouvées, contact et programmation envisagée, 18 septembre 2026
+
+**Vingt et une sources sur vingt-quatre ont été trouvées et vérifiées**, à la demande de Marie Bénédicte.
+
+| Projet | Source liée |
+|---|---|
+| FEVE, trois chiffres | Rapport d'activité 2024, PDF sur site.feve.co |
+| The Shift Project, trois chiffres | Grande Consultation des Agriculteurs, theshiftproject.org |
+| Tara Océan, trois chiffres | Pages Mission Microplastiques et Tara Polar Station |
+| Sungai Watch, trois chiffres | sungai.watch |
+| École de la Réparation, trois chiffres | lecoledelareparation.fr |
+
+Deux corrections au passage. Le domaine de Sungai Watch est `sungai.watch`, `sungaiwatch.com` n'est qu'une redirection, le lien partenaire pointe désormais vers le bon. Et l'École de la Réparation a bien un site, `lecoledelareparation.fr`, la fiche le disait absent.
+
+**Les trois chiffres de Wings of the Ocean n'ont pas de source publique.** L'association ne publie aucun rapport d'activité, les compteurs d'impact de son site affichent zéro et aucun bilan n'est téléchargeable. Une source secondaire évoque un peu plus de 3 tonnes collectées en 2024 sur 103 ramassages, là où la fiche en annonce 15,1. La mention À VALIDER reste en place et dit précisément cela, c'est à confirmer auprès de l'association.
+
+**Adresse de contact.** `impact@green-got.com`, appliquée sur la page Contact, dans les mentions légales et dans le balisage Organization. L'adresse `contact@fondation-greengot.org` trouvée sur le site en ligne n'a pas été reprise, son nom de domaine n'est pas celui du site.
+
+**Quatre rendez-vous envisagés ont été ajoutés**, à la demande de Marie Bénédicte, pour montrer la direction de la programmation. Comité exécutif ouvert aux membres, bilan 2026 et programmation 2027, collectes de ville en ville, run Green-Got.
+
+J'avais signalé que des rendez-vous inventés sur un site dont l'objet est d'être la source fiable vont contre le but du chantier. Trois garde-fous ont donc été posés pour que rien d'envisagé ne puisse passer pour un fait. Ils vivent dans une seconde liste, sous un titre qui dit « Ce qu'on aimerait mettre en place » et un chapeau qui précise que rien n'y est arrêté. Chaque fiche affiche la mention en orange dès le titre. Et **aucun n'entre dans le balisage `Event`**, vérifié, le seul `Event` du site reste celui du 17 septembre. Le contrôle automatique le confirme à chaque construction.
+
+Le site compte maintenant trente-trois pages. Les mentions À VALIDER passent de 64 à leur niveau actuel, les vingt et une sources trouvées en ayant retiré autant, les quatre rendez-vous envisagés en ayant ajouté.

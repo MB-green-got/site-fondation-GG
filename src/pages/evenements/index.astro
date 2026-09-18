@@ -10,7 +10,9 @@ import Signature from '../../components/Signature.astro';
 import { fondation } from '../../data/fondation.js';
 import { enClair } from '../../lib/dates.js';
 
-const evs = (await getCollection('evenements')).sort((a, b) => a.data.ordre - b.data.ordre);
+const tous = (await getCollection('evenements')).sort((a, b) => a.data.ordre - b.data.ordre);
+const evs = tous.filter((e) => !e.data.envisage);
+const envisages = tous.filter((e) => e.data.envisage);
 /* La date de mise à jour de l'index est celle de la fiche la plus récemment modifiée. */
 const modifieLe = evs.map((e) => e.data.modifieLe).sort().at(-1);
 const publieLe = '2026-09-18';
@@ -71,6 +73,24 @@ const jsonLd = [{
           </a>
         ))}
       </div>
+
+      {envisages.length > 0 && (
+        <div class="apres">
+          <h2>Ce qu'on aimerait mettre en place</h2>
+          <p class="body">Ces rendez-vous sont des pistes de programmation. Rien n'y est arrêté, ni la date, ni le lieu, ni les modalités. Ils figurent ici pour dire où l'on va, pas pour être pris pour des rendez-vous confirmés.</p>
+          <div class="evlist">
+            {envisages.map((e) => (
+              <a class="evrow" href={`/evenements/${e.id}`}>
+                <span class="dt soft"><span class="d">{e.data.dateIncertaine}</span><span class="m">à programmer</span></span>
+                <span class="ti"><b>{e.data.resume}</b><span class="wi">{e.data.avec}</span></span>
+                <span class="pl">{e.data.lieu}{e.data.lieuPrecision && <span>{e.data.lieuPrecision}</span>}</span>
+                <span class="ac"><span class="tag soon">Envisagé</span></span>
+                <span class="go">Voir la fiche <span aria-hidden="true">→</span></span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   </section>
 </Base>

@@ -24,16 +24,19 @@ chiffres:
     date: '2024-12-31'
     sourceTitre: Rapport d'activité Wings of the Ocean 2024
     sourceUrl: null
+    sourceAValider: "Le rapport d'activité 2024 de Wings of the Ocean n'est publié nulle part. Leur site affiche ses compteurs d'impact à zéro et ne propose aucun bilan téléchargeable. Une source secondaire évoque un peu plus de 3 tonnes collectées en 2024 sur 103 ramassages, là où ce chiffre en annonce 15,1. À faire confirmer par l'association."
   - valeur: 1 019 803
     libelle: mégots ramassés
     date: '2024-12-31'
     sourceTitre: Rapport d'activité Wings of the Ocean 2024
     sourceUrl: null
+    sourceAValider: "Le rapport d'activité 2024 de Wings of the Ocean n'est publié nulle part. Leur site affiche ses compteurs d'impact à zéro et ne propose aucun bilan téléchargeable. Une source secondaire évoque un peu plus de 3 tonnes collectées en 2024 sur 103 ramassages, là où ce chiffre en annonce 15,1. À faire confirmer par l'association."
   - valeur: 20 251
     libelle: personnes sensibilisées lors de 405 actions
     date: '2024-12-31'
     sourceTitre: Rapport d'activité Wings of the Ocean 2024
     sourceUrl: null
+    sourceAValider: "Le rapport d'activité 2024 de Wings of the Ocean n'est publié nulle part. Leur site affiche ses compteurs d'impact à zéro et ne propose aucun bilan téléchargeable. Une source secondaire évoque un peu plus de 3 tonnes collectées en 2024 sur 103 ramassages, là où ce chiffre en annonce 15,1. À faire confirmer par l'association."
 
 partenaire:
   nom: Wings of the Ocean

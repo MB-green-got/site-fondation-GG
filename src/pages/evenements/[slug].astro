@@ -72,10 +72,11 @@ jsonLd.push({
     <div class="container">
       <FilAriane chemin={chemin} />
       <p class="ameta">
-        <span class={`tag${d.acces === 'ouvert' ? ' open' : d.acces === 'membres' ? ' soon' : ''}`}>{d.accesLibelle}</span>
+        <span class={`tag${d.envisage ? ' soon' : d.acces === 'ouvert' ? ' open' : d.acces === 'membres' ? ' soon' : ''}`}>{d.envisage ? 'Envisagé' : d.accesLibelle}</span>
         {d.badge && <span>{d.badge}</span>}
       </p>
       <h1>{d.h1}</h1>
+      {d.envisage && <AValider quoi="Ce rendez-vous est une piste de programmation, il n'est pas confirmé. Ni sa date, ni son lieu, ni ses modalités ne sont arrêtés." />}
       <p class="body lg">{d.lede}</p>
       {d.projetLie && <p class="body">Le projet que la Fondation finance sur ce terrain, <a href={`/projets/${d.projetLie}`}>voir la fiche</a>.</p>}
       <Signature publieLe={d.publieLe} modifieLe={d.modifieLe} auteur={d.auteur} />

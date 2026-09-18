@@ -23,21 +23,21 @@ chiffres:
     libelle: élèves dans la première promotion
     date: '2024-09-01'
     sourceTitre: École de la Réparation
-    sourceUrl: null
+    sourceUrl: https://www.lecoledelareparation.fr/
   - valeur: 1 400 h
     libelle: de formation, rémunérée au SMIC
     date: '2024-09-01'
     sourceTitre: École de la Réparation
-    sourceUrl: null
+    sourceUrl: https://www.lecoledelareparation.fr/
   - valeur: 3 500
     libelle: cordonniers en France aujourd'hui, contre 45 000 en 1950
     date: null
     sourceTitre: École de la Réparation et fiches partenaires de la Fondation
-    sourceUrl: null
+    sourceUrl: https://www.lecoledelareparation.fr/
 
 partenaire:
   nom: École de la Réparation
-  url: null
+  url: https://www.lecoledelareparation.fr/
 
 recit:
   - titre: Dans une usine que la mondialisation a tuée

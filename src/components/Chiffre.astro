@@ -10,7 +10,7 @@
 import AValider from './AValider.astro';
 import { anneeUtile } from '../lib/dates.js';
 
-const { valeur, libelle, date, sourceTitre, sourceUrl } = Astro.props;
+const { valeur, libelle, date, sourceTitre, sourceUrl, sourceAValider } = Astro.props;
 
 if (!valeur) throw new Error('Chiffre sans valeur.');
 if (!sourceTitre) {
@@ -26,6 +26,7 @@ const annee = anneeUtile(date, sourceTitre);
     {sourceUrl
       ? <a class="src" href={sourceUrl} target="_blank" rel="noopener">{sourceTitre}{annee ? `, ${annee}` : ''}</a>
       : <span class="src">{sourceTitre}{annee ? `, ${annee}` : ''} <AValider court quoi="lien" /></span>}
+    {sourceAValider && <AValider quoi={sourceAValider} />}
     {!date && <AValider court quoi="date" />}
   </span>
 </p>

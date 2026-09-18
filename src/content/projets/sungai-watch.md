@@ -25,21 +25,21 @@ chiffres:
     libelle: de déchets interceptés dans les rivières
     date: '2024-12-31'
     sourceTitre: Impact report Sungai Watch 2024
-    sourceUrl: null
+    sourceUrl: https://sungai.watch/
   - valeur: '226'
     libelle: points de rivière nettoyés et surveillés chaque jour
     date: '2024-12-31'
     sourceTitre: Impact report Sungai Watch 2024
-    sourceUrl: null
+    sourceUrl: https://sungai.watch/
   - valeur: 180+
     libelle: barrières installées, 60 nouvelles en 2024
     date: '2024-12-31'
     sourceTitre: Impact report Sungai Watch 2024
-    sourceUrl: null
+    sourceUrl: https://sungai.watch/
 
 partenaire:
   nom: Sungai Watch
-  url: https://sungaiwatch.com
+  url: https://sungai.watch/
 
 recit:
   - titre: Trois frères et sœur, une plage devenue décharge

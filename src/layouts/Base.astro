@@ -53,6 +53,7 @@ const organisation = {
   },
   ...(fondation.sameAs.length ? { sameAs: fondation.sameAs } : {}),
   ...(fondation.anneeCreation ? { foundingDate: fondation.anneeCreation } : {}),
+  ...(fondation.contact ? { email: fondation.contact } : {}),
   areaServed: 'FR',
   knowsAbout: fondation.perimetre,
 };
