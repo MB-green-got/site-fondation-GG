@@ -218,7 +218,7 @@ Un seul `Event` est posé, celui du 17 septembre. Les trois autres rendez-vous n
   La Fondation          200    16597    4064 caractères
   Faits et chiffres     200    18740    4861 caractères
   Nos combats           200    18361    4849 caractères
-  Index des projets     200    66183     830 caractères
+  Index des projets     200    66183    1106 caractères
   Une page projet       200    13687    2653 caractères
   Programme             200    11214     708 caractères
   Un évènement          200    11890     985 caractères
