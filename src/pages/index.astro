@@ -5,8 +5,11 @@
   pas. Tout le texte est dans le HTML servi.
 */
 import Base from '../layouts/Base.astro';
+import Signature from '../components/Signature.astro';
 import { fondation } from '../data/fondation.js';
 
+const publieLe = '2026-09-18';
+const modifieLe = '2026-09-18';
 const titre = 'Fondation Green-Got, on finance ce qui ne rapporte rien';
 const description = `${fondation.positionnement} Les projets financés contre les pesticides et la pollution plastique, de Roubaix à Bali, pour le vivant et la santé environnementale.`;
 ---
@@ -35,6 +38,7 @@ const description = `${fondation.positionnement} Les projets financés contre le
       <div class="cta">
         <a class="btn btn-p btn-xl" href="/la-fondation">Découvrir la Fondation</a>
       </div>
+      <Signature publieLe={publieLe} modifieLe={modifieLe} />
     </div>
   </section>
 </Base>

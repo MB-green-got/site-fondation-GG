@@ -143,6 +143,14 @@ for (const f of liste) {
   }
   if (!/application\/ld\+json/.test(html)) alertes.push(`${nom} n'a aucune donnée structurée.`);
 
+  /*
+    7. Date et auteur visibles.
+    La page introuvable n'est pas une page de contenu, elle en est dispensée.
+  */
+  if (nom !== '/404.html' && !/class="signature"/.test(html)) {
+    erreurs.push(`${nom} n'affiche ni date de publication ni auteur. Toute page de contenu doit les porter en clair.`);
+  }
+
   /* Mentions À VALIDER, comptées et signalées, ce n'est pas une erreur */
   const nb = (txt.match(/À VALIDER/g) || []).length;
   if (nb) alertes.push(`${nom} porte ${nb} mention${nb > 1 ? 's' : ''} À VALIDER.`);

@@ -1,5 +1,13 @@
 # Site de la Fondation Green‑Got
 
+> **Ce fichier décrit la maquette d'origine, `index.html`, qui a servi de point de départ.**
+> **Le site vit maintenant dans `src`, construit par Astro.** Lire `CHANGELOG.md` pour ce qui
+> a été fait, `AUDIT.md` pour l'état de départ, `PLAN.md` pour les choix, `BASCULE.md` pour
+> la mise en ligne. La maquette `index.html` reste en place le temps de la bascule, elle
+> n'est pas reprise dans la construction du site et son vocabulaire dit encore « actions »
+> là où le site dit « projets ». Les décisions éditoriales et de design consignées plus bas
+> restent valables, ce sont elles qui ont guidé la reprise.
+
 Maquette fonctionnelle du nouveau site fondation.green-got.com, livrée sous forme d'un seul fichier `index.html` avec ses assets. Tout est déjà écrit, dessiné et testé sur desktop et mobile. Ce dépôt sert de point de départ pour l'intégration dans la stack de Green‑Got.
 
 ## Ce qu'il y a

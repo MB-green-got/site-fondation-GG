@@ -7,12 +7,17 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import FilAriane from '../../components/FilAriane.astro';
+import Signature from '../../components/Signature.astro';
 import AValider from '../../components/AValider.astro';
 import LigneIndex from '../../components/LigneIndex.astro';
 import { fondation } from '../../data/fondation.js';
 
 const pubs = (await getCollection('publications')).sort((a, b) => a.data.ordre - b.data.ordre);
 const articles = pubs.filter((p) => p.data.type === 'article');
+/* La date de mise à jour de l'index est celle de la fiche la plus récemment modifiée. */
+const modifieLe = pubs.map((e) => e.data.modifieLe).sort().at(-1);
+const publieLe = '2026-09-18';
+
 const chemin = [{ libelle: 'Publications' }];
 
 const jsonLd = [{
@@ -44,6 +49,7 @@ const jsonLd = [{
       <FilAriane chemin={chemin} />
       <h1>Ce qu'on donne à voir.</h1>
       <p class="body lg">Les chiffres ne disent pas tout. Derrière chaque statistique, il y a des visages, des territoires et des vies. La Fondation travaille avec des cinéastes indépendants.</p>
+          <Signature publieLe={publieLe} modifieLe={modifieLe} />
     </div>
   </section>
 

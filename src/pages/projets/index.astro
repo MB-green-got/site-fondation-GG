@@ -7,6 +7,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import FilAriane from '../../components/FilAriane.astro';
+import Signature from '../../components/Signature.astro';
 import LigneIndex from '../../components/LigneIndex.astro';
 import CarteProjets from '../../components/CarteProjets.astro';
 import AValider from '../../components/AValider.astro';
@@ -21,6 +22,10 @@ const PILIERS = {
 
 const projets = (await getCollection('projets')).sort((a, b) => a.data.ordre - b.data.ordre);
 const piliers = ['Terre', 'Mer', 'Recherche et éducation'];
+/* La date de mise à jour de l'index est celle de la fiche la plus récemment modifiée. */
+const modifieLe = projets.map((e) => e.data.modifieLe).sort().at(-1);
+const publieLe = '2026-09-18';
+
 const chemin = [{ libelle: 'Projets' }];
 
 const jsonLd = [{
@@ -54,6 +59,7 @@ const jsonLd = [{
           <FilAriane chemin={chemin} />
           <h1 id="h-carte">Nous soutenons ceux qui agissent. <br>De Roubaix à Bali.</h1>
           <p class="body">Chaque projet a un porteur, un lieu et un objet, et aucun n'aurait trouvé son financement ailleurs.</p>
+          <Signature publieLe={publieLe} modifieLe={modifieLe} />
         </div>
         <div class="aleg" role="group" aria-label="Les trois piliers, légende de la carte">
           {piliers.map((pilier) => (

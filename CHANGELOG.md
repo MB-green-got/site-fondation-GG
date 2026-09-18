@@ -274,3 +274,11 @@ Deux corrections pour le poids. Une simplification de Douglas-Peucker à un demi
 **Mesures finales, onze formes de page.** Performance de 95 à 100, accessibilité 100, bonnes pratiques 100, référencement 100. Seize pages testées à 360, 768 et 1440 px, aucun débordement horizontal. Vingt-sept pages contrôlées, 697 liens internes, aucun cassé, aucune erreur dans les données structurées, aucune infraction aux règles éditoriales.
 
 Trois outils sont maintenant inscrits dans le dépôt comme dépendances de développement, Lighthouse, chrome-launcher et puppeteer-core, pour que tu puisses relancer les mesures toi-même avec `npm run lighthouse`, `npm run responsive` et `node outils/captures.mjs`.
+
+### Lot 15, deux manques trouvés en relisant, 18 septembre 2026
+
+**Date et auteur manquants sur quatre pages.** La consigne demande une date de publication, une date de mise à jour et un auteur nommé, visibles en clair sur chaque page de contenu. L'accueil, l'index des projets, le programme des rendez-vous et l'index des publications ne les portaient pas. Ils les portent maintenant. Sur les trois index, la date de mise à jour n'est pas écrite en dur, elle est celle de la fiche la plus récemment modifiée, ce qui est plus honnête et se met à jour tout seul.
+
+Le contrôle automatique refuse désormais toute page de contenu sans date ni auteur, la page introuvable exceptée. Ce manque ne peut plus revenir sans faire échouer la construction du site.
+
+**CLAUDE.md était devenu trompeur.** Il décrivait la maquette d'un seul fichier comme le livrable, alors que le site vit maintenant dans `src`. Un avertissement en tête renvoie vers les bons fichiers. Les décisions éditoriales et de design qu'il consigne restent valables, ce sont elles qui ont guidé la reprise, rien n'en a été supprimé.

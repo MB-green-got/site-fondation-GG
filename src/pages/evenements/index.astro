@@ -6,10 +6,15 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import FilAriane from '../../components/FilAriane.astro';
+import Signature from '../../components/Signature.astro';
 import { fondation } from '../../data/fondation.js';
 import { enClair } from '../../lib/dates.js';
 
 const evs = (await getCollection('evenements')).sort((a, b) => a.data.ordre - b.data.ordre);
+/* La date de mise à jour de l'index est celle de la fiche la plus récemment modifiée. */
+const modifieLe = evs.map((e) => e.data.modifieLe).sort().at(-1);
+const publieLe = '2026-09-18';
+
 const chemin = [{ libelle: 'Évènements' }];
 
 const jsonLd = [{
@@ -45,6 +50,7 @@ const jsonLd = [{
         <FilAriane chemin={chemin} />
         <h1>On se rencontre ?</h1>
         <p class="lede">Aller voir les projets qu'on finance plutôt que d'en parler. Les membres Green‑Got sont prévenus en premier. <a href="https://greengot.helpkit.so/%C3%A0-propos-de-green-got/sF7ajAaCZDytPVFBLqsggN/nous-rencontrer/pcaJ34AkGhgAC5c6ocE6D7" target="_blank" rel="noopener">FAQ Green‑Got, « Nous rencontrer »</a></p>
+          <Signature publieLe={publieLe} modifieLe={modifieLe} />
       </div>
 
       <div class="evlist">
