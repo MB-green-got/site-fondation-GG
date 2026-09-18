@@ -1,0 +1,38 @@
+---
+/*
+  La barre de navigation, reprise de la maquette. Les adresses par ancre
+  du type #/fondation sont remplacées par de vraies adresses.
+  Le bouton du menu étroit est le seul élément qui a besoin de JavaScript,
+  la navigation reste entièrement utilisable sans lui, tous les liens sont
+  des liens.
+*/
+import { navigation, navigationSecondaire, fondation } from '../data/fondation.js';
+const { route } = Astro.props;
+const actif = (url) => (route && (route === url || route.startsWith(url + '/')) ? 'page' : undefined);
+---
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="topbar" id="topbar">
+  <div class="container">
+    <a class="brand" href="/" aria-label={`${fondation.nom}, accueil`}>
+      <span class="mark" aria-hidden="true"></span>
+      <span class="name">Fondation Green‑Got</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      {navigation.map((e) => <a href={e.url} aria-current={actif(e.url)}>{e.libelle}</a>)}
+    </nav>
+    <div class="hnav">
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" id="menu-btn">
+        <span class="bars" aria-hidden="true"></span>
+        <span class="lb">En savoir plus</span>
+        <span class="lb-s">Menu</span>
+      </button>
+      <a class="hasso" href={navigationSecondaire.url} aria-current={actif(navigationSecondaire.url)}>{navigationSecondaire.libelle}</a>
+    </div>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Navigation, écrans étroits">
+    <div class="container">
+      {navigation.map((e) => <a href={e.url} aria-current={actif(e.url)}>{e.libelle}</a>)}
+      <a class="masso" href={navigationSecondaire.url} aria-current={actif(navigationSecondaire.url)}>{navigationSecondaire.libelle}</a>
+    </div>
+  </nav>
+</header>

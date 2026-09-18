@@ -1,0 +1,13 @@
+---
+/*
+  La mention À VALIDER, en clair et impossible à ne pas voir.
+  Elle remplace la classe .todo de la maquette et sa fonction pruneTodo,
+  qui n'effaçait que certaines occurrences et en laissait passer d'autres.
+  Aucune donnée manquante n'est comblée par une estimation.
+*/
+const { quoi, court = false } = Astro.props;
+const texte = typeof quoi === 'string' ? quoi : quoi?.quoi;
+---
+{court
+  ? <span class="todo">À VALIDER</span>
+  : <p class="todo"><b>À VALIDER.</b> {texte}</p>}

@@ -1,0 +1,19 @@
+---
+/*
+  Le fil d'Ariane visible. Son balisage BreadcrumbList est posé par le
+  gabarit de base, à partir des mêmes données, pour qu'ils ne puissent
+  pas diverger.
+*/
+const { chemin = [] } = Astro.props;
+---
+{chemin.length > 0 && (
+  <nav class="crumb" aria-label="Fil d'Ariane">
+    <a href="/">Accueil</a>
+    {chemin.map((e) => (
+      <>
+        <span aria-hidden="true"> · </span>
+        {e.url ? <a href={e.url}>{e.libelle}</a> : <span aria-current="page">{e.libelle}</span>}
+      </>
+    ))}
+  </nav>
+)}

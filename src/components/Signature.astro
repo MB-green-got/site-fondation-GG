@@ -1,0 +1,22 @@
+---
+/*
+  Date de publication, date de mise à jour et auteur, en clair sur la page
+  et lisibles par une machine. Obligatoire sur toute page de contenu, c'est
+  le signal de fiabilité qui manquait entièrement aux deux sites.
+*/
+import AValider from './AValider.astro';
+import { fondation } from '../data/fondation.js';
+
+const { publieLe, modifieLe, auteur } = Astro.props;
+
+if (!publieLe) throw new Error('Page de contenu sans date de publication.');
+
+const fmt = (d) => new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(d));
+const auteurNom = auteur ?? (typeof fondation.auteurParDefaut === 'string' ? fondation.auteurParDefaut : null);
+---
+<p class="signature">
+  Publié le <time datetime={publieLe}>{fmt(publieLe)}</time>{modifieLe && modifieLe !== publieLe && (
+    <>, mis à jour le <time datetime={modifieLe}>{fmt(modifieLe)}</time></>
+  )}.
+  {auteurNom ? <> Écrit par {auteurNom}.</> : <> Auteur <AValider court quoi="auteur" />.</>}
+</p>

@@ -1,0 +1,106 @@
+---
+/*
+  Gabarit commun à toutes les pages.
+
+  Il garantit mécaniquement ce que l'audit avait trouvé manquant.
+  Un titre et une description uniques, obligatoires, la construction échoue
+  sans eux. Une adresse canonique. Le balisage Organization de la Fondation
+  sur chaque page, avec son parentOrganization vers Green-Got. Le
+  BreadcrumbList construit à partir du même fil d'Ariane que celui qui
+  s'affiche. La langue déclarée en français.
+
+  Tout sort en HTML statique. Aucun contenu éditorial ne dépend du JavaScript.
+*/
+import { fondation } from '../data/fondation.js';
+import Nav from '../components/Nav.astro';
+import Pied from '../components/Pied.astro';
+import '../styles/site.css';
+
+const {
+  titre,
+  description,
+  route,
+  chemin = [],
+  classePage = '',
+  jsonLd = [],
+  image = '/img/hero.jpg',
+  imageAlt = 'Une femme porte son enfant dans un sous-bois au soleil couchant',
+} = Astro.props;
+
+if (!titre) throw new Error(`Page sans titre, ${Astro.url.pathname}. Le titre est obligatoire.`);
+if (!description) throw new Error(`Page sans description, ${Astro.url.pathname}. La description est obligatoire.`);
+
+const canonique = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site).href;
+const imageAbsolue = new URL(image, Astro.site).href;
+
+/* Le balisage de l'organisation, identique sur toutes les pages. */
+const organisation = {
+  '@type': 'Organization',
+  '@id': new URL('/#organisation', Astro.site).href,
+  name: fondation.nom,
+  url: new URL('/', Astro.site).href,
+  description: `${fondation.nom}, ${fondation.statut}. ${fondation.positionnement}`,
+  parentOrganization: {
+    '@type': 'Organization',
+    name: fondation.fondateur.nom,
+    url: fondation.fondateur.url,
+    description: 'Établissement de paiement et service financier.',
+  },
+  ...(fondation.sameAs.length ? { sameAs: fondation.sameAs } : {}),
+  areaServed: 'FR',
+  knowsAbout: fondation.perimetre,
+};
+
+/* Le fil d'Ariane, construit depuis les mêmes données que celui qui s'affiche. */
+const fil = [{ libelle: 'Accueil', url: '/' }, ...chemin];
+const breadcrumb = fil.length > 1 ? [{
+  '@type': 'BreadcrumbList',
+  itemListElement: fil.map((e, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: e.libelle,
+    item: new URL(e.url ?? Astro.url.pathname, Astro.site).href,
+  })),
+}] : [];
+
+const graphe = [organisation, ...breadcrumb, ...jsonLd];
+---
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{titre}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonique}>
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="theme-color" content="#131B00">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content={fondation.nom}>
+  <meta property="og:title" content={titre}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonique}>
+  <meta property="og:image" content={imageAbsolue}>
+  <meta property="og:image:alt" content={imageAlt}>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content={imageAbsolue}>
+
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/instrument-sans-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/terrane-sans-1.woff2" crossorigin>
+
+  <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': graphe })} />
+</head>
+<body data-route={route}>
+  <Nav route={route} />
+  <main id="main">
+    <article class={`page ${classePage}`}>
+      <slot />
+    </article>
+  </main>
+  <Pied />
+  <script>import '../scripts/interface.js';</script>
+</body>
+</html>

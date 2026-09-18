@@ -1,0 +1,48 @@
+---
+/*
+  Accueil. Reprise de la maquette, un seul écran.
+  La vidéo de fond reste un décor, la photo prend le relais si elle ne joue
+  pas. Tout le texte est dans le HTML servi.
+*/
+import Base from '../layouts/Base.astro';
+import { fondation } from '../data/fondation.js';
+
+const titre = 'Fondation Green-Got, on finance ce qui ne rapporte rien';
+const description = `${fondation.positionnement} Les projets financés contre les pesticides et la pollution plastique, de Roubaix à Bali, pour le vivant et la santé environnementale.`;
+---
+<Base
+  titre={titre}
+  description={description}
+  route="/"
+  image="/img/agro.jpg"
+  imageAlt="Champ de céréales au lever du jour"
+  jsonLd={[{
+    '@type': 'WebSite',
+    '@id': 'https://fondation.green-got.com/#site',
+    name: fondation.nom,
+    url: 'https://fondation.green-got.com/',
+    inLanguage: 'fr-FR',
+    publisher: { '@id': 'https://fondation.green-got.com/#organisation' },
+  }]}
+>
+  <section class="fullhero solo" aria-labelledby="h-home">
+    {/*
+      Fond, la vidéo du site actuel. Le poster est la photo qui servait de
+      fond, elle reste affichée tant que la vidéo n'est pas prête ou si le
+      mouvement est réduit. Remplacer le fichier par le master HD dès réception.
+    */}
+    <video class="fh-bg fh-video" autoplay muted loop playsinline preload="metadata" poster="/img/agro.jpg" aria-label="Survol d'un verger en agroforesterie">
+      <source src="/video/accueil.mp4" type="video/mp4">
+    </video>
+    <div class="fh-bg kb fh-poster" role="img" aria-label="Champ de céréales au lever du jour" style="background-image:var(--img-agro)"></div>
+    <div class="fh-veil"></div>
+    <div class="container fh-in">
+      <p class="fh-kicker">Fondation Green‑Got</p>
+      <h1 id="h-home">On finance ce qui ne rapporte rien.<br>Et qui compte le plus.</h1>
+      <p class="fh-sub">Des rivières sans plastique, des terres sans pesticides, des mains qui apprennent à réparer ce qui mérite une seconde vie. Aucune banque ne finance ces combats. Nous, si.</p>
+      <div class="cta">
+        <a class="btn btn-p btn-xl" href="/la-fondation">Découvrir la Fondation</a>
+      </div>
+    </div>
+  </section>
+</Base>

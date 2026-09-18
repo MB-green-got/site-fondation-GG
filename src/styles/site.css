@@ -1,0 +1,1019 @@
+/* Les polices, servies depuis assets/fonts. Instrument Sans porte le texte
+   courant en variable 400 à 700, Terrane Sans les titres en 700. */
+@font-face{font-family:"Instrument Sans";font-style:normal;font-weight:400 700;font-stretch:100%;font-display:swap;
+  src:url(/fonts/instrument-sans-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Instrument Sans";font-style:normal;font-weight:400 700;font-stretch:100%;font-display:swap;
+  src:url(/fonts/instrument-sans-latin-ext.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Terrane Sans";font-weight:700;font-style:normal;font-display:swap;src:url(/fonts/terrane-sans-1.woff2) format("woff2")}
+:root{
+  /* Palette Green-Got, thème dark green */
+  --dark:#131B00;
+  --surface:#1A2207;
+  --surface-2:#20290D;
+  --surface-3:#273016;
+  --light:#FCFCFC;
+  --contrast:#F7FFEA;
+  --primary:#CDFB6E;
+  --primary-fg:#131B00;
+  --muted:#9AA38A;
+  --muted-2:#878F77;
+  --border:rgba(148,156,132,.28);
+  --border-strong:rgba(183,190,170,.5);
+  --blue:#C2E9FF; --orange:#FFAD5C;
+  --r:16px; --r-xl:20px; --r-2xl:24px;
+  --w70:rgba(252,252,252,.74); --w50:rgba(252,252,252,.52); --w40:rgba(252,252,252,.5);
+  --l15:rgba(247,255,234,.15); --l30:rgba(247,255,234,.3); --l10:rgba(247,255,234,.1);
+  --p30:rgba(205,251,110,.3); --p20:rgba(205,251,110,.2); --p10:rgba(205,251,110,.1);
+  --map-ground:#0E1500;
+  --logo:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 161 32'%3E%3Cpath d='M61.663 31.095V16.666h2.8v3.395h.142v11.034zm10.242 0v-9.28q0-1.5-.764-2.235-.735-.735-2.207-.736-1.273 0-2.263.566a4.17 4.17 0 0 0-1.528 1.556q-.538.99-.538 2.349l-.367-3.452a5.6 5.6 0 0 1 2.178-2.546q1.471-.934 3.424-.934 2.32 0 3.65 1.301 1.33 1.302 1.33 3.452v9.959zm-19.22.283q-2.178 0-3.848-.962a6.85 6.85 0 0 1-2.574-2.66q-.934-1.697-.934-3.904 0-2.235.905-3.904a6.6 6.6 0 0 1 2.603-2.631q1.67-.934 3.82-.934 2.094 0 3.621.905a5.86 5.86 0 0 1 2.377 2.462q.849 1.584.848 3.763 0 .34-.028.65 0 .283-.056.595h-12.11V22.55h10.045l-.736.877q0-2.32-1.047-3.537-1.047-1.215-2.914-1.216-2.01 0-3.197 1.386-1.16 1.359-1.16 3.791 0 2.462 1.16 3.848 1.188 1.386 3.282 1.386 1.273 0 2.207-.509a3.28 3.28 0 0 0 1.386-1.556h2.773q-.708 2.037-2.405 3.197-1.67 1.16-4.018 1.16zm-15.287 0q-2.178 0-3.848-.962a6.85 6.85 0 0 1-2.574-2.66q-.934-1.697-.934-3.904 0-2.235.905-3.904a6.6 6.6 0 0 1 2.603-2.631q1.67-.934 3.82-.934 2.094 0 3.621.905a5.86 5.86 0 0 1 2.377 2.462q.849 1.584.848 3.763 0 .34-.028.65 0 .283-.056.595h-12.11V22.55h10.045l-.736.877q0-2.32-1.047-3.537-1.047-1.215-2.914-1.216-2.01 0-3.197 1.386-1.16 1.359-1.16 3.791 0 2.462 1.16 3.848 1.188 1.386 3.282 1.386 1.273 0 2.207-.509a3.3 3.3 0 0 0 1.386-1.556h2.773q-.708 2.037-2.405 3.197-1.67 1.16-4.018 1.16zm-15.791-.283V16.666h2.801v3.593h.141v10.836zm2.942-7.526-.367-3.423q.51-1.84 1.754-2.801 1.245-.962 2.97-.962.651 0 .906.113v2.773a1.1 1.1 0 0 0-.396-.057 6 6 0 0 0-.623-.028q-2.121 0-3.197 1.103-1.047 1.104-1.047 3.282M10.355 31.38q-3.197 0-5.517-1.273a9.1 9.1 0 0 1-3.593-3.621Q0 24.165 0 21.024q0-3.112 1.245-5.489 1.273-2.405 3.508-3.734 2.235-1.359 5.15-1.358 2.32 0 4.187.877 1.895.849 3.084 2.376 1.216 1.529 1.442 3.537h-2.999q-.283-1.953-1.81-3.084-1.528-1.16-3.82-1.16-2.094 0-3.65.99-1.555.99-2.433 2.773-.848 1.782-.848 4.215 0 2.462.877 4.244a6.33 6.33 0 0 0 2.546 2.716q1.698.934 4.074.934 1.698 0 2.999-.48a6.4 6.4 0 0 0 2.263-1.416l2.915 1.104a10.7 10.7 0 0 1-3.65 2.49q-2.065.82-4.725.82m5.376-3.31v-6.253l.877.877h-6.083v-2.49h8.205v7.866zm143.119 3.15q-2.518 0-3.706-1.16-1.16-1.188-1.16-3.48V13.197l2.914-1.103v14.514q0 1.13.594 1.669c.594.539 1.038.538 1.924.538q.51 0 .905-.085.397-.085.679-.198v2.376q-.31.142-.877.226a9 9 0 0 1-1.273.085m-7.752-12.364v-2.348H161v2.348zM143.35 31.22q-2.207 0-3.876-.962a7 7 0 0 1-2.603-2.688q-.933-1.726-.933-3.904 0-2.206.933-3.876a6.9 6.9 0 0 1 2.603-2.603q1.67-.962 3.876-.962 2.236 0 3.904.962a6.45 6.45 0 0 1 2.575 2.603q.934 1.67.934 3.876 0 2.179-.934 3.904a6.8 6.8 0 0 1-2.575 2.688q-1.668.962-3.904.962m0-2.405q1.33 0 2.292-.65.99-.651 1.556-1.811c.566-1.16.566-1.679.566-2.716q0-2.32-1.245-3.65-1.216-1.358-3.169-1.358-1.924 0-3.169 1.358-1.216 1.358-1.216 3.65 0 1.555.537 2.716.566 1.16 1.556 1.81 1.019.651 2.292.651m-17.56 2.405q-3.198 0-5.517-1.273a9.1 9.1 0 0 1-3.593-3.622q-1.245-2.319-1.245-5.46 0-3.112 1.245-5.489 1.273-2.405 3.508-3.734 2.235-1.359 5.149-1.358 2.32 0 4.187.877 1.896.848 3.084 2.376 1.216 1.528 1.443 3.537h-2.999q-.283-1.953-1.811-3.084-1.527-1.16-3.819-1.16-2.093 0-3.65.99-1.555.99-2.433 2.773-.849 1.782-.849 4.215 0 2.462.877 4.244a6.33 6.33 0 0 0 2.547 2.716q1.697.934 4.074.934 1.697 0 2.999-.481a6.4 6.4 0 0 0 2.263-1.415l2.914 1.104a10.7 10.7 0 0 1-3.649 2.49q-2.065.82-4.725.82m5.375-3.31v-6.253l.877.877h-6.083v-2.49h8.205v7.866zM83.61 31.094c.268-2.39 1.28-6.13 1.642-8.002 3.114-1.065 3.352-5.601 3.352-8.346-6.022-2.9-5.74-7.838-1.503-10.069C91.338 2.447 92.96 2.776 94.29 0c.88 2.605 2.184 6.066-3.183 9.39-2.12 1.313-3.133 3.28-1.5 4.228 1.632.948 5.572.666 9.16 0 5.509-1.023 2.415 5.762 1.83 8.452-.58 2.67.46 6.362 1.558 9.026h-2.107c-1.627-3.854-1.67-5.412-2.166-8.394-1.618 1.537-3.45 2.04-3.836 3.06s.776 4.45 1.035 5.334h-2.078c-.294-.857-1.182-3.653-1.448-6.527 0 0 2.26-2.127 1.93-4.496-1.417 2.629-4.033 3.695-5.43 4.611-1.452.952-1.952 3.895-2.391 6.412z'/%3E%3Cpath d='M101.52 10.585c-2.637.524-3.601 1.824-4.912.578 3.033-2.306 1.938-2.567 3.16-3.924.22-.245.353-.562.333-.89-.054-.912-.133-2.37-.196-3.485.911.82 1.675 1.678 2.382 2.581l.546-3.03c1.848 1.763 4.315 7.045 3.649 11.94-.368 2.712-1.022 4.776-.548 6.037.436 1.16 2.949 1.391 3.356 2.764.295.994-.389 2.282-1.408 4.132l-1.784-.599c1.165-2.095 1.138-2.712 1.138-2.712s-1.816-1.187-5.894-1.433c4.592-6.74 3.727-12.665.18-11.96z'/%3E%3C/svg%3E");
+  --fox-run:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 1000 475'%3E%3Cpath fill-rule='evenodd' d='M867.2 0C865.7 0.8 866 -4.8 862.2 6.3C858.3 17.4 847.9 55.3 844 66.5C840.1 77.7 863.8 66.5 838.8 73.6C813.9 80.6 727.7 101.7 694.2 108.7C660.7 115.7 671.3 114.5 637.9 115.6C604.5 116.8 520.7 115.9 493.9 115.4C467 114.9 486.7 113.1 476.7 112.6C466.6 112 443.3 112.8 433.6 112.3C424 111.8 425.7 110 418.7 109.5C411.8 109 401.3 109.8 392.1 109.2C383 108.5 374.4 107.9 364 105.7C353.5 103.4 345.3 102.3 329.5 95.6C313.7 89 284.7 72.7 269.1 65.7C253.4 58.8 245.5 56.7 235.6 54.1C225.7 51.4 228.7 51.2 209.8 49.9C190.9 48.7 144.4 48.1 122.1 46.5C99.8 44.8 89.3 42.7 76 39.9C62.6 37.2 50.6 33 42.3 30.2C33.9 27.4 31.6 26.2 25.9 23.3C20.1 20.4 11.8 14.6 7.9 12.7C3.9 10.9 3.7 11.9 2.4 12.4C1.1 12.8 0.6 13.9 0.2 15.7C-0.2 17.4 -1 18.1 0 22.7C1 27.3 2.4 34.3 6.1 43.1C9.8 51.8 17.1 66.3 22.1 75.1C27.2 84 28.6 86.3 36.2 96.3C43.9 106.2 58.8 125.2 68.1 135C77.4 144.8 83.1 148.5 92.2 155C101.3 161.4 110.7 168 122.9 173.8C135.1 179.5 151.3 185.6 165.2 189.4C179 193.2 196.6 195.3 205.9 196.5C215.1 197.7 211.1 197.9 220.7 196.7C230.4 195.5 250.7 192.7 263.8 189.4C276.8 186.1 291 180 299 176.8C307 173.5 308.8 171.1 311.5 169.9C314.3 168.7 314.5 169.4 315.4 169.6C316.4 169.9 317 170.1 317 171.4C317 172.7 319 170.9 315.4 177.7C311.9 184.4 303.8 199.7 295.9 211.7C287.9 223.7 278.7 237.1 267.7 249.7C256.7 262.3 243.2 276.4 230 287.2C216.9 298.1 196.6 309.1 188.6 314.8C180.7 320.6 192.5 297.7 182.1 321.7C171.6 345.6 135.8 434.4 126 458.6C116.3 482.9 123.6 464.9 123.4 467.2C123.1 469.6 122.9 471.3 124.5 472.7C126.1 474.1 126.7 475 133.1 475.4C139.5 475.8 156.8 475.7 162.8 475.4C168.8 475 162.8 485.5 169.1 473.3C175.4 461.1 193.1 418 200.6 402.3C208 386.5 209.9 385.2 214 378.8C218.1 372.3 219.9 369.6 225.4 363.6C231 357.5 239.4 348.7 247.3 342.4C255.3 336.2 263.9 330.7 273.2 326C282.4 321.3 293.1 317.3 302.9 314.2C312.7 311.1 326.4 308.3 331.9 307.4C337.3 306.5 335 307.9 335.8 308.7C336.6 309.5 337.6 310.2 336.8 312.3C336 314.3 334.8 317.1 331.1 321.1C327.4 325.2 323.3 330.4 314.6 336.5C306 342.6 285.4 353.5 279 357.7C272.6 361.8 276.9 360.1 276.4 361.6C275.9 363 270 350.1 276.2 366.3C282.5 382.4 306.7 441.1 314.2 458.6C321.6 476.1 318.2 468.5 320.9 471.3C323.6 474.1 322.2 474.9 330.3 475.4C338.4 475.9 362.7 475 369.7 474.3C376.6 473.6 371.7 472.3 372 471.1C372.3 470 374.8 474.1 371.3 467.2C367.7 460.4 355.5 440.1 350.6 429.9C345.8 419.7 343.7 412.4 342.1 406.2C340.4 400 340.5 396.7 340.7 392.9C340.9 389.1 340.9 386.7 343.2 383.5C345.5 380.3 344.7 377.8 354.6 373.6C364.4 369.4 389.5 363.1 402.3 358.2C415.1 353.2 424.1 347.8 431.3 343.8C438.4 339.8 439.8 339.1 445.4 334.2C450.9 329.3 459.1 321.5 464.4 314.6C469.8 307.7 474.2 299.4 477.6 292.7C480.9 286.1 482.4 278.3 484.5 274.7C486.6 271.1 476.9 267.9 490 271C503 274 543 287.8 562.7 293.1C582.4 298.4 595.3 300.3 608.1 302.5C620.9 304.8 633 305.3 639.4 306.7C645.8 308 641.6 299.7 646.5 310.8C651.4 321.9 664.4 360.2 668.7 373.3C673 386.5 672.6 385.6 672.1 389.7C671.7 393.9 669.4 396 666 398.2C662.7 400.4 656.7 401.8 652 402.7C647.3 403.6 642.6 403.9 637.9 403.6C633.2 403.4 626.9 401.3 623.8 401.2C620.6 401.1 620.1 401.8 619 403.1C618 404.3 617.2 403.1 617.4 408.5C617.6 414 619.4 430.6 620.2 435.9C621.1 441.3 621.4 439.4 622.4 440.6C623.4 441.8 617.4 442.8 626.1 443.2C634.8 443.7 663.2 444.3 674.7 443.3C686.1 442.3 689.5 440.4 695 437.3C700.5 434.3 704.8 430.2 707.8 425C710.8 419.8 712.3 415.7 713.2 406.2C714.1 396.7 714.1 382.6 713.2 367.8C712.3 353.1 708.5 326.8 707.8 317.7C707.1 308.7 708.3 314.3 709.1 313.3C709.8 312.3 708.3 310.9 712.2 311.8C716.1 312.7 708.6 307.8 732.6 318.8C756.6 329.7 833.2 366.1 856.2 377.6C879.3 389 866.2 383.5 871 387.4C875.7 391.3 879 394.1 884.9 400.7C890.8 407.3 902 422.2 906.3 426.8C910.7 431.4 909.2 428.5 911 428.3C912.8 428.2 912.5 428.8 917.3 426C922 423.2 935.1 415.1 939.5 411.7C943.9 408.2 943.9 408.5 943.6 405.4C943.3 402.3 941.4 398.2 937.8 392.9C934.3 387.5 929.1 380.2 922.2 373.3C915.2 366.4 915.3 364.3 896.1 351.3C877 338.3 824 306.4 807.2 295.1C790.3 283.7 798.2 286.7 795.3 283.3C792.4 279.9 791.1 277.8 789.9 274.7C788.7 271.6 787.9 268.1 788.1 264.5C788.3 261 788.1 258.2 791.2 253.6C794.2 249 801 241.6 806.1 236.8C811.3 232 819.3 227.3 822.2 224.6C825.1 221.9 823.8 221.9 823.7 220.7C823.6 219.5 826.3 218.1 821.8 217.4C817.3 216.6 804 215.7 796.7 216.1C789.4 216.5 784.7 218.1 778 220C771.2 221.9 763 223.9 756 227.4C749.1 231 742.4 236.3 736.5 241.3C730.6 246.3 725.4 251.9 720.6 257.5C715.8 263.1 710.4 271.7 707.5 274.7C704.7 277.8 704.5 276 703.6 275.8C702.7 275.5 702.1 276.6 702.3 273.1C702.5 269.7 703.3 260.6 704.7 255.1C706.1 249.7 708.2 245.6 710.9 240.3C713.5 234.9 717 228.5 720.7 223.1C724.3 217.6 725.3 214.2 732.7 207.4C740 200.6 754.4 188.7 764.7 182.3C774.9 175.9 783.2 172.5 794.4 169.2C805.6 165.9 820 162.8 832 162.3C844 161.8 854 163.2 866.4 166C878.8 168.8 896.9 175.3 906.3 179.1C915.7 182.8 916 185.2 922.7 188.5C929.5 191.7 938.9 195.9 947 198.7C955.1 201.5 964.1 205 971.3 205.4C978.4 205.9 985.4 203.3 990 201.5C994.7 199.8 997.4 196.6 999 194.9C1000.7 193.1 1000.2 192.4 1000 191C999.8 189.5 1003.4 192.1 998.1 186.3C992.7 180.4 974.7 163.1 968 155.7C961.4 148.4 961.8 149.5 958.4 142.4C955 135.4 950.7 120.5 947.6 113.5C944.5 106.5 944.1 105.6 940 100.4C935.8 95.3 928.2 87.6 922.7 82.6C917.3 77.6 915.2 83.2 907.1 70.4C899 57.5 880.2 17.1 874.2 5.6C868.2 -5.9 872.3 2.2 871.1 1.3C869.9 0.3 868.7 -0.8 867.2 0z'/%3E%3C/svg%3E");
+  --fox:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 333 405'%3E%3Cpath d='M.285 404.55c3.438-30.754 16.44-78.827 21.067-102.91 39.958-13.709 43.012-72.046 43.012-107.33C-12.9 156.995-9.279 93.49 45.09 64.79c54.368-28.683 75.18-24.449 92.242-60.151 11.283 33.503 29.717 81.246-39.153 124-27.193 16.88-41.896 38.947-20.939 51.135 20.94 12.187 71.503 8.559 117.55 0 70.7-13.16 30.98 74.098 23.5 108.7-7.444 34.346 5.888 81.814 19.97 116.09h-28.584c-20.866-49.558-19.878-69.608-26.242-107.95-20.757 19.776-44.274 26.227-49.212 39.35-4.956 13.122 12.71 57.219 16.02 68.6h-29.406c-3.767-11.015-15.16-46.992-18.58-83.94 0 0 29.004-27.364 24.761-57.824-18.196 33.814-51.753 47.523-69.693 59.308-18.617 12.243-23.06 50.09-28.693 82.456H.284v-.018z'/%3E%3Cpath d='M229.1 139.85c-34.582 6.891-47.236 23.973-64.427 7.606 40.141-30.589 25.146-33.814 41.879-52.087 2.633-2.878 4.206-6.653 3.968-10.557-.713-11.931-1.756-31.524-2.615-46.461 11.96 10.795 21.981 22.066 31.253 33.924l7.169-39.826c24.231 23.166 59.123 91.565 50.583 154.52-4.718 34.877-15.582 61.705-9.511 77.925 5.596 14.919 39.599 19.428 43.89 33.906 3.785 12.775-6.381 33.049-19.457 56.838l-24.433-9.186c14.959-26.941 14.63-33.906 14.63-33.906s-21.779-14.768-74.118-17.921c58.922-86.671 47.749-164.03 1.226-154.78h-.037z'/%3E%3C/svg%3E");
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+section[id]{scroll-margin-top:72px}
+@media(min-width:768px){section[id]{scroll-margin-top:88px}}
+body{
+  margin:0;background:var(--dark);color:var(--light);
+  font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
+}
+p{margin:0}
+a{color:inherit}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:6px}
+[tabindex="-1"]:focus{outline:none}
+.skip{position:absolute;left:16px;top:-60px;z-index:100;background:var(--primary);color:var(--primary-fg);padding:10px 16px;border-radius:9999px;font-weight:600;text-decoration:none}
+.skip:focus{top:12px}
+
+.container{width:100%;max-width:1400px;margin:0 auto;padding:0 32px}
+@media(max-width:640px){.container{padding:0 20px}}
+.sect{padding:96px 0}
+@media(min-width:768px){.sect{padding:128px 0}}
+.sect.tight{padding:72px 0}
+@media(min-width:768px){.sect.tight{padding:96px 0}}
+.sect.alt{background:var(--surface)}
+
+h1,h2,h3,h4{margin:0;font-weight:700;letter-spacing:-.025em;text-wrap:balance;overflow-wrap:break-word}
+h3{font-size:clamp(22px,2.4vw,30px);line-height:1.25;letter-spacing:-.02em}
+h4{font-size:20px;line-height:1.3;letter-spacing:-.015em}
+.body{font-size:16px;line-height:1.625;color:var(--w70)}
+.body a:not(.src):not(.btn){color:var(--light);text-decoration:underline;text-decoration-color:var(--border-strong);text-underline-offset:3px}
+.body a:not(.src):not(.btn):hover{text-decoration-color:var(--light)}
+
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:9999px;padding:14px 32px;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid transparent;font-family:inherit;transition:filter .18s,background .18s}
+.btn-p{background:var(--primary);color:var(--primary-fg)}
+.btn-p:hover{filter:brightness(1.08)}
+.btn-o{border-color:var(--border-strong);color:var(--light);background:transparent;backdrop-filter:blur(6px)}
+.btn-o:hover{background:var(--l10)}
+
+
+.eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--muted)}
+/* le fil d'Ariane, une seule déclaration, les pages n'en règlent que la marge */
+.crumb{display:inline-flex;align-items:center;gap:10px;font-size:14px;color:var(--w70)}
+.crumb a{color:inherit;text-decoration:none}
+.crumb a:hover{color:var(--light)}
+.crumb .sep{color:var(--w40)}/* ---------- header ---------- */
+
+.topbar{position:sticky;top:0;z-index:80;background:rgba(19,27,0,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:background .25s,border-color .25s}
+body[data-route=accueil] .topbar:not(.scrolled):not(.menu-open){background:transparent;border-bottom-color:transparent;backdrop-filter:none}
+.topbar .container{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px;min-width:0}
+@media(min-width:768px){.topbar .container{height:80px}}
+.brand{display:flex;align-items:center;align-self:stretch;gap:12px;font-weight:600;font-size:14px;letter-spacing:-.01em;white-space:nowrap;text-decoration:none;color:var(--light);flex:0 1 auto;min-width:0}
+.brand .mark{width:48px;height:23px;background:var(--primary);-webkit-mask:var(--fox-run) center/contain no-repeat;mask:var(--fox-run) center/contain no-repeat;display:inline-block;flex:none}
+.brand .name{font-size:17px;font-weight:600;letter-spacing:-.02em;line-height:1;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.hnav{display:flex;align-items:center;gap:16px;flex:none;min-width:0}
+.nav{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:500;min-width:0}
+@media(max-width:1180px){.nav{gap:20px}}
+.nav a{position:relative;color:var(--light);text-decoration:none;opacity:.78;padding:6px 0;white-space:nowrap}
+.nav a:hover,.nav a[aria-current=page]{opacity:1}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--primary);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.nav a[aria-current=page]::after{transform:scaleX(1)}
+@media(max-width:1080px){.nav{display:none}}
+.hasso{color:var(--light);text-decoration:none;opacity:.78;font-size:14px;font-weight:500;white-space:nowrap;padding:6px 0}
+.hasso:hover,.hasso[aria-current=page]{opacity:1}
+@media(max-width:720px){.hasso{display:none}}
+.menu-btn{display:none;align-items:center;gap:10px;background:transparent;border:1px solid var(--border-strong);color:var(--light);border-radius:9999px;padding:9px 18px;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;transition:border-color .16s,background .16s}
+@media(max-width:1080px){.menu-btn{display:inline-flex}}
+.menu-btn:hover{border-color:var(--light)}
+.menu-btn .lb-s{display:none}
+/* sous 430 px la marque et le bouton ne tiennent plus côte à côte, on resserre et le bouton dit Menu */
+@media(max-width:430px){
+  .topbar .container{gap:10px}
+  .brand{gap:9px}
+  .brand .mark{width:38px;height:18px}
+  .brand .name{font-size:16px}
+  .menu-btn{padding:9px 14px}
+  .menu-btn .lb{display:none}
+  .menu-btn .lb-s{display:inline}
+}
+/* sous 380 px, la marge de page tombe à 16, la marque et le bouton se resserrent
+   une dernière fois, la barre tient sur un écran de 320 */
+@media(max-width:380px){
+  .container{padding:0 16px}
+  .topbar .container{gap:8px}
+  .brand{gap:8px}
+  .brand .mark{width:32px;height:15px}
+  .brand .name{font-size:15px}
+  .menu-btn{padding:8px 12px;gap:8px;font-size:13px}
+}
+.menu-btn .bars{width:14px;height:9px;flex:none;position:relative}
+.menu-btn .bars::before,.menu-btn .bars::after{content:"";position:absolute;left:0;right:0;height:1.5px;background:currentColor;transition:transform .2s}
+.menu-btn .bars::before{top:0}
+.menu-btn .bars::after{bottom:0}
+.menu-btn[aria-expanded=true] .bars::before{transform:translateY(3.75px) rotate(45deg)}
+.menu-btn[aria-expanded=true] .bars::after{transform:translateY(-3.75px) rotate(-45deg)}
+.mnav{display:none;border-top:1px solid var(--border);background:rgba(19,27,0,.97);backdrop-filter:blur(16px)}
+.mnav.open{display:block;animation:mnavin .22s ease both}
+@keyframes mnavin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.mnav .container{display:block;height:auto;padding-top:10px;padding-bottom:22px;max-width:1400px}
+.mnav a{display:block;padding:16px 0;text-decoration:none;color:var(--light);font-weight:500;font-size:20px;letter-spacing:-.02em;border-bottom:1px solid var(--border);opacity:.82;transition:opacity .16s,padding-left .16s}
+.mnav a:hover{opacity:1;padding-left:8px}
+.mnav a[aria-current=page]{opacity:1;color:var(--primary)}
+.mnav a.masso{display:none}
+@media(max-width:720px){.mnav a.masso{display:block}}
+@media(max-width:640px){.mnav a{font-size:18px;padding:14px 0}}
+/* au-dessus de 720px, le sommaire est un panneau posé sous le bouton, il ne mange pas la page */
+@media(min-width:721px){
+  .mnav{position:absolute;top:100%;right:32px;width:322px;margin-top:-9px;border:1px solid var(--border-strong);border-radius:var(--r-2xl);overflow:hidden;box-shadow:0 26px 64px rgba(0,0,0,.5)}
+  .mnav .container{padding:6px 24px 14px;max-width:none}
+  .mnav a{font-size:19px;padding:14px 0}
+}
+.note{font-size:12.5px;line-height:1.6;color:var(--w50)}
+/* les champs a completer avant mise en ligne, signales en orange comme l'annoncent les mentions legales */
+.todo{color:var(--orange);font-weight:600}
+.note b{color:var(--light);font-weight:600}/* ---------- schéma ---------- */
+
+/* ---------- carte ---------- */
+
+.reg{fill:#222D0F;stroke:rgba(205,251,110,.18);stroke-width:.8}
+#f-land.hl .reg{fill:#3F4D20;stroke:var(--primary)}
+.wland{fill:#1D2711;stroke:rgba(205,251,110,.14);stroke-width:.5}
+.inset-bg{fill:#0C1304;stroke:var(--border-strong);stroke-width:1}
+.inset-t{fill:var(--w50);font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.mk{cursor:pointer}
+.mk .hit{fill:transparent}
+.mk .halo{fill:currentColor;opacity:0;transition:opacity .16s}
+.mk:hover .halo,.mk.on .halo{opacity:.25}
+.mk .core{stroke:var(--map-ground);stroke-width:1.6}
+.mk.on .core{stroke-width:2.4}
+.mk .mlab{fill:var(--light);font-size:11px;font-weight:600;opacity:0;transition:opacity .16s;pointer-events:none;paint-order:stroke;stroke:rgba(19,27,0,.85);stroke-width:3}
+.mk:hover .mlab,.mk.on .mlab{opacity:1}
+/* les trois points français portent leur nom au repos, la carte dit quelque chose sans survol */
+#f-marks .mk .mlab{opacity:.82}
+/* l'encart aussi, sinon trois actions sur huit sont des points anonymes */
+#i-marks .mk .mlab{opacity:.82;font-size:8.5px;stroke-width:2.5}
+/* Sous 940 px la carte passe sous l'index et se réduit à la largeur de la colonne,
+   ses libellés tombaient alors à six pixels de haut à l'écran. Ils grossissent
+   dans le repère du SVG pour se relire, la carte rétrécit, pas son texte. */
+@media(max-width:940px){
+  #f-marks .mk .mlab{font-size:13px;stroke-width:3.5}
+  #i-marks .mk .mlab{font-size:10px;stroke-width:3}
+}
+.mk.dim{opacity:.18;pointer-events:none}
+/* ---------- page Les actions, tout tient dans un écran ---------- */
+/* Les respirations de la bande sont réglées sur la hauteur de la fenêtre. Leurs
+   planchers étaient calés pour un écran de 900 px et la bande dépassait de huit
+   pixels sur un 1280 x 800 et de vingt sur un 1366 x 768, la page défilait donc
+   pour rien. Les planchers descendent, les vignettes ne bougent pas, ce sont
+   elles qui font vivre la page. */
+/* l'en-tête, la carte et les huit actions sur une seule bande, la carte est l'image de la page */
+.atlas{padding:clamp(22px,3.2vh,40px) 0 clamp(20px,3.6vh,48px)}
+.ahead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,290px);gap:26px 56px;align-items:stretch;padding-bottom:clamp(16px,2.6vh,30px);border-bottom:1px solid var(--border-strong)}
+/* L'en-tête garde ses deux colonnes jusqu'à 760 px. Il s'empilait dès 940, la
+   colonne des piliers prenait alors toute la largeur et le compte partait à
+   mille pixels de son nom, puis, borné, laissait la moitié droite de la rangée
+   vide. Sous 760 px l'écran est assez étroit pour qu'une rangée pleine largeur
+   se lise comme une liste, et c'est ce qu'elle fait. */
+@media(max-width:760px){.ahead{grid-template-columns:minmax(0,1fr);gap:22px}}
+.atlas .crumb{font-size:13.5px;color:var(--w50);margin-bottom:clamp(11px,1.4vh,20px)}
+.atlas h1{font-size:clamp(30px,3.4vw,50px);line-height:1.02}
+/* la coupe du titre est éditoriale, entre les deux temps, elle rend la main aux petits écrans */
+.atlas h1 br{display:none}
+@media(min-width:700px){.atlas h1 br{display:inline}}
+.atlas .ah-t .body{margin-top:clamp(10px,1.4vh,16px);max-width:96ch;font-size:15.5px}
+/* les trois piliers, légende de la carte et filtre à la fois, une colonne de lignes sans cadre */
+.aleg{display:flex;flex-direction:column;width:100%;justify-self:end}
+@media(max-width:760px){.aleg{justify-self:stretch;max-width:none}}
+.aleg button{flex:1 1 0;display:flex;align-items:center;gap:12px;width:100%;min-height:42px;padding:6px 0;background:transparent;border:0;border-bottom:1px solid var(--border);font:inherit;font-size:13.5px;font-weight:500;color:var(--w50);text-align:left;cursor:pointer;transition:color .16s}
+.aleg button:last-child{border-bottom:0}
+.aleg button:hover{color:var(--light)}
+.aleg button[aria-pressed=true]{color:var(--light);font-weight:600}
+.aleg i{flex:0 0 auto;width:9px;height:9px;border-radius:50%;display:inline-block}
+.aleg i.d{border-radius:1px;transform:rotate(45deg)}
+.aleg i.s{border-radius:2px}
+.aleg i.n{background:none}
+.aleg .lb{flex:1 1 auto;min-width:0}
+.aleg .ct{flex:0 0 auto;font-variant-numeric:tabular-nums;color:var(--w40)}
+.aleg button[aria-pressed=true] .ct{color:var(--primary)}
+/* la carte à gauche, les huit actions à droite, deux vues des mêmes huit liens */
+.agrid{display:grid;grid-template-columns:minmax(0,38%) minmax(0,1fr);gap:clamp(24px,2.8vw,48px);align-items:start;padding-top:clamp(16px,2.6vh,30px)}
+/* sur mobile la liste passe devant, la carte devient le contexte qu'on regarde après */
+@media(max-width:940px){.agrid{grid-template-columns:minmax(0,1fr);gap:34px}.alist{order:1}.amap{order:2}}
+.amap{min-width:0}
+.amap svg{display:block;width:100%;height:auto;max-height:min(56vh,520px)}
+@media(max-width:940px){.amap svg{max-height:none;max-width:400px;margin:0 auto}}
+.alist{min-width:0;display:grid;grid-template-columns:clamp(40px,6vh,60px) 9px minmax(0,auto) minmax(0,1fr) 14px;column-gap:15px;row-gap:0;align-content:start;border-bottom:1px solid var(--border)}
+.agrp{grid-column:1/-1;font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--w40);margin:clamp(10px,1.4vh,20px) 0 0;padding-bottom:5px}
+.agrp:first-child{margin-top:0}
+.agrp.off{display:none}
+/* le nom et le lieu à gauche, l'objet sur un axe commun à droite, une ligne par action */
+.arow{grid-column:1/-1;display:grid;grid-template-columns:subgrid;align-items:center;padding:clamp(6px,.85vh,9px) 0;border-top:1px solid var(--border);text-decoration:none;color:inherit}
+/* sans subgrid, les colonnes reprennent des proportions fixes */
+@supports not (grid-template-columns:subgrid){
+  .alist{display:flex;flex-direction:column}
+  .arow{grid-template-columns:clamp(40px,6vh,60px) 9px minmax(0,1.05fr) minmax(0,1fr) 14px;column-gap:15px}
+}
+.agrp+.arow{border-top:0}
+.arow.hidden{display:none}
+/* la vignette, seule image de la ligne, calme au repos et nette au survol */
+.arow .th{width:100%;aspect-ratio:3/2;border-radius:7px;background-color:var(--surface-2);background-size:cover;background-position:center;box-shadow:inset 0 0 0 1px rgba(252,252,252,.09);filter:saturate(.9) brightness(.95);transition:filter .2s}
+/* les deux associations sans photo validée gardent l'aplat de leur pilier, marqué de sa forme */
+.arow .th.flat{padding:0;display:flex;align-items:center;justify-content:center}
+.arow .th.flat::after{content:"";width:15px;height:15px;border:1px solid rgba(252,252,252,.2);background:rgba(252,252,252,.05)}
+.arow .th.flat.mer::after{border-radius:50%}
+.arow .th.flat.terre::after{transform:rotate(45deg)}
+.arow .th.flat.recherche::after{border-radius:18%}
+.arow:hover .th,.arow.hot .th,.arow:focus-visible .th{filter:none}
+.arow i{width:9px;height:9px;border-radius:50%}
+.arow i.d{border-radius:1px;transform:rotate(45deg)}
+.arow i.s{border-radius:2px}
+.arow .nm{font-size:15px;font-weight:600;letter-spacing:-.015em;line-height:1.45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .16s}
+.arow .lc{font-weight:400;letter-spacing:0;color:var(--w50)}
+.arow .ob{font-size:12.5px;line-height:1.45;color:var(--w50);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.arow .ar{text-align:right;font-size:13px;font-weight:600;color:var(--primary);opacity:0;transform:translateX(-5px);transition:opacity .16s,transform .16s}
+.arow:hover,.arow.hot,.arow:focus-visible{background:rgba(205,251,110,.05)}
+.arow:hover .nm,.arow.hot .nm,.arow:focus-visible .nm{color:var(--primary)}
+.arow:hover .lc,.arow.hot .lc,.arow:focus-visible .lc{color:var(--w70)}
+.arow:hover .ar,.arow.hot .ar,.arow:focus-visible .ar{opacity:1;transform:none}
+/* sous 1200 px les deux colonnes de texte s'empilent, le nom reste en premier */
+@media(max-width:1240px){
+  .alist{grid-template-columns:clamp(40px,6vh,60px) 9px minmax(0,1fr) 14px}
+  .arow{align-items:start}
+  .arow .th{grid-row:1/3;align-self:start}
+  .arow i{grid-row:1;margin-top:6px}
+  .arow .nm{grid-column:3;grid-row:1;white-space:normal}
+  .arow .ob{grid-column:3;grid-row:2;margin-top:2px;white-space:normal}
+  .arow .ar{grid-column:4;grid-row:1/3;align-self:center}
+}
+@media(max-width:560px){
+  .alist{grid-template-columns:48px 9px minmax(0,1fr) 14px;column-gap:11px}
+}
+/* Un cran de hauteur, pour les portables de 720 a 800 px. La bande dépassait de
+   quatorze a trente-trois pixels et la page défilait pour rien, ce que la règle
+   de cette page interdit. Le titre perd cinq pixels et les vignettes quatre, le
+   1440 x 900 de référence n'est pas touché, il est au-dessus du seuil. */
+@media(max-height:820px){
+  /* La carte, et non l'index, était ce qui dépassait. Bornée à 56 vh elle
+     rétrécit moins vite que les huit lignes, elle faisait 430 px pour un index
+     de 360 sur un écran de 768 et c'est elle qui poussait la bande hors du
+     cadre. Elle se cale sur la hauteur de l'index, les deux colonnes finissent
+     ensemble. */
+  .amap svg{max-height:min(48vh,520px)}
+  .atlas{padding-top:18px;padding-bottom:18px}
+  .ahead{padding-bottom:16px}
+  .agrid{padding-top:16px}
+  .atlas h1{font-size:clamp(28px,3vw,42px)}
+  .arow{padding:5px 0}
+  .arow .th{width:clamp(38px,5.4vh,52px)}
+  .alist{grid-template-columns:clamp(38px,5.4vh,52px) 9px minmax(0,auto) minmax(0,1fr) 14px}
+}
+/* Le cran d'en dessous, un portable de 720 px de haut ou moins. Huit lignes, un
+   titre sur deux temps et une barre de 80 px, c'est la limite de ce qui tient
+   dans un écran sans couper du contenu. */
+@media(max-height:740px){
+  .atlas .crumb{margin-bottom:8px}
+  .atlas .ah-t .body{margin-top:8px}
+  .arow{padding:4px 0}
+}
+@media(max-height:820px) and (max-width:1240px){
+  .alist{grid-template-columns:clamp(38px,5.4vh,52px) 9px minmax(0,1fr) 14px}
+}
+@media(max-height:820px) and (max-width:560px){
+  .alist{grid-template-columns:48px 9px minmax(0,1fr) 14px}
+}
+.extl{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--primary);text-decoration:none}
+.extl:hover{text-decoration:underline}
+/* cartes projet 3:4, elles ne servent plus qu'aux autres actions en pied de fiche */
+/* ---------- étapes ---------- */
+
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+.step{display:flex;flex-direction:column;gap:12px;padding-top:20px;border-top:1px solid var(--border)}
+.step .n{display:inline-flex;align-items:center;gap:11px;font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--primary);font-variant-numeric:tabular-nums}
+.step .n::after{content:"";width:20px;height:1px;background:var(--border-strong)}
+.step p{font-size:14px;line-height:1.55;color:var(--w70)}
+
+.flag{font-size:13px;line-height:1.6;color:var(--w50);border-left:2px solid var(--orange);padding-left:16px;margin-top:28px;max-width:70ch}
+.flag b{color:var(--orange);font-weight:600}
+
+footer{border-top:1px solid var(--border);padding:64px 0 72px;background:var(--surface)}
+footer .fox{width:64px;height:30px;background:var(--primary);-webkit-mask:var(--fox-run) left/contain no-repeat;mask:var(--fox-run) left/contain no-repeat;display:block;margin:0 auto 16px}
+footer .fnav{display:flex;gap:26px;flex-wrap:wrap;justify-content:center;font-size:14px;font-weight:500}
+/* sous 560 px les quatre liens ne tiennent plus sur une ligne et se coupaient en
+   trois plus un orphelin centré, ils passent en deux rangées de deux */
+@media(max-width:560px){footer .fnav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 22px;text-align:center;font-size:13.5px;width:100%;max-width:330px}}
+footer a{color:var(--light);text-decoration:none;opacity:.75}
+footer a:hover{opacity:1}
+.sources{margin-top:40px;font-size:12.5px;line-height:1.7;color:var(--w50);max-width:90ch}
+.sources b{color:var(--w70);font-weight:600}
+/* Sur un téléphone le pied de page pesait 448 px, soit un cinquième de la page
+   Les actions, pour un renard, une phrase, quatre liens et un déplié. Les
+   respirations se resserrent, rien n'est retiré. */
+@media(max-width:640px){
+  footer{padding:40px 0 44px}
+  footer .top{gap:20px}
+  footer .fox{width:56px;height:26px;margin-bottom:12px}
+  .sources{margin-top:26px}
+  /* au doigt, les quatre liens et le déplié faisaient 17 px de haut */
+  footer .fnav a{display:block;padding:7px 4px}
+  .sources summary{padding:6px 0}
+}
+
+/* ---------- système de pages ---------- */
+
+/* Le systeme de pages par affichage conditionnel a ete retire, chaque page
+   est desormais un document HTML a part entiere servi a sa propre adresse. */
+.page{display:block}
+h1{font-size:clamp(46px,7.6vw,104px);line-height:.98;letter-spacing:-.035em}
+h2{font-size:clamp(32px,4.6vw,60px);line-height:1.05;letter-spacing:-.03em}
+.body.lg{font-size:clamp(17px,1.35vw,20px)}
+.phero{position:relative;display:block;overflow:visible;padding:88px 0 52px}
+@media(max-width:768px){.phero{padding:72px 0 40px}}
+.phero .crumb{margin-bottom:26px}
+.phero .body{margin-top:22px;max-width:36rem}
+.phero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.sect-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px 56px;flex-wrap:wrap}
+.sect-head>.body{padding-top:6px}
+/* page action (détail) */
+
+.adet .ameta{display:flex;align-items:center;gap:10px;margin:0 0 16px;font-size:13.5px;font-weight:600;letter-spacing:-.015em}
+.adet .ameta i{flex:none;width:9px;height:9px;border-radius:50%}
+.adet .ameta i.d{border-radius:1px;transform:rotate(45deg)}
+.adet .ameta i.s{border-radius:2px}
+.adet .ameta span{font-weight:400;letter-spacing:0;color:var(--w50)}
+.adet .cols{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:56px;align-items:start}
+@media(max-width:900px){.adet .cols{grid-template-columns:minmax(0,1fr);gap:32px}}
+.adet .q{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.adet .txt{font-size:clamp(17px,1.3vw,20px);line-height:1.6;color:var(--light)}
+.adet .side{position:sticky;top:104px}
+.adet .acta{margin-top:44px}
+/* deux associations n'ont pas encore de récit, la page le dit en une ligne au
+   lieu d'ouvrir un faux portrait intitulé « Le récit arrive » */
+.adet .asoon{margin-top:36px;padding-top:28px;border-top:1px solid var(--border);max-width:64ch;font-size:14.5px;line-height:1.6;color:var(--w50)}
+/* les trois autres actions, les mêmes lignes que l'index, .alist les habille */
+.alist.others{margin-top:34px;max-width:1040px}/* combats page */
+
+
+
+.src{display:inline-block;margin-left:6px;font-size:12px;color:var(--w50);text-decoration:underline;text-decoration-color:var(--border-strong)}
+.src:hover{color:var(--light)}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--border);margin-top:40px}
+@media(max-width:640px){.kpis{grid-template-columns:minmax(0,1fr)}}
+.kpis>div{padding:22px 24px 0 0;margin-right:24px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:8px}
+.kpis>div:last-child{border-right:0;margin-right:0;padding-right:0}
+.kpis .v{font-size:clamp(28px,2.6vw,38px);font-weight:700;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--light)}
+.kpis .t{font-size:13.5px;line-height:1.45;color:var(--w70)}
+.recit{margin-top:36px;padding-top:28px;border-top:1px solid var(--border);max-width:64ch}
+.recit h3{font-size:clamp(22px,2.2vw,30px)}
+.recit p{margin-top:14px;font-size:16.5px;line-height:1.65;color:var(--w70)}
+.legaltop{padding-top:120px}
+.legal .crumb{margin-bottom:14px}
+.legal h1{font-size:clamp(32px,4vw,52px)}
+.legal h2{font-size:clamp(22px,2.2vw,28px);margin-top:44px}
+.legal p{margin-top:14px;font-size:16px;line-height:1.65;color:var(--w70);max-width:70ch}
+
+h1,h2,.kpis .v,.cb h3,.recit h3,.adet h1{font-family:"Terrane Sans","Instrument Sans",system-ui,sans-serif;letter-spacing:-.02em}
+@keyframes pagein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ---- accueil, aucune barre, on entre dans le site par le bouton du héros ---- */
+body[data-route=accueil] .topbar{display:none}
+@media(prefers-reduced-motion:reduce){.mnav.open{animation:none}}
+
+/* ---- passe design ---- */
+
+.sect.light{background:var(--contrast);color:#131B00;
+  --light:#131B00;--w70:rgba(19,27,0,.74);--w50:rgba(19,27,0,.64);--w40:rgba(19,27,0,.52);
+  --border:rgba(19,27,0,.16);--border-strong:rgba(19,27,0,.4);--surface:#F0F8E3;--surface-2:#E8F2D9;--muted:#5F6654;--l10:rgba(19,27,0,.06);--l15:rgba(19,27,0,.1)}
+.sect.light .btn-o{color:#131B00}
+.sect.light .eyebrow{color:#5F6654}
+.sect.light .flag{color:rgba(19,27,0,.7)}
+@media(max-width:640px){.kpis>div{border-right:0;margin-right:0;padding-bottom:18px;border-bottom:1px solid var(--border)}.kpis>div:last-child{border-bottom:0}}/* vert acide, un seul point par écran */
+
+/* héros plus courts */
+
+.body.lg{max-width:36rem}/* mentions de travail masquées hors aperçu */
+
+.flag,.draftnote{display:none}
+body.draft .flag{display:block}
+body.draft .draftnote{display:inline}/* sources repliées */
+
+.sources summary{cursor:pointer;font-weight:600;color:var(--w70);list-style:none}
+.sources summary::-webkit-details-marker{display:none}
+.sources summary::after{content:" +";}
+.sources[open] summary::after{content:" −";}
+.sources p{margin-top:10px}/* ---- héros éditoriaux, texte à gauche, photo nette à droite ---- */
+
+.phero .container{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:stretch}
+@media(max-width:900px){.phero .container{grid-template-columns:minmax(0,1fr);gap:32px}}
+/* La photo prend la hauteur du texte et le texte se cale sur son pied. Une photo
+   au format fixe était plus haute que le texte sur les fiches action et ouvrait
+   160 px de noir au-dessus du fil d'Ariane. Le format varie donc d'une page à
+   l'autre, la photo est toujours pleine et les deux pieds sont toujours alignés. */
+.phero .ptxt{min-width:0;align-self:end}
+.phero .bg{position:relative;min-height:280px;border-radius:var(--r-2xl);border:1px solid var(--border);background-size:cover;background-position:center;width:100%;justify-self:end}
+@media(max-width:900px){.phero .bg{min-height:0;aspect-ratio:16/10;order:2}}/* fiche latérale sans boîte */
+
+.adet .side .dl{margin:0;border-top:1px solid var(--border)}
+.adet .side .dl>div{padding:14px 0 15px;border-bottom:1px solid var(--border)}
+.adet .side dt{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.adet .side dd{margin:7px 0 0;font-size:14.5px;line-height:1.5;color:var(--light)}
+.adet .side dd b{font-weight:600}/* pied de page */
+
+/* pied de page centré */
+footer .top{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:28px;flex-wrap:wrap}
+footer .top>div{display:flex;flex-direction:column;align-items:center}
+footer .top p{margin-left:auto;margin-right:auto}
+footer .sources{margin-left:auto;margin-right:auto;text-align:center}
+footer .fhook{max-width:34ch;font-size:clamp(19px,2vw,25px);line-height:1.25;font-weight:700;letter-spacing:-.02em;color:var(--light);text-wrap:balance}/* ---- accueil, hook interactif ---- *//* ---- accueil, héros plein écran fidèle au site actuel ---- */
+
+.fullhero{position:relative;min-height:calc(100vh - 80px);display:flex;align-items:center;overflow:hidden;padding:120px 0 96px}
+@media(max-width:768px){.fullhero{min-height:calc(100vh - 64px);padding:96px 0 64px}}
+.fh-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.fh-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(19,27,0,.9) 0%,rgba(19,27,0,.7) 45%,rgba(19,27,0,.35) 100%)}
+.fh-in{position:relative;z-index:2}
+.fullhero h1{max-width:15ch;font-size:clamp(42px,6.2vw,92px);line-height:1;letter-spacing:-.035em}
+.fh-sub{margin-top:30px;font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:var(--w70);max-width:40rem}
+.fullhero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+
+.flat{display:flex;flex-direction:column;justify-content:flex-end;gap:6px;padding:28px;background:var(--surface-3)!important}
+.flat.mer{background:linear-gradient(160deg,#1E3A4A,#0F1E27)!important}
+.flat.terre{background:linear-gradient(160deg,#2F4A16,#172607)!important}
+.flat.recherche{background:linear-gradient(160deg,#4A3A1E,#27200F)!important}
+.flat span{font-size:13px;font-weight:600;color:var(--w70)}
+.flat b{font-family:"Terrane Sans","Instrument Sans",sans-serif;font-size:clamp(22px,2.2vw,32px);line-height:1.1;letter-spacing:-.02em}
+/* ---- accueil, un seul écran ---- */
+
+.fullhero.solo{min-height:100vh;padding:80px 0;text-align:center;justify-content:center}
+.fullhero.solo .fh-veil{background:radial-gradient(ellipse at center,rgba(19,27,0,.46) 0%,rgba(19,27,0,.78) 70%,rgba(19,27,0,.9) 100%)}
+.fullhero.solo .fh-in{display:flex;flex-direction:column;align-items:center}
+.fullhero.solo h1{max-width:18ch;font-size:clamp(40px,6.4vw,96px);text-wrap:balance}
+.fh-kicker{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);margin-bottom:26px}
+.fullhero.solo .fh-sub{text-align:center;max-width:44rem;color:var(--w70)}
+.fullhero.solo .cta{justify-content:center;margin-top:40px}
+.btn-xl{padding:20px 40px;font-size:18px}
+.kb{animation:kb 28s ease-in-out infinite alternate;will-change:transform}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.08)}}
+@media(prefers-reduced-motion:reduce){.kb{animation:none}}/* vidéo de fond, la photo reste dessous et prend le relais si la vidéo ne joue pas */
+
+.fh-video{width:100%;height:100%;object-fit:cover;z-index:1;opacity:0;transition:opacity 1.2s ease}
+.fh-video.playing{opacity:1}
+.fh-poster{z-index:0}
+@media(prefers-reduced-motion:reduce){.fh-video{display:none}}
+footer .fnav a{cursor:pointer}
+.notfound{padding:140px 0 120px;text-align:center}
+.notfound h1{font-size:clamp(32px,4vw,52px)}
+.notfound .body{margin:20px auto 0}/* titres des pages intérieures, un cran sous celui de l'accueil */
+
+.phero h1,.adet h1{font-size:clamp(34px,4.4vw,62px);line-height:1.04;letter-spacing:-.03em}
+@media(max-width:640px){.phero h1,.adet h1{font-size:clamp(30px,7.4vw,38px)}}
+/* ---- page La Fondation ---- */
+
+
+/* ---- page Évènements, un seul axe central, des blocs de même hauteur ---- */
+
+.evprog{padding:96px 0 104px}
+@media(max-width:768px){.evprog{padding:72px 0 84px}}
+.evprog .crumb{display:flex;justify-content:center;gap:7px;margin-bottom:30px}
+.evprog .head h1{margin:0 auto;max-width:22ch;font-size:clamp(30px,3.6vw,46px);line-height:1.04;letter-spacing:-.03em}
+.evwhen{display:inline-flex;align-items:center;gap:16px;text-align:left;margin:0 0 20px}
+.evwhen .d{font-family:"Terrane Sans","Instrument Sans",system-ui,sans-serif;font-size:clamp(40px,3.6vw,54px);font-weight:700;line-height:.88;letter-spacing:-.04em;color:var(--primary);font-variant-numeric:tabular-nums}
+.evwhen .m{font-size:clamp(17px,1.4vw,21px);font-weight:600;line-height:1.15;color:var(--light)}
+.evwhen .m small{display:block;font-size:13.5px;font-weight:500;color:var(--w70);margin-top:7px}
+.evpage .head .lede a{color:var(--light);text-decoration:underline;text-decoration-color:var(--border-strong);text-underline-offset:3px}
+.evpage .ics{display:block;flex-basis:100%;font-size:13.5px;font-weight:600;color:var(--w70);text-decoration:underline;text-decoration-color:var(--border-strong);text-underline-offset:3px}
+.evpage .ics:hover{color:var(--light)}
+
+.evpage .head{text-align:center}
+.evpage .head .lede{margin:20px auto 0;max-width:62ch;font-size:15.5px;line-height:1.62;color:var(--w70)}
+
+.evpage .grid{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r-2xl);overflow:hidden;margin-top:34px}
+.evpage .grid>div{background:var(--dark);padding:24px 24px;display:flex;flex-direction:column;min-width:0}
+.evpage .g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:1080px){.evpage .g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.evpage .g4{grid-template-columns:minmax(0,1fr)}}
+.evpage .grid .k{font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--muted)}
+.evpage .grid .v{display:block;margin-top:12px;font-family:"Terrane Sans","Instrument Sans",system-ui,sans-serif;font-size:clamp(17px,1.35vw,20px);line-height:1.15;letter-spacing:-.02em;color:var(--light)}
+.evpage .grid p{margin-top:10px;font-size:14px;line-height:1.55;color:var(--w70)}
+.evpage .tag{display:inline-block;font-size:11.5px;font-weight:600;line-height:1.4;color:var(--orange);border:1px solid rgba(255,173,92,.5);border-radius:9999px;padding:4px 11px;text-decoration:none}
+.evpage .tag.soon{color:var(--w50);border-color:var(--border-strong)}
+.evpage .tag.open{color:var(--primary);border-color:rgba(205,251,110,.55);font-size:12.5px;padding:6px 14px}
+.evpage .tag.info{color:var(--light);border-color:var(--border-strong)}
+
+/* le programme, une ligne par rendez-vous sur un même filet. Une tuile par
+   évènement coûte environ 300 px, une ligne en coûte 90, c'est ce qui permet
+   d'en ajouter un cinquième sans remonter la page à trois écrans. */
+.evlist{margin-top:38px;text-align:left;border-top:1px solid var(--border-strong)}
+.evrow{display:grid;grid-template-columns:132px minmax(0,330px) minmax(0,1fr) 196px 118px;column-gap:26px;align-items:center;width:100%;padding:22px 0;background:transparent;border:0;border-bottom:1px solid var(--border);font:inherit;text-align:left;color:inherit;text-decoration:none;cursor:pointer;transition:background .16s}
+.evrow:hover,.evrow:focus-visible{background:var(--l10)}
+.evrow.open{background:rgba(205,251,110,.05)}
+.evrow.open:hover,.evrow.open:focus-visible{background:rgba(205,251,110,.1)}
+.evrow .dt .d{display:block;font-family:"Terrane Sans","Instrument Sans",system-ui,sans-serif;font-weight:700;font-size:38px;line-height:.9;letter-spacing:-.04em;color:var(--primary);font-variant-numeric:tabular-nums}
+.evrow .dt .m{display:block;margin-top:7px;font-size:12.5px;font-weight:600;color:var(--w50)}
+/* les rendez-vous sans jour arrêté portent leur période à la place du chiffre */
+.evrow .dt.soft .d{font-size:20px;line-height:1.1;letter-spacing:-.02em;color:var(--w70)}
+.evrow .ti b{display:block;font-family:"Terrane Sans","Instrument Sans",system-ui,sans-serif;font-weight:700;font-size:20px;line-height:1.15;letter-spacing:-.025em}
+.evrow .ti .wi{display:block;margin-top:7px;font-size:12.5px;font-weight:500;color:var(--w50)}
+.evrow .pl{font-size:13.5px;line-height:1.5;color:var(--w70)}
+.evrow .pl span{display:block;margin-top:5px;font-size:12.5px;color:var(--w50)}
+.evrow .go{display:inline-flex;align-items:center;justify-content:flex-end;gap:8px;text-align:right;font-size:13.5px;font-weight:600;color:var(--primary);white-space:nowrap;transition:gap .18s}
+.evrow:hover .go{gap:12px}
+/* Sous 1180 px la ligne tient en deux rangées, la date à gauche, l'objet et le
+   lieu au milieu, la pastille d'accès et l'action à droite l'une sous l'autre.
+   Elle est passée un temps à trois rangées, l'action posée sous toute la largeur,
+   la pastille restait seule en haut à droite et la ligne creusait cent pixels de
+   vide au milieu, elle coûtait 193 px au lieu de 90. */
+@media(max-width:1180px){
+  .evrow{grid-template-columns:132px minmax(0,1fr) minmax(0,auto);column-gap:22px;row-gap:10px;align-items:start}
+  .evrow .dt{grid-column:1;grid-row:1/3}
+  .evrow .ti{grid-column:2;grid-row:1}
+  .evrow .pl{grid-column:2;grid-row:2}
+  .evrow .ac{grid-column:3;grid-row:1;justify-self:end}
+  .evrow .go{grid-column:3;grid-row:2;justify-self:end}
+}
+@media(max-width:620px){
+  .evrow{grid-template-columns:minmax(0,1fr);row-gap:10px;padding:20px 0}
+  .evrow .dt,.evrow .ti,.evrow .pl,.evrow .ac,.evrow .go{grid-column:1;grid-row:auto}
+  .evrow .dt .d{font-size:28px}
+  .evrow .dt.soft .d{font-size:19px}
+}
+/* la fiche d'un rendez-vous, en pop-up. Elle a remplacé les deux bandes qui
+   décrivaient le 17 septembre en dur au milieu de la page, elles ne concernaient
+   qu'un évènement sur quatre. La classe evpage est reprise sur le dialogue pour
+   que .tag, .ics et .grid s'y appliquent sans réécrire leurs règles. */
+.evmodal{width:min(920px,calc(100vw - 40px));max-height:calc(100vh - 56px);padding:0;border:1px solid var(--border-strong);border-radius:var(--r-2xl);background:var(--surface);color:var(--light);overflow:auto;overscroll-behavior:contain}
+.evmodal::backdrop{background:rgba(8,12,0,.74)}
+.evmodal .evm-bar{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px 14px 24px;background:var(--surface);border-bottom:1px solid var(--border)}
+.evmodal .evm-x{display:inline-flex;align-items:center;gap:9px;background:transparent;border:1px solid var(--border-strong);border-radius:9999px;padding:8px 16px;font:inherit;font-size:13px;font-weight:600;color:var(--light);cursor:pointer;transition:border-color .16s,background .16s}
+.evmodal .evm-x:hover{border-color:var(--light);background:var(--l10)}
+.evmodal .evm-pic{aspect-ratio:3/1;background-size:cover;background-position:center;border-bottom:1px solid var(--border)}
+.evmodal .evm-in{padding:30px 34px 36px}
+.evmodal .evwhen{margin:0 0 16px}
+/* les rendez-vous sans jour arrêté portent leur période, elle ne se lit pas en 54 px */
+.evmodal .evwhen.soft .d{font-size:26px;line-height:1.1;letter-spacing:-.02em;color:var(--w70)}
+.evmodal .evtags{display:flex;gap:8px;margin:0 0 10px}
+.evmodal h2{font-size:34px;line-height:1.05;letter-spacing:-.03em;max-width:24ch}
+.evmodal .lede{margin:18px 0 0;max-width:64ch;font-size:16px;line-height:1.62;color:var(--w70)}
+.evmodal .lede a{color:var(--light);text-decoration:underline;text-decoration-color:var(--border-strong);text-underline-offset:3px}
+.evmodal .cta{margin-top:26px}
+.evmodal .evm-soon{margin-top:26px;padding-top:16px;border-top:1px solid var(--border);font-size:13.5px;line-height:1.6;color:var(--w50)}
+/* la grille pratique passe à deux colonnes, la fiche fait 920 px et non 1400.
+   La classe est doublée pour passer devant .evpage .g4, de même spécificité. */
+.evmodal .grid{margin-top:30px}
+.evmodal .grid.g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+.evmodal .grid>div{background:var(--surface-2)}
+/* Une période se lit sur une ligne. « Début octobre » posée à côté de sa
+   précision donnait deux colonnes de deux lignes chacune dans 238 px, les deux
+   passent l'une sous l'autre. Une date arrêtée garde son grand chiffre à côté
+   de son mois, elle y tient. */
+@media(max-width:430px){
+  .evmodal .evwhen.soft{flex-direction:column;align-items:flex-start;gap:4px}
+}
+@media(max-width:640px){
+  .evmodal{width:calc(100vw - 20px);max-height:calc(100vh - 24px)}
+  .evmodal .evm-bar{padding:12px 14px 12px 18px}
+  .evmodal .evm-in{padding:24px 22px 28px}
+  .evmodal h2{font-size:27px}
+  .evmodal .evm-pic{aspect-ratio:16/9}
+  .evmodal .grid.g4{grid-template-columns:minmax(0,1fr)}
+}
+html.ev-open{overflow:hidden}
+
+:root{--img-agro:url(/img/agro.jpg);
+--img-card:url(/img/card.jpg);
+--img-depol:url(/img/depol.jpg);
+--img-ecole:url(/img/ecole.jpg);
+--img-feve:url(/img/feve.jpg);
+--img-forest:url(/img/forest.jpg);
+--img-fox:url(/img/fox.jpg);
+--img-hero:url(/img/hero.jpg);
+--img-pesticides:url(/img/pesticides.jpg);
+--img-pollution:url(/img/pollution.jpg);
+--img-rech:url(/img/rech.jpg);
+--img-rejoindre:url(/img/rejoindre.jpg);
+--img-shift:url(/img/shift.jpg);
+--img-sungai:url(/img/sungai.jpg);
+--img-tara:url(/img/tara.jpg);
+--img-wings:url(/img/wings.jpg);
+}
+
+/* ---- page Nos combats, un axe central et deux colonnes de même anatomie ---- */
+
+/* en-têtes centrés, ils posent l'axe de lecture de la page */
+.axis{max-width:56rem;margin:0 auto;text-align:center}
+.axis h2{margin-top:14px}
+.axis .body{margin:22px auto 0;max-width:54ch}
+
+/* la chaîne causale, six maillons de largeur égale sur un même filet */
+.sect.chainband{padding:72px 0 56px}
+@media(max-width:768px){.sect.chainband{padding:48px 0 64px}}
+.chainrow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:auto auto auto;list-style:none;margin:60px 0 0;padding:0;border-top:1px solid var(--border-strong)}
+.chainrow li{display:grid;grid-row:1/-1;grid-template-rows:subgrid;grid-template-columns:minmax(0,1fr);position:relative;padding:34px 12px 0;text-align:center;row-gap:10px;border-right:1px solid var(--border)}
+.chainrow li:last-child{border-right:0}
+.chainrow li::before{content:"";position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:11px;height:11px;border-radius:50%;background:var(--dark);border:1.5px solid var(--w50);box-sizing:border-box}
+.chainrow .n{font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--w40);font-variant-numeric:tabular-nums}
+.chainrow .l{font-family:"Terrane Sans","Instrument Sans",system-ui,sans-serif;font-size:clamp(14px,1.15vw,17px);font-weight:700;line-height:1.2;letter-spacing:-.02em;text-wrap:balance}
+.chainrow .g{font-size:13px;line-height:1.45;color:var(--w50)}
+.chainrow li.hot::before{background:var(--primary);border-color:var(--primary)}
+.chainrow li.hot .l,.chainrow li.hot .n{color:var(--primary)}
+@media(max-width:1240px){
+  .chainrow{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:none;border-top:0;margin-top:44px}
+  .chainrow li{grid-row:auto;grid-template-rows:none;display:block;border-top:1px solid var(--border);padding:26px 16px 24px}
+  .chainrow li:nth-child(3n){border-right:0}
+  .chainrow li .l,.chainrow li .g{margin-top:8px;display:block}
+}
+@media(max-width:560px){
+  .chainrow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .chainrow li:nth-child(2n){border-right:0}
+}
+
+/* les deux combats, colonnes jumelles, chaque bande alignée d'un côté à l'autre */
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto auto auto 1fr auto;margin-top:64px}
+.pair .cb{display:grid;grid-row:1/-1;grid-template-rows:subgrid;grid-template-columns:minmax(0,1fr);min-width:0}
+.pair .cb:first-child{padding-right:52px;border-right:1px solid var(--border)}
+.pair .cb:last-child{padding-left:52px}
+@media(max-width:1180px){.pair .cb:first-child{padding-right:36px}.pair .cb:last-child{padding-left:36px}}
+.cbhd{display:flex;align-items:center;gap:16px;padding-bottom:22px}
+.cbhd .k{font-size:12.5px;font-weight:600;letter-spacing:.08em;color:var(--primary);white-space:nowrap}
+.cbhd .r{flex:1;height:1px;background:var(--border)}
+.cbpic{aspect-ratio:16/10;border-radius:var(--r-2xl);border:1px solid var(--border);background-size:cover;background-position:center}
+.cb h3{margin-top:32px;font-size:clamp(26px,2.6vw,38px)}
+.cbtx{margin-top:18px;display:flex;flex-direction:column;gap:15px}
+.cbtx .body{font-size:15.5px}
+.cbfl{margin-top:32px;align-self:start;width:100%;border-top:1px solid var(--border)}
+.cbfl>div{display:grid;grid-template-columns:8rem minmax(0,1fr);gap:18px;align-items:baseline;padding:15px 0;border-bottom:1px solid var(--border)}
+.cbfl .v{font-family:"Terrane Sans","Instrument Sans",system-ui,sans-serif;font-size:24px;font-weight:700;line-height:1.15;letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cbfl .t{font-size:14px;line-height:1.5;color:var(--w70)}
+@media(max-width:1180px){.cbfl>div{grid-template-columns:7rem minmax(0,1fr);gap:14px}.cbfl .v{font-size:22px}}
+.cbwho{margin-top:28px}
+.cbwho .q{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.cbwho ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.cbwho li a{font-size:13.5px;font-weight:500;border:1px solid var(--border);border-radius:9999px;padding:7px 14px;color:var(--light);text-decoration:none;display:inline-block}
+.cbwho li a:hover{border-color:var(--light)}
+@media(max-width:900px){
+  .pair{grid-template-columns:minmax(0,1fr);grid-template-rows:none}
+  .pair .cb{grid-row:auto;grid-template-rows:none;display:block;padding:0;border-right:0}
+  .pair .cb:first-child{padding-right:0;border-right:0}
+  .pair .cb:last-child{padding-left:0}
+  .pair .cb+.cb{margin-top:56px;padding-top:56px;border-top:1px solid var(--border)}
+}
+@media(max-width:520px){.cbfl>div{grid-template-columns:minmax(0,1fr);gap:6px}}
+/* si le navigateur ne connaît pas subgrid, les colonnes restent de même hauteur, sans alignement bande par bande */
+@supports not (grid-template-rows:subgrid){
+  .pair .cb{display:flex;flex-direction:column}
+  .cbfl{margin-bottom:auto}
+  .chainrow li{display:block}
+  .chainrow li .l,.chainrow li .g{margin-top:8px;display:block}
+}
+
+/* trois analyses, trois cellules égales de part et d'autre de l'axe */
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--border);margin-top:56px}
+.trio>div{display:flex;flex-direction:column;align-items:center;text-align:center;padding:38px 30px 0;border-right:1px solid var(--border)}
+.trio>div:last-child{border-right:0}
+.trio .v{font-family:"Terrane Sans","Instrument Sans",system-ui,sans-serif;font-size:clamp(48px,5.2vw,78px);line-height:.95;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--light)}
+.trio h4{margin-top:22px;font-size:19px}
+.trio p{margin-top:12px;font-size:14.5px;line-height:1.6;color:var(--w70);max-width:32ch}
+.trio p .src{margin-left:0;display:inline}
+@media(max-width:860px){
+  .trio{grid-template-columns:minmax(0,1fr);margin-top:40px}
+  .trio>div{border-right:0;padding:30px 0;border-bottom:1px solid var(--border)}
+  .trio>div:last-child{border-bottom:0}
+}
+
+/* la sortie de page, sur le même axe */
+.cclose{max-width:56rem;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center}
+.cclose h2{max-width:24ch;font-size:clamp(28px,3.4vw,44px)}
+.cclose .btn{margin-top:36px}
+.cclose .note{margin-top:40px;max-width:74ch}
+
+/* ================= page La Fondation, manifeste ================= */
+/* Sept bandes, l'ordre est un récit. Ouverture, deux convictions en grand,
+   la phrase de départ, le chemin de l'argent, les trois décisions, la documentation
+   repliée, et le sixième engagement qui devient l'invitation à venir voir. */
+
+/* révélations au défilement, posées seulement si le script tourne */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1)}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}}
+.js .mflow>.rv:nth-child(2){transition-delay:.07s}
+.js .mflow>.rv:nth-child(3){transition-delay:.14s}
+.js .mflow>.rv:nth-child(4){transition-delay:.21s}
+
+/* la page est longue, ses bandes respirent moins que sur les autres pages */
+.page[data-page="fondation"] .sect{padding:72px 0}
+@media(min-width:768px){.page[data-page="fondation"] .sect{padding:78px 0}}
+/* la première conviction entre dans l'écran, le pli n'a plus l'air d'être la fin */
+#manifeste{padding-top:52px}
+@media(max-width:768px){#manifeste{padding-top:44px}}
+.page[data-page="fondation"] .sect.tight{padding:60px 0}
+@media(min-width:768px){.page[data-page="fondation"] .sect.tight{padding:76px 0}}
+
+/* 1. ouverture plein cadre, plus basse que l'accueil, elle n'a qu'une phrase à porter */
+.mhero{position:relative;display:flex;align-items:flex-end;overflow:hidden;min-height:min(70vh,660px);margin-top:-80px;padding:140px 0 58px}
+@media(max-width:900px){.mhero{min-height:auto;padding:150px 0 54px}}
+@media(max-width:768px){.mhero{margin-top:-64px;padding:130px 0 48px}}
+.mh-bg{position:absolute;inset:0;background-size:cover;background-position:56% 34%}
+.mh-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(19,27,0,.78) 0%,rgba(19,27,0,.42) 30%,rgba(19,27,0,.82) 74%,var(--dark) 100%)}
+.mh-in{position:relative;z-index:2}
+.mhero .crumb{margin-bottom:26px}
+.mhero h1{max-width:20ch;font-size:clamp(36px,5.2vw,78px);line-height:1.02;letter-spacing:-.035em}
+.mh-lead{margin-top:22px;max-width:38rem;font-size:clamp(16px,1.2vw,18.5px);line-height:1.6;color:var(--w70)}
+.mhero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.mh-cue{position:absolute;left:50%;bottom:24px;z-index:3;transform:translateX(-50%);width:26px;height:44px;border:1px solid var(--border-strong);border-radius:9999px;display:flex;justify-content:center;align-items:flex-start;padding-top:9px;transition:border-color .2s}
+.mh-cue:hover{border-color:var(--primary)}
+.mh-cue span{width:3px;height:8px;border-radius:2px;background:var(--primary);animation:mcue 2s ease-in-out infinite}
+@keyframes mcue{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(14px);opacity:.25}}
+@media(max-width:900px){.mh-cue{display:none}}
+
+/* 2. les deux convictions, texte et photo côte à côte, en miroir d'un bloc à l'autre.
+   La photo est posée à côté du texte et non dessous, sinon chaque engagement coûte
+   400 px de plus et le manifeste devient un couloir. */
+.big{display:grid;grid-template-columns:minmax(0,.57fr) minmax(0,.43fr);gap:36px 72px;align-items:center;
+  padding:52px 0;border-top:1px solid var(--border);scroll-margin-top:96px}
+.big:first-of-type{border-top:0;padding-top:26px}
+@media(min-width:1200px){.big{padding:60px 0}}
+.big .btx{grid-column:1;grid-row:1;min-width:0}
+.big .bimg{grid-column:2;grid-row:1;aspect-ratio:16/10;border-radius:var(--r-2xl);border:1px solid var(--border);background-size:cover;background-position:center}
+.big .bimg.card{background-position:54% 46%}
+.big.rev{grid-template-columns:minmax(0,.43fr) minmax(0,.57fr)}
+.big.rev .bimg{grid-column:1}
+.big.rev .btx{grid-column:2}
+.big .no{display:block;font-size:12.5px;font-weight:700;letter-spacing:.16em;color:var(--primary);font-variant-numeric:tabular-nums;margin-bottom:16px}
+.big h3{font-size:clamp(29px,3.9vw,56px);line-height:1.02;letter-spacing:-.038em;max-width:17ch}
+.big .bd{margin-top:22px;max-width:46ch;font-size:clamp(16px,1.25vw,18.5px);line-height:1.58;color:var(--w70)}
+.big .bd .lead{color:var(--light)}
+.big .bd p+p{margin-top:14px}
+.big .more{display:inline-flex;align-items:center;gap:9px;margin-top:22px;font-size:14px;font-weight:600;color:var(--light);text-decoration:none;border-bottom:1px solid var(--border-strong);padding-bottom:4px;transition:border-color .22s,gap .22s}
+.big .more:hover{border-color:var(--primary);gap:13px}
+@media(max-width:900px){
+  .big,.big.rev{grid-template-columns:minmax(0,1fr);gap:26px;padding:40px 0}
+  .big .btx,.big.rev .btx{grid-column:1;grid-row:2}
+  .big .bimg,.big.rev .bimg{grid-column:1;grid-row:1;aspect-ratio:16/9}
+}
+
+/* 4. le chemin de l'argent, quatre temps sur un même filet.
+   La bande est la seule claire de la page. Un halo vert très large en haut à
+   droite, du côté où l'argent arrive, le reste est plat, aucun cadre nulle part. */
+#comment{background:
+  radial-gradient(76% 64% at 100% 0%,rgba(205,251,110,.5) 0%,rgba(205,251,110,.15) 44%,rgba(205,251,110,0) 74%),
+  var(--contrast)}
+#comment .sect-head h2{max-width:24ch}
+
+/* Le filet se charge d'encre de gauche à droite, le versement arrive au dernier
+   point, le seul en vert. Les colonnes sont séparées par un filet vertical qui
+   s'efface vers le bas, la rangée respire sans qu'on dessine de cadre. */
+.mflow{--gut:clamp(22px,2.4vw,42px);position:relative;list-style:none;margin:46px 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.mflow::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;
+  background:linear-gradient(90deg,rgba(19,27,0,.14) 0%,rgba(19,27,0,.3) 58%,rgba(19,27,0,.54) 100%)}
+.mflow li{position:relative;display:flex;flex-direction:column;padding:30px var(--gut) 0 0}
+.mflow li:last-child{padding-right:0}
+.mflow li+li{padding-left:var(--gut)}
+.mflow li+li::after{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;
+  background:linear-gradient(180deg,rgba(19,27,0,.2) 0%,rgba(19,27,0,.13) 58%,rgba(19,27,0,.07) 100%)}
+/* le point du temps, posé sur le filet à l'aplomb de son texte */
+.mflow li::before{content:"";position:absolute;left:0;top:-5px;width:10px;height:10px;border-radius:50%;
+  background:var(--contrast);border:1px solid var(--border-strong);box-sizing:border-box;
+  transition:transform .3s cubic-bezier(.22,.61,.36,1)}
+.mflow li+li::before{left:var(--gut)}
+.mflow li:hover::before{transform:scale(1.3)}
+.mflow li.hot::before{background:var(--primary);border-color:rgba(19,27,0,.5);
+  box-shadow:0 0 0 5px rgba(205,251,110,.45)}
+/* l'index du temps, un filet court le prolonge sur le filet de la rangée */
+.mflow .s{display:inline-flex;align-items:center;gap:11px;font-size:11px;font-weight:700;
+  letter-spacing:.16em;color:rgba(19,27,0,.64);font-variant-numeric:tabular-nums}
+.mflow .s::after{content:"";width:20px;height:1px;background:rgba(19,27,0,.2)}
+/* le chiffre du temps, c'est lui qu'on lit d'abord, son unité passe en petit sur
+   la même ligne de base pour que les chiffres se lisent seuls. La hauteur minimale
+   et la flex-fin alignent les quatre chiffres d'une colonne à l'autre quelle que
+   soit la longueur du nom de l'acteur. */
+.mflow .fg{display:flex;align-items:flex-end;min-height:calc(clamp(38px,4.1vw,56px)*.96);
+  margin-top:16px;font-family:"Terrane Sans","Instrument Sans",system-ui,sans-serif;font-weight:700;
+  font-size:clamp(38px,4.1vw,56px);line-height:.92;letter-spacing:-.045em;font-variant-numeric:tabular-nums;color:var(--light)}
+.mflow .fg .u{font-size:.4em;letter-spacing:-.01em;color:rgba(19,27,0,.64)}
+.mflow .nm{margin-top:15px;font-size:15px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+.mflow p{margin:9px 0 24px;font-size:14px;line-height:1.6;color:var(--w70)}
+/* la source en pied de colonne, sur un même filet d'une colonne à l'autre, la
+   flèche dit si elle sort du site ou non */
+.mflow .src{display:block;margin:auto 0 0;padding-top:13px;border-top:1px solid var(--border);
+  font-size:11.5px;line-height:1.45;font-weight:600;color:rgba(19,27,0,.64);text-decoration:none;
+  transition:color .2s,border-color .2s}
+.mflow .src::after{content:" →"}
+.mflow .src[target]::after{content:" ↗"}
+.mflow .src:hover{color:var(--light);border-color:var(--border-strong)}
+/* Tant que la rangée est horizontale, les quatre sources réservent deux lignes.
+   Entre 1041 et 1180 px les colonnes tombent à 220 px et « Reconnue d'utilité
+   publique en 1969 » passait sur deux lignes, son filet remontait donc seul de
+   dix-sept pixels et les quatre sources n'étaient plus sur une même ligne. */
+@media(min-width:1041px){.mflow .src{min-height:calc(2.9em + 13px)}}
+.mflow a:not(.src){color:var(--light);font-weight:600;text-decoration:none;border-bottom:1px solid var(--border-strong)}
+.mflow a:not(.src):hover{border-color:var(--light)}
+/* Sous 1040 px le filet se redresse et la rangée passe d'un coup à une colonne,
+   l'argent descend au lieu d'avancer et les points restent posés dessus. Deux
+   colonnes gardaient la place mais perdaient le chemin, il ne restait que quatre
+   blocs numérotés, et la seule bande qui explique n'expliquait plus rien par sa
+   forme sur un téléphone. Le filet vertical qui séparait les colonnes devient le
+   filet horizontal qui sépare deux temps, la rangée tourne d'un quart de tour
+   sans rien perdre. */
+@media(max-width:1040px){
+  .mflow{--rail:clamp(22px,4vw,34px);grid-template-columns:minmax(0,1fr);padding-left:var(--rail)}
+  .mflow::before{left:0;right:auto;top:-1px;bottom:0;width:1px;height:auto;
+    background:linear-gradient(180deg,rgba(19,27,0,.14) 0%,rgba(19,27,0,.3) 46%,rgba(19,27,0,.54) 76%,rgba(19,27,0,.54) 100%)}
+  .mflow li,.mflow li+li{padding:26px 0 34px;border-top:1px solid rgba(19,27,0,.2)}
+  .mflow li:last-child{padding-bottom:0}
+  .mflow li+li::after{display:none}
+  .mflow li::before,.mflow li+li::before{left:calc(var(--rail)*-1 - 4.5px);top:-6px}
+  .mflow .src{margin-top:0}
+}
+
+/* le comité, cinq noms et leur rôle sur une rangée de filets. Cinq fiches à
+   médaillons coûtaient 400 px pour dire ce qu'une rangée dit, elle redeviendra
+   une bande le jour où les portraits arriveront. Puis le renvoi vers la FAQ de
+   Green-Got, la documentation n'est plus recopiée sur le site de la Fondation. */
+.cmvoices{margin-top:50px;padding-top:24px;border-top:1px solid var(--border)}
+.cmvoices .lb{display:block;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(19,27,0,.64)}
+.cmvoices ul{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.cmvoices li{position:relative;padding:0 20px}
+.cmvoices li:first-child{padding-left:0}
+.cmvoices li:last-child{padding-right:0}
+.cmvoices li+li::before{content:"";position:absolute;left:0;top:3px;bottom:3px;width:1px;background:var(--border)}
+.cmvoices a{display:inline-block;font-size:14.5px;font-weight:700;letter-spacing:-.015em;line-height:1.3;
+  color:var(--light);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .2s}
+.cmvoices a:hover{border-color:var(--border-strong)}
+.cmvoices .ro{display:block;margin-top:5px;font-size:12.5px;line-height:1.35;color:rgba(19,27,0,.64)}
+@media(max-width:900px) and (min-width:561px){
+  .cmvoices ul{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:22px}
+  .cmvoices li{padding:0 16px}
+  .cmvoices li:nth-child(3n+1){padding-left:0}
+  .cmvoices li:nth-child(3n+1)::before{display:none}
+  .cmvoices li:nth-child(3n){padding-right:0}
+}
+@media(max-width:560px){
+  .cmvoices ul{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:22px}
+  .cmvoices li{padding:0 14px}
+  .cmvoices li+li::before{display:block}
+  .cmvoices li:nth-child(2n+1){padding-left:0}
+  .cmvoices li:nth-child(2n+1)::before{display:none}
+  .cmvoices li:nth-child(2n){padding-right:0}
+}
+.cmfaq{margin-top:28px;font-size:13.5px;line-height:1.6;color:rgba(19,27,0,.66)}
+.cmfaq a{color:var(--light);font-weight:600;text-decoration:none;border-bottom:1px solid var(--border-strong)}
+.cmfaq a:hover{border-color:var(--light)}
+
+/* 7. le sixième engagement devient l'invitation, plein cadre.
+   La bande ne répète pas le voile latéral de .mquote, la photo respire sur la
+   droite et s'assombrit en haut et en bas. Pas d'encadré, c'est la seule page
+   du site qui n'en a aucun, tout est posé sur des filets. */
+/* La bande était un plein cadre voilé à 97 % sur ses deux tiers gauches, elle
+   coûtait 350 px pour ne montrer presque rien, et depol.jpg fait 560 x 560, soit
+   deux fois et demie trop petit pour un plein cadre. La photo est maintenant un
+   carré de 460 px, elle est à sa taille et on la voit. */
+.fin{padding:84px 0 74px}
+@media(max-width:1080px){.fin{padding:74px 0 66px}}
+@media(max-width:900px){.fin{padding:66px 0 58px}}
+/* La photo tient toute la hauteur de la bande, le texte et les deux portes de
+   sortie occupent la colonne de gauche. Rien ne flotte, et les liens de sortie
+   sont enfin près de leur phrase au lieu d'être poussés à 800 px. */
+.fin-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:34px 64px;align-items:start}
+.fin-say{grid-column:1;grid-row:1}
+.fin-asso:nth-of-type(1){grid-column:1;grid-row:2}
+.fin-asso:nth-of-type(2){grid-column:1;grid-row:3}
+.fin-pic{grid-column:2;grid-row:1/4;justify-self:end;width:100%;height:100%;min-height:360px;border-radius:var(--r-2xl);border:1px solid var(--border);background-size:cover;background-position:50% 55%}
+@media(max-width:900px){
+  .fin-in{grid-template-columns:minmax(0,1fr);gap:26px}
+  .fin-pic{grid-column:1;grid-row:2;height:auto;min-height:0;aspect-ratio:16/10;background-position:50% 32%}
+  .fin-asso:nth-of-type(1){grid-row:3}
+  .fin-asso:nth-of-type(2){grid-row:4}
+}
+.fin .no{display:block;font-size:11.5px;font-weight:700;letter-spacing:.16em;color:var(--primary);font-variant-numeric:tabular-nums;margin-bottom:13px}
+.fin h2{max-width:20ch;font-size:clamp(25px,3vw,40px);line-height:1.07;letter-spacing:-.035em}
+.fin .fin-tx{margin-top:18px;max-width:50ch;font-size:clamp(14.5px,1.05vw,16px);line-height:1.62;color:var(--w70)}
+
+/* les deux portes de sortie, venir voir et candidater, une ligne de pied de bande
+   chacune et non un bouton. Aucune date n'est écrite ici, elles vivent sur la
+   page Évènements, une seule ligne y renvoie. */
+.fin-asso{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 28px;
+  margin-top:36px;padding-top:16px;border-top:1px solid var(--border);font-size:13px;line-height:1.55;color:var(--w70)}
+@media(max-width:1080px){.fin-asso{margin-top:30px}}
+.fin-asso>span{max-width:64ch}
+.fin-asso a{flex:none;display:inline-flex;align-items:center;gap:9px;font-weight:600;color:var(--light);
+  text-decoration:underline;text-decoration-color:var(--border-strong);text-underline-offset:4px;transition:gap .22s,text-decoration-color .22s}
+.fin-asso a:hover{gap:14px;text-decoration-color:var(--light)}
+.fin-asso+.fin-asso{margin-top:14px}
+
+/* la barre passe transparente au-dessus du plein cadre, comme sur l'accueil */
+
+body[data-route=fondation] .topbar:not(.scrolled):not(.menu-open){background:transparent;border-bottom-color:transparent;backdrop-filter:none}
+/* la photo passe dessous, le texte de la barre garde son fond */
+body[data-route=fondation] .topbar:not(.scrolled):not(.menu-open) .container{text-shadow:0 1px 16px rgba(19,27,0,.8)}
+
+/* ---- accueil, un seul écran, la signature en bas de l'image ---- */
+/* La page d'entrée ne défile pas. La vidéo occupe tout l'écran, le héros prend
+   la hauteur restante et le pied de page se replie en une signature centrée,
+   la mention de la Fondation puis la phrase, posées sur l'image. */
+body[data-route=accueil]{position:relative;display:flex;flex-direction:column;min-height:100svh}
+body[data-route=accueil] #main{flex:1;display:flex;flex-direction:column}
+body[data-route=accueil] .page.on{display:flex;flex-direction:column;flex:1}
+body[data-route=accueil] .fullhero.solo{flex:1;min-height:0;padding:76px 0 188px}
+body[data-route=accueil] .fh-kicker{margin-bottom:24px}
+
+/* le pied de page sort du flux et flotte au bas de l'image, tenu par un dégradé
+   qui garde le texte lisible sans poser de bandeau */
+body[data-route=accueil] footer{position:absolute;inset:auto 0 0;z-index:4;padding:22px 0 26px;border-top:0;background:linear-gradient(to top,rgba(19,27,0,.55),rgba(19,27,0,.28) 60%,rgba(19,27,0,0))}
+body[data-route=accueil] footer .container{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;font-size:12px;letter-spacing:.01em;color:var(--w50)}
+body[data-route=accueil] footer .top{display:contents}
+body[data-route=accueil] footer .top>div{flex-direction:column;align-items:center;gap:10px}
+body[data-route=accueil] footer .fox{width:34px;height:16px;margin:0}
+body[data-route=accueil] footer .top p{font-size:12px!important;max-width:none!important;color:var(--w50)}
+body[data-route=accueil] footer .top p a{opacity:1;color:var(--w70)!important;text-decoration:underline;text-decoration-color:rgba(252,252,252,.22);text-underline-offset:3px}
+body[data-route=accueil] footer .top p a:hover{color:var(--light)!important;text-decoration-color:var(--primary)}
+/* la phrase de la Fondation vient sous la mention, seul point clair de la signature */
+body[data-route=accueil] footer .fhook{font-family:"Terrane Sans","Instrument Sans",sans-serif;font-size:14px;font-weight:400;letter-spacing:-.01em;line-height:1.35;max-width:none;color:var(--light)}
+body[data-route=accueil] footer .fnav{gap:20px;font-size:12px}
+body[data-route=accueil] footer .fnav a{opacity:.6;text-decoration:none;transition:opacity .2s ease,color .2s ease}
+body[data-route=accueil] footer .fnav a:hover{opacity:1;color:var(--primary)}
+body[data-route=accueil] footer .sources{position:relative;margin:0;font-size:12px}
+body[data-route=accueil] footer .sources summary{font-weight:500;color:var(--w50);transition:color .2s ease}
+body[data-route=accueil] footer .sources summary:hover{color:var(--light)}
+/* le dépliant des sources s'ouvre au‑dessus de la signature, il ne rallonge pas la page */
+body[data-route=accueil] footer .sources p{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(100% + 16px);width:min(86vw,62ch);margin:0;padding:20px 22px;text-align:left;font-size:12.5px;line-height:1.75;color:var(--w70);max-height:min(58vh,420px);overflow:auto;overscroll-behavior:contain;background:rgba(19,27,0,.94);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:var(--r);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+/* sur mobile la mention et la phrase passent sur deux lignes, le renard se retire */
+@media(max-width:640px){
+  body[data-route=accueil] .fullhero.solo{padding:48px 0 190px}
+  body[data-route=accueil] footer{padding:18px 0 20px;background:linear-gradient(to top,rgba(19,27,0,.72),rgba(19,27,0,.42) 60%,rgba(19,27,0,0))}
+  body[data-route=accueil] footer .container{gap:9px}
+  body[data-route=accueil] footer .fox{display:none}
+  body[data-route=accueil] footer .top p{max-width:36ch!important}
+  body[data-route=accueil] footer .fhook{font-size:13.5px;max-width:26ch}
+  body[data-route=accueil] footer .fnav{gap:16px;font-size:11.5px}
+  body[data-route=accueil] footer .sources{font-size:11.5px}
+}
+
+/* L'accueil tient dans un écran, c'est sa seule règle, et il ne la tenait que si
+   l'écran était haut. Le bouton « Découvrir la Fondation » est la seule porte
+   d'entrée du site et il tombait sous le pli sur un téléphone couché, sur un
+   petit Android debout et sur un portable de 600 px de haut, la page faisait
+   jusqu'à 692 px pour un écran de 600. Quatre crans de réduction, calés sur la
+   hauteur et non sur la largeur, remontent le bouton dans l'écran. Les quatre
+   blocs sont écrits après les règles de largeur, sinon le padding de la bande
+   des 640 px, de même spécificité et écrit plus bas, les annulait. */
+/* Le premier cran. Un portable de 720 px de haut faisait 759 px de page, le
+   titre y tient 92 px de haut sur deux lignes. */
+@media(max-height:760px){
+  body[data-route=accueil] .fullhero.solo{padding:48px 0 158px}
+  body[data-route=accueil] .fh-kicker{margin-bottom:18px}
+  body[data-route=accueil] .fullhero.solo h1{font-size:clamp(34px,5.6vw,64px)}
+  body[data-route=accueil] .fullhero.solo .fh-sub{margin-top:22px}
+  body[data-route=accueil] .fullhero.solo .cta{margin-top:28px}
+}
+@media(max-height:700px){
+  body[data-route=accueil] .fullhero.solo{padding:36px 0 150px}
+  body[data-route=accueil] .fh-kicker{margin-bottom:14px}
+  body[data-route=accueil] .fullhero.solo h1{max-width:26ch;font-size:clamp(29px,4.6vw,52px)}
+  body[data-route=accueil] .fullhero.solo .fh-sub{margin-top:18px;font-size:15.5px}
+  body[data-route=accueil] .fullhero.solo .cta{margin-top:24px}
+  body[data-route=accueil] .btn-xl{padding:16px 32px;font-size:16px}
+  body[data-route=accueil] footer .fhook{font-size:13px}
+}
+/* Le cran court. La phrase de la Fondation se retire du pied, elle revient dès
+   qu'il y a la hauteur pour la lire, et le titre s'étale en largeur plutôt que
+   de descendre en trois ou cinq lignes étroites. */
+@media(max-height:560px){
+  body[data-route=accueil] .fullhero.solo{padding:20px 0 92px}
+  body[data-route=accueil] .fh-kicker{margin-bottom:11px;font-size:11px}
+  body[data-route=accueil] .fullhero.solo h1{max-width:34ch;font-size:clamp(23px,3.4vw,34px)}
+  body[data-route=accueil] .fullhero.solo .fh-sub{margin-top:13px;font-size:13.5px;max-width:58rem}
+  body[data-route=accueil] .fullhero.solo .cta{margin-top:18px}
+  body[data-route=accueil] .btn-xl{padding:13px 26px;font-size:14.5px}
+  body[data-route=accueil] footer{padding:9px 0 11px}
+  body[data-route=accueil] footer .container{gap:5px}
+  body[data-route=accueil] footer .fox{display:none}
+  body[data-route=accueil] footer .fhook{display:none}
+  body[data-route=accueil] footer .top p{font-size:11px!important;max-width:none!important}
+  body[data-route=accueil] footer .fnav{gap:8px 14px;font-size:11px;max-width:none}
+  body[data-route=accueil] footer .sources{font-size:11px}
+}
+/* Le dernier cran, un téléphone couché de 320 px de haut, il restait onze pixels
+   de trop. Les respirations tombent, rien de plus. */
+@media(max-height:400px){
+  body[data-route=accueil] .fullhero.solo{padding:14px 0 80px}
+  body[data-route=accueil] .fh-kicker{margin-bottom:9px}
+  body[data-route=accueil] .fullhero.solo .fh-sub{margin-top:11px}
+  body[data-route=accueil] .fullhero.solo .cta{margin-top:15px}
+}

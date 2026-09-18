@@ -72,3 +72,23 @@ Fait. `main` restaurée depuis `origin/main`. Branche `passe-responsive` fusionn
 Ajouts. `AUDIT.md`, `PLAN.md` et ce journal.
 
 Rien n'a été supprimé. Rien n'a été poussé sur le dépôt distant. Rien n'a été déployé.
+
+### Lot 1, socle Astro et page d'accueil, 18 septembre 2026
+
+Mise en place du générateur statique et du gabarit commun. Une page sort désormais en HTML complet, sans exécution de JavaScript.
+
+Fait. Projet Astro installé, sortie statique, adresses sans barre oblique finale. Le dossier `assets` reste à sa place et est servi tel quel, les polices sortent sur `/fonts`, les images sur `/img`, la vidéo sur `/video`. Le CSS de la maquette, mille dix-huit lignes, est repris intégralement dans `src/styles/site.css`, avec les chemins corrigés et le système d'affichage conditionnel des pages neutralisé, puisque chaque page est maintenant un document à part entière.
+
+Fiche d'identité unique dans `src/data/fondation.js`. Aucune page ne réécrit ces phrases, elles sont recopiées mécaniquement.
+
+Composants créés. `Base` qui porte les métadonnées et le balisage, `Nav`, `Pied`, `FilAriane`, `Signature`, `Chiffre` et `AValider`.
+
+Trois garde-fous sont posés au niveau du code, ils font échouer la construction du site plutôt que de laisser passer une erreur. Une page sans titre ou sans description ne se construit pas. Une page de contenu sans date de publication ne se construit pas. Un chiffre sans date ni source liée ne se construit pas.
+
+Le seul JavaScript du site est `src/scripts/interface.js`. Il ouvre le menu des écrans étroits, pose une classe sur la barre au défilement et fait apparaître les blocs. Il ne porte aucun contenu.
+
+Preuve. La page d'accueil construite pèse 8 122 octets et sert 1 219 caractères de texte éditorial sans exécuter la moindre ligne de JavaScript. Le site en ligne en sert zéro. Le détail de la mesure figure dans la recette du lot 12.
+
+Modifications signalées. La phrase du pied de page disait « Tout n'a pas à être rentable. Alors on donne. », le titre de partage disait « Tout n'est pas économique, alors on donne. ». Les deux sont remplacées par le message de fond retenu, « Tout n'est pas financier. Alors on donne. ». Dis-moi si tu préfères l'une des deux formulations d'origine. Le pied de page disait « fonds abrité par la Fondation de France », il dit maintenant « fondation abritée par la Fondation de France », qui reste à valider par le juridique.
+
+Rien n'a été supprimé. La maquette `index.html` reste en place et continue d'être servie sur GitHub Pages, elle sera retirée au lot 11, quand les images passeront aux formats modernes.

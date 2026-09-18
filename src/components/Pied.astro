@@ -1,0 +1,42 @@
+---
+/*
+  Le pied de page. Le lien vers green-got.com y reste discret, comme sur
+  la page La Fondation, et nulle part ailleurs. Aucun appel à ouvrir un
+  compte, aucun bandeau.
+*/
+import { fondation, navigationPied, reseaux } from '../data/fondation.js';
+
+/*
+  Le statut est recopié mot pour mot depuis la fiche d'identité. On coupe
+  seulement juste avant le nom de la Fondation de France, pour pouvoir le
+  lier, sans jamais reformuler la phrase.
+*/
+const statutAvant = fondation.statut.slice(0, fondation.statut.indexOf(fondation.abriteur.nom));
+const statutApres = fondation.statut.slice(fondation.statut.indexOf(fondation.abriteur.nom) + fondation.abriteur.nom.length);
+---
+<footer>
+  <div class="container">
+    <div class="top">
+      <div>
+        <span class="fox" aria-hidden="true"></span>
+        <p class="body" style="max-width:40ch;font-size:14px">{fondation.nom}. Créée par <a href={fondation.fondateur.url} target="_blank" rel="noopener" style="color:var(--light)">Green‑Got</a>, {statutAvant}<a href={fondation.abriteur.url} target="_blank" rel="noopener" style="color:var(--light)">{fondation.abriteur.nom}</a>{statutApres}.</p>
+      </div>
+      <p class="fhook">{fondation.accroche}</p>
+      <nav class="fnav" aria-label="Navigation de pied de page">
+        {reseaux.map((e) => <a href={e.url} target="_blank" rel="noopener">{e.libelle}</a>)}
+        {navigationPied.map((e) => <a href={e.url}>{e.libelle}</a>)}
+      </nav>
+    </div>
+    <details class="sources">
+      <summary>Sources et cadre</summary>
+      <p>
+        Réduction d'impôt de 66 % des dons dans la limite de 20 % du revenu imposable,
+        article 200 du code général des impôts, applicable parce que la Fondation de France,
+        qui abrite la Fondation Green‑Got et émet les reçus fiscaux, est reconnue d'utilité publique.
+        Les chiffres de la page Nos combats renvoient chacun vers leur source. Les chiffres des
+        projets proviennent des rapports d'activité 2024 des associations et des fiches partenaires
+        de la Fondation. Photographies non contractuelles.
+      </p>
+    </details>
+  </div>
+</footer>
