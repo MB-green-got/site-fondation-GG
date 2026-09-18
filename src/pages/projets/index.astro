@@ -1,0 +1,67 @@
+---
+/*
+  L'index des projets financés. Une ligne par projet, groupée par pilier.
+  Aucun texte ne compte les projets, la liste compte toute seule et le
+  nombre bougera au premier soutien de plus.
+*/
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import FilAriane from '../../components/FilAriane.astro';
+import { fondation } from '../../data/fondation.js';
+
+const projets = (await getCollection('projets')).sort((a, b) => a.data.ordre - b.data.ordre);
+const piliers = ['Terre', 'Mer', 'Recherche et éducation'];
+
+const jsonLd = [{
+  '@type': 'CollectionPage',
+  '@id': 'https://fondation.green-got.com/projets#page',
+  name: 'Les projets financés par la Fondation Green-Got',
+  inLanguage: 'fr-FR',
+  isPartOf: { '@id': 'https://fondation.green-got.com/#site' },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: projets.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `https://fondation.green-got.com/projets/${p.id}`,
+      name: p.data.nom,
+    })),
+  },
+}];
+---
+<Base
+  titre={`Quels projets la Fondation Green-Got finance-t-elle ? · ${fondation.nom}`}
+  description="Les projets financés par la Fondation Green-Got, rangés en trois piliers, la terre, la mer, la recherche et l'éducation. Chaque projet a un porteur, un lieu et un objet."
+  route="/projets"
+  chemin={[{ libelle: 'Projets' }]}
+  jsonLd={jsonLd}
+>
+  <section class="phero">
+    <div class="container">
+      <FilAriane chemin={[{ libelle: 'Projets' }]} />
+      <h1>Nous soutenons ceux qui agissent.<br>De Roubaix à Bali.</h1>
+      <p class="body lg">Chaque projet a un porteur, un lieu et un objet, et aucun n'aurait trouvé son financement ailleurs.</p>
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="container">
+      {piliers.map((pilier) => (
+        <div class="grp">
+          <h2>{pilier}</h2>
+          <ul class="alist plain">
+            {projets.filter((p) => p.data.pilier === pilier).map((p) => (
+              <li>
+                <a class="arow" href={`/projets/${p.id}`}>
+                  <span class="an">{p.data.nom}</span>
+                  <span class="ao">{p.data.objet}</span>
+                  <span class="al">{p.data.lieu}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

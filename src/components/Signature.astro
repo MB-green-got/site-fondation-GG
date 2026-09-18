@@ -6,17 +6,12 @@
 */
 import AValider from './AValider.astro';
 import { fondation } from '../data/fondation.js';
+import { enClair } from '../lib/dates.js';
 
 const { publieLe, modifieLe, auteur } = Astro.props;
 
 if (!publieLe) throw new Error('Page de contenu sans date de publication.');
 
-const fmt = (d) => new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(d));
 const auteurNom = auteur ?? (typeof fondation.auteurParDefaut === 'string' ? fondation.auteurParDefaut : null);
 ---
-<p class="signature">
-  Publié le <time datetime={publieLe}>{fmt(publieLe)}</time>{modifieLe && modifieLe !== publieLe && (
-    <>, mis à jour le <time datetime={modifieLe}>{fmt(modifieLe)}</time></>
-  )}.
-  {auteurNom ? <> Écrit par {auteurNom}.</> : <> Auteur <AValider court quoi="auteur" />.</>}
-</p>
+<p class="signature">Publié le <time datetime={publieLe}>{enClair(publieLe)}</time>{modifieLe && modifieLe !== publieLe && (<>, mis à jour le <time datetime={modifieLe}>{enClair(modifieLe)}</time></>)}. {auteurNom ? <>Écrit par {auteurNom}.</> : <>Auteur <AValider court quoi="auteur" />.</>}</p>

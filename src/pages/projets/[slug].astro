@@ -1,0 +1,153 @@
+---
+/*
+  Une page par projet financé, servie à sa propre adresse, entièrement dans
+  le HTML. C'est le contenu qui était jusqu'ici construit par script et donc
+  invisible pour tout robot.
+
+  Chaque page porte ce que la consigne exige, un nom de personne, un lieu,
+  une date, un chiffre daté et sa source, et un lien vers le site du
+  partenaire. Toute donnée absente s'affiche en clair, marquée À VALIDER.
+*/
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import FilAriane from '../../components/FilAriane.astro';
+import Signature from '../../components/Signature.astro';
+import Chiffre from '../../components/Chiffre.astro';
+import AValider from '../../components/AValider.astro';
+import { fondation } from '../../data/fondation.js';
+import { enClair } from '../../lib/dates.js';
+
+export async function getStaticPaths() {
+  const projets = await getCollection('projets');
+  return projets.map((p) => ({ params: { slug: p.id }, props: { projet: p } }));
+}
+
+const { projet } = Astro.props;
+const d = projet.data;
+const url = `https://fondation.green-got.com/projets/${projet.id}`;
+
+
+/* Le balisage Article de la page, plus l'organisation financée. */
+const jsonLd = [
+  {
+    '@type': 'Article',
+    '@id': `${url}#article`,
+    headline: d.titre,
+    description: d.description,
+    inLanguage: 'fr-FR',
+    datePublished: d.publieLe,
+    dateModified: d.modifieLe,
+    ...(d.auteur ? { author: { '@type': 'Person', name: d.auteur } } : {}),
+    publisher: { '@id': 'https://fondation.green-got.com/#organisation' },
+    mainEntityOfPage: url,
+    about: { '@type': 'Organization', name: d.partenaire.nom, ...(d.partenaire.url ? { url: d.partenaire.url } : {}) },
+  },
+  {
+    '@type': 'Organization',
+    name: d.partenaire.nom,
+    ...(d.partenaire.url ? { url: d.partenaire.url } : {}),
+    description: d.objet,
+    funder: { '@id': 'https://fondation.green-got.com/#organisation' },
+    ...(d.portee !== 'national' || d.lieu ? { areaServed: d.lieu } : {}),
+  },
+];
+---
+<Base
+  titre={`${d.titre} · ${fondation.nom}`}
+  description={d.description}
+  route="/projets"
+  classePage="adet"
+  chemin={[{ libelle: 'Projets', url: '/projets' }, { libelle: d.nom }]}
+  image={d.image.fichier ? `/img/${d.image.fichier}.jpg` : '/img/hero.jpg'}
+  imageAlt={d.image.alt ?? 'Fondation Green-Got'}
+  jsonLd={jsonLd}
+>
+  <section class="phero">
+    <div class="container">
+      <FilAriane chemin={[{ libelle: 'Projets', url: '/projets' }, { libelle: d.nom }]} />
+      <p class="ameta"><i class={d.pilier === 'Terre' ? 'd' : d.pilier === 'Mer' ? 's' : ''}></i>{d.pilier}<span>{d.lieu}{d.lieuPrecision ? `, ${d.lieuPrecision}` : ''}</span></p>
+      <h1>{d.nom}</h1>
+      <p class="body lg">{d.objet}</p>
+      <Signature publieLe={d.publieLe} modifieLe={d.modifieLe} auteur={d.auteur} />
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="container cols">
+      <div>
+        <h2>Ce que la Fondation finance</h2>
+        <p class="body">{d.finance}</p>
+
+        <h2>Pourquoi personne d'autre ne le finance</h2>
+        <p class="body">{d.levier}</p>
+
+        {d.recit.length > 0 && d.recit.map((r) => (
+          <>
+            <h3>{r.titre}</h3>
+            <p class="body">{r.texte}</p>
+          </>
+        ))}
+
+        {d.recit.length === 0 && (
+          <AValider quoi={`Le récit du projet ${d.nom}, les personnes, les lieux et les dates. ${d.source}`} />
+        )}
+      </div>
+
+      <aside>
+        <div class="dl">
+          <h2>La fiche</h2>
+
+          <div><dt>Porté par</dt><dd>{d.partenaire.nom}</dd></div>
+
+          <div>
+            <dt>Personne</dt>
+            <dd>
+              {d.personne.nom
+                ? <>{d.personne.nom}{d.personne.role && <>, {d.personne.role}</>}.</>
+                : <AValider quoi={`Le nom d'une personne qui porte le projet ${d.nom}.`} />}
+            </dd>
+          </div>
+
+          <div><dt>Lieu</dt><dd>{d.lieu}{d.lieuPrecision ? `, ${d.lieuPrecision}` : ''}.</dd></div>
+
+          <div>
+            <dt>Date</dt>
+            <dd>{d.personne.date
+              ? <time datetime={d.personne.date}>{enClair(d.personne.date)}</time>
+              : <AValider quoi={`La date de départ du projet ${d.nom} ou de l'installation qu'il a permise.`} />}</dd>
+          </div>
+
+          <div>
+            <dt>Montant du soutien</dt>
+            <dd>{d.montant
+              ? <>{d.montant}{d.montantDate && <>, au {enClair(d.montantDate)}</>}</>
+              : <AValider quoi="Le montant du soutien de la Fondation et sa date d'arrêté. Les montants ne sont pas publiés à ce jour." />}</dd>
+          </div>
+
+          <div>
+            <dt>Site du partenaire</dt>
+            <dd>{d.partenaire.url
+              ? <a href={d.partenaire.url} target="_blank" rel="noopener">{d.partenaire.url.replace(/^https?:\/\/(www\.)?/, '')}</a>
+              : <AValider quoi={`L'adresse du site de ${d.partenaire.nom}.`} />}</dd>
+          </div>
+        </div>
+
+        {d.chiffres.length > 0 ? (
+          <div class="stats">
+            <h2>Les chiffres</h2>
+            {d.chiffres.map((c) => <Chiffre {...c} />)}
+            <p class="srcline">{d.source}</p>
+          </div>
+        ) : (
+          <AValider quoi={`Les chiffres datés et sourcés du projet ${d.nom}. ${d.source}`} />
+        )}
+      </aside>
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="container">
+      <p class="body"><a class="btn" href="/projets">Tous les projets financés</a></p>
+    </div>
+  </section>
+</Base>

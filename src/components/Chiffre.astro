@@ -1,23 +1,31 @@
 ---
 /*
-  Un chiffre, son libellé, sa date et le lien vers sa source.
-  Un chiffre sans source ni date fait échouer la construction du site,
-  il est donc impossible d'en publier un par inadvertance.
+  Un chiffre, son libellé, sa date et sa source.
+
+  Règle. Aucun chiffre ne s'affiche sans date ni sans source nommée, la
+  construction du site échoue dans ce cas. Quand la source est nommée mais
+  que son adresse manque, le chiffre s'affiche et la mention À VALIDER
+  apparaît en clair à côté. Rien n'est inventé pour combler le trou.
 */
+import AValider from './AValider.astro';
+import { anneeUtile } from '../lib/dates.js';
+
 const { valeur, libelle, date, sourceTitre, sourceUrl } = Astro.props;
 
 if (!valeur) throw new Error('Chiffre sans valeur.');
-if (!date) throw new Error(`Chiffre sans date, « ${valeur} ${libelle ?? ''} ». Tout chiffre porte une date.`);
-if (!sourceUrl || !sourceTitre) {
-  throw new Error(`Chiffre sans source, « ${valeur} ${libelle ?? ''} ». Tout chiffre porte une source liée.`);
+if (!sourceTitre) {
+  throw new Error(`Chiffre sans source nommée, « ${valeur} ${libelle ?? ''} ». Tout chiffre porte une source.`);
 }
 
-const annee = String(date).slice(0, 4);
+const annee = anneeUtile(date, sourceTitre);
 ---
 <p class="stat">
   <span class="n">{valeur}</span>
   <span class="t">
     {libelle}
-    <a class="src" href={sourceUrl} target="_blank" rel="noopener">{sourceTitre}, {annee}</a>
+    {sourceUrl
+      ? <a class="src" href={sourceUrl} target="_blank" rel="noopener">{sourceTitre}{annee ? `, ${annee}` : ''}</a>
+      : <span class="src">{sourceTitre}{annee ? `, ${annee}` : ''} <AValider court quoi="lien" /></span>}
+    {!date && <AValider court quoi="date" />}
   </span>
 </p>

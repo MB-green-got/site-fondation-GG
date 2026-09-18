@@ -100,3 +100,19 @@ Fait. Composant `FicheIdentite`, qui affiche la fiche telle qu'elle est écrite 
 Ajout de `outils/controle.mjs`, lancé par `npm run verifier`. Il lit le site construit et refuse de rendre la main si une règle est enfreinte. Il vérifie que chaque page sert bien du contenu sans JavaScript, que le nom de la Fondation ne connaît aucune variante orthographique, qu'aucune phrase n'associe Green-Got à une banque, qu'aucun mot proscrit n'apparaît, qu'aucune page ne pousse à ouvrir un compte, que les titres et les descriptions sont uniques, qu'il y a exactement un H1 par page et que chaque JSON-LD est valide. Il compte aussi les mentions À VALIDER et les signale sans bloquer.
 
 Ce contrôle remplace la vérification à la main demandée dans les critères de fin de chantier. Il sera lancé à chaque lot.
+
+### Lot 3, les huit projets, 18 septembre 2026
+
+C'est le lot qui fait passer le contenu le plus précieux du site de l'invisibilité à la lisibilité.
+
+Fait. Les huit projets financés sont sortis du tableau `ACTIONS` du JavaScript et transcrits dans huit fichiers Markdown, un par projet, dans `src/content/projets`. Chacun a désormais sa propre adresse, son titre, sa description, son fil d'Ariane et son balisage `Article`. Le schéma des fichiers fait échouer la construction du site si un champ obligatoire manque.
+
+Preuve. Avant, la fiche FEVE n'avait aucune adresse à laquelle un robot pouvait la demander, et une requête sur `#/actions/feve` renvoyait la page d'accueil octet pour octet. Maintenant, `/projets/feve-fermes-en-vie` répond 200 et sert 2 581 caractères de texte éditorial sans exécuter la moindre ligne de JavaScript. Les huit pages servent entre 1 330 et 2 581 caractères. Les 13 764 caractères de données qui n'étaient lisibles que par un navigateur sont maintenant dans le HTML.
+
+Ce que chaque fiche porte, comme la consigne l'exige. Un nom de personne, un lieu, une date, des chiffres datés avec leur source, et un lien vers le site du partenaire. Ce qui manque s'affiche en clair avec la mention À VALIDER, jamais comblé par une estimation.
+
+Ce qui manque, projet par projet. Les huit pages signalent l'absence du montant du soutien et de l'auteur. Tara Océan, École de la Réparation, Planète Urgence et Coral Guardian n'ont pas de nom de personne. Planète Urgence et Coral Guardian n'ont ni récit, ni chiffres, ni photo, leur fiche partenaire n'est pas encore écrite. L'École de la Réparation n'a pas d'adresse de site. Aucun chiffre de projet n'a d'adresse de source, seulement un titre de rapport, ce qui fait vingt-quatre mentions À VALIDER sur ce seul point.
+
+Modification signalée. Le vocabulaire bascule d'actions à projets, dans les adresses, la navigation et les titres, conformément à l'arborescence cible. Le texte des pages suit.
+
+Le tableau `ACTIONS` de la maquette n'a pas été supprimé, `index.html` reste intact jusqu'au lot 11.
