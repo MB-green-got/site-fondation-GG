@@ -94,7 +94,9 @@ jsonLd.push({
           <dt>Inscription</dt>
           <dd>{d.inscription
             ? <a href={d.inscription} target="_blank" rel="noopener">S'inscrire</a>
-            : <AValider quoi={d.inscriptionAValider} />}</dd>
+            : d.envisage
+              ? 'Les inscriptions ne sont pas ouvertes, ce rendez-vous n\'est pas arrêté.'
+              : <AValider quoi={d.inscriptionAValider} />}</dd>
         </div>
       </dl>
       <p class="body"><a class="btn btn-o" href="/evenements">Tous les rendez-vous</a></p>

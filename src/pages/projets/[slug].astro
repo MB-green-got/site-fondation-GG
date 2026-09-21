@@ -141,6 +141,10 @@ const jsonLd = [
             <h2>Les chiffres</h2>
             {d.chiffres.map((c) => <Chiffre {...c} />)}
             <p class="srcline">{d.source}</p>
+            {/* La réserve sur la source est portée une fois pour le bloc, pas une fois par chiffre. */}
+            {d.chiffres.find((c) => c.sourceAValider) && (
+              <AValider quoi={d.chiffres.find((c) => c.sourceAValider).sourceAValider} />
+            )}
           </div>
         ) : (
           <AValider quoi={`Les chiffres datés et sourcés du projet ${d.nom}. ${d.source}`} />

@@ -26,7 +26,6 @@ const annee = anneeUtile(date, sourceTitre);
     {sourceUrl
       ? <a class="src" href={sourceUrl} target="_blank" rel="noopener">{sourceTitre}{annee ? `, ${annee}` : ''}</a>
       : <span class="src">{sourceTitre}{annee ? `, ${annee}` : ''} <AValider court quoi="lien" /></span>}
-    {sourceAValider && <AValider quoi={sourceAValider} />}
     {!date && <AValider court quoi="date" />}
   </span>
 </p>

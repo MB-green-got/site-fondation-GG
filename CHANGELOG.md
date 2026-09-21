@@ -5,55 +5,64 @@ Trois phases, audit, plan, réalisation. Un lot par commit.
 
 ---
 
-## Hypothèses de travail
+## Décisions arrêtées
 
-Le plan posait seize décisions. Faute de réponse point par point, je travaille sous les hypothèses ci-dessous, qui sont les avis que j'avais donnés dans `PLAN.md`. Chacune est réversible tant que le site n'est pas déployé. Dis-moi celles qui ne te conviennent pas, je reprends.
+Le plan posait seize décisions. Elles ont été prises avec Marie Bénédicte les 18 et 21 septembre 2026. Ce tableau fait foi, c'est lui qu'il faut lire avant de modifier le site.
 
-| № | Hypothèse retenue |
+| Sujet | Décision |
 |---|---|
-| 1 | On part de la maquette de ce dépôt, pas du site Lovable |
-| 2 | On part de la branche `passe-responsive`, fusionnée dans `main` au lot 0 |
-| 3 | Les pages Nos combats et Associations sont conservées |
-| 4 | Le mot retenu est projets, dans les adresses, la navigation et les titres |
-| 5 | Le nombre de combats reste **À VALIDER**, la page est construite sur les deux combats documentés et sourcés de la maquette, PFAS y figure comme sujet sans être compté comme un troisième combat |
-| 6 | Les adresses de projet sont explicites, du type `/projets/feve-fermes-en-vie` |
-| 7 | La page Nous soutenir est conservée |
-| 8 | Les montants des soutiens restent **À VALIDER**, la ligne est prévue et vide |
-| 9 | L'auteur affiché reste **À VALIDER**, le champ est obligatoire et visible |
-| 10 | Le générateur est Astro, sortie statique, zéro JavaScript par défaut |
-| 11 | L'hébergement visé est Cloudflare Pages, sans aucun déploiement de ma part |
+| Base de départ | La maquette de ce dépôt, branche `passe-responsive` fusionnée dans `main` |
+| Générateur et hébergement | Astro en sortie statique, Cloudflare Pages visé |
+| Statut juridique | « fondation abritée par la Fondation de France », recopié partout |
+| Nombre de combats | Deux, les PFAS traités à l'intérieur du second |
+| Vocabulaire | Projets, dans les adresses, la navigation et les titres |
+| Auteur affiché | « L'équipe de la Fondation Green-Got » |
+| Année de création | 2026. Green-Got finance ces projets depuis 2022 |
+| Montant cumulé affiché | Plus de 2,5 millions d'euros versés depuis 2022, voir la réserve ci-dessous |
+| Montants par projet | Tout ce qui a été versé, subventions et arrondis confondus |
+| Comité | Cinq membres confirmés, avec leurs rôles |
+| Valeurs | Ligne retirée, le site ne proclame pas de valeurs |
+| Accueil | Enrichi, trois bandes sous le plein cadre, sans la liste des projets |
+| Page Nous soutenir | Conservée à son adresse |
+| Page Soutiens passés | Créée, quinze associations, avec leurs montants et leurs années |
+| Contact | `impact@green-got.com` |
+| Rendez-vous envisagés | Quatre ajoutés, marqués comme non confirmés, hors balisage `Event` |
+
+### Trois réserves que ces décisions laissent ouvertes
+
+**Le montant cumulé.** Le site annonce plus de 2,5 millions d'euros. Les deux sources transmises, le registre Notion et les tableaux de suivi, donnent 1 668 582 € versés à ce jour et 1 868 582 € en fin d'année si le plan 2026 est tenu. L'écart est d'au moins 631 418 €. Il a été signalé deux fois, chiffres à l'appui, et la décision de maintenir 2,5 millions a été confirmée. Trois conséquences. La source liée, la FAQ de Green-Got, annonce encore près de 2 millions, elle dit donc moins que le site. La page Soutiens passés publie le détail par association, dont la somme, 1 668 582 €, est vérifiable par quiconque additionne. Et la règle éditoriale du chantier demande qu'aucun chiffre ne soit avancé sans source qui le porte.
+
+**Les chiffres de Wings of the Ocean.** Ce n'est pas un lien qui manque, c'est peut-être un chiffre faux. La fiche annonce 15,1 tonnes collectées en 2024, une source secondaire évoque un peu plus de 3 tonnes sur 103 ramassages. L'association ne publie aucun rapport, ses compteurs d'impact affichent zéro. À confirmer auprès d'elle.
+
+**Les quatre rendez-vous envisagés.** Ils sont clairement marqués, rangés dans une seconde liste sous le titre « Ce qu'on aimerait mettre en place », et aucun n'entre dans le balisage `Event`, ce que le contrôle vérifie à chaque construction. Rien n'y est présenté comme un fait. Reste qu'un site qui affiche des rendez-vous non décidés affiche des rendez-vous non décidés.
 
 ---
 
 ## Ce qui reste À VALIDER
 
-**Cent une mentions** s'affichent en clair et en orange dans les pages. Aucune donnée manquante n'a été comblée par une estimation. Le détail par page se lit avec `npm run verifier`.
+**Cinquante et une mentions**, affichées en clair et en orange dans les pages. Aucune donnée manquante n'est comblée par une estimation. La liste exacte se régénère avec `npm run verifier`.
 
 | Élément manquant | Où il s'affiche |
 |---|---|
-| Phrase exacte du statut, fonds abrité ou fondation abritée | La Fondation, mentions légales |
-| Année de création de la Fondation | La Fondation, Faits et chiffres |
-| Montant cumulé versé et sa date d'arrêté | La Fondation, Faits et chiffres |
-| Part reversée par Green-Got, la maquette disait 5 à 10 % sans source | La Fondation |
-| Affirmation « sans frais ni commission », non sourcée et probablement fausse | La Fondation |
-| Valeurs de la Fondation | La Fondation |
-| Composition du comité et rôle de chaque membre | La Fondation, Faits et chiffres |
-| Nom de l'auteur affiché | Les quinze pages de contenu |
-| Deux combats ou trois | Nos combats |
-| Montant du soutien, projet par projet | Les huit pages de projet |
-| Adresse de source pour vingt-quatre chiffres de projet | Les huit pages de projet |
-| Nom de personne, lieu ou date | Tara Océan, École de la Réparation, Planète Urgence, Coral Guardian |
-| Récit, chiffres et photo | Planète Urgence, Coral Guardian |
-| Adresse du site partenaire | École de la Réparation |
-| Dates, lieux et liens d'inscription | Les quatre rendez-vous |
-| Cinéaste, durée et date de sortie | Les trois publications |
-| Voie de don qui ne passe pas par un compte | Faits et chiffres |
-| Adresses électroniques, presse, générale, délégué à la protection des données | Contact, confidentialité |
-| Adresse postale | Contact |
-| Éditeur, hébergeur, crédits photo | Mentions légales |
+| Forme sociale, capital, RCS, siège de Green-Got, directeur de la publication | Mentions légales |
+| Qualification juridique à confirmer par le juridique | Mentions légales |
+| Hébergeur retenu | Mentions légales |
+| Crédits photographiques, image par image | Mentions légales |
 | Durée de conservation des données d'inscription | Confidentialité |
+| Adresse du délégué à la protection des données | Confidentialité |
 | Outil de mesure d'audience | Confidentialité |
-| Adresse de la fiche annuaire Fondation de France, page LinkedIn | Balisage sameAs |
+| Adresse postale | Contact |
+| Part reversée par Green-Got, et la mention « sans frais ni commission » non sourcée | La Fondation |
+| Mise à jour de la FAQ de Green-Got sur le montant | La Fondation, Faits et chiffres |
+| Voie de don qui ne passe pas par un compte | Faits et chiffres, Nous soutenir |
+| Source des trois chiffres de Wings of the Ocean | Sa fiche |
+| Nom de personne et date de départ | Tara Océan, École de la Réparation, Planète Urgence, Coral Guardian |
+| Récit, chiffres et photo | Planète Urgence, Coral Guardian |
+| Date de trois chiffres | Nos combats, The Shift Project |
+| Lien d'inscription, dates et lieux | Les quatre rendez-vous réels |
+| Cinéaste, durée, date de sortie, où voir le film | Les trois publications |
+| Articles, aucun n'est publié | Publications |
+| Adresse de la fiche annuaire Fondation de France, page LinkedIn | Balisage `sameAs` |
 
 ---
 
