@@ -6,9 +6,9 @@ type: documentaire
 resume: Portrait de familles vivant à proximité d'usines productrices de PFAS. Comment vivre quand on sait que son sang est contaminé pour toujours ?
 duree: null
 realisation: null
-realisationAValider: Le nom du ou de la cinéaste, la société de production, la durée et la date de sortie.
+realisationAValider: "Ce film n'a aucune trace publique en dehors du site de la Fondation. Il ne figure ni dans la base film-documentaire.fr, ni sur AlloCiné, ni dans la presse. Il est donc annoncé et non sorti. Attention à ne pas le confondre avec « Tous empoisonnés, le fléau des PFAS », de Stenka Quillet et Quentin Noirfalisse, diffusé sur Arte en 2025, qui n'a aucun lien avec la Fondation."
 lien: null
-lienAValider: L'adresse où voir le film, salle, plateforme ou chaîne.
+lienAValider: "L'adresse où voir le film, quand il sortira. Aucune salle, plateforme ni chaîne ne le programme à ce jour."
 video: null
 image:
   fichier: pesticides

@@ -390,3 +390,41 @@ Deux corrections au passage. Le domaine de Sungai Watch est `sungai.watch`, `sun
 J'avais signalé que des rendez-vous inventés sur un site dont l'objet est d'être la source fiable vont contre le but du chantier. Trois garde-fous ont donc été posés pour que rien d'envisagé ne puisse passer pour un fait. Ils vivent dans une seconde liste, sous un titre qui dit « Ce qu'on aimerait mettre en place » et un chapeau qui précise que rien n'y est arrêté. Chaque fiche affiche la mention en orange dès le titre. Et **aucun n'entre dans le balisage `Event`**, vérifié, le seul `Event` du site reste celui du 17 septembre. Le contrôle automatique le confirme à chaque construction.
 
 Le site compte maintenant trente-trois pages. Les mentions À VALIDER passent de 64 à leur niveau actuel, les vingt et une sources trouvées en ayant retiré autant, les quatre rendez-vous envisagés en ayant ajouté.
+
+### Lot 20, quatre spécialistes en recherche, 21 septembre 2026
+
+Quatre recherches menées en parallèle, un juriste sur l'identité de l'éditeur, un chargé de mission sur les fiches incomplètes, un documentaliste sur les publications, un responsable mécénat sur la voie de don. Chaque valeur reprise ci-dessous a sa source publique, et j'ai vérifié moi-même les adresses avant de les écrire.
+
+**Trois erreurs du site corrigées.**
+
+La Grande Consultation des Agriculteurs n'a pas recueilli 8 000 contributions mais près de 7 800, dont 7 711 au volet quantitatif. Le chiffre de 80 % était de surcroît ambigu, la page du Shift Project l'emploie pour deux choses différentes, la fiche retient désormais les 86 % qui portent explicitement sur la viabilité des exploitations. Les trois chiffres sont datés du 17 décembre 2024.
+
+La liste PFASMASTER de l'agence américaine de l'environnement a été retirée. Elle comptait 12 039 substances dans sa version du 10 septembre 2025. Le chiffre est daté et la source bascule sur PFASSTRUCT, la liste en vigueur.
+
+L'École de la Réparation forme sur onze mois et non un an, et son volume horaire officiel est de 1 326 heures et non 1 400, chiffre qui circule dans la presse et que le programme de formation contredit.
+
+**Je m'étais trompé sur Wings of the Ocean.** J'avais écrit que l'association ne publiait aucun rapport et qu'une source secondaire contredisait ses chiffres. Le rapport d'activité 2024 existe, il fait cinquante pages et il est lié depuis leur page Qui sommes-nous. Les trois chiffres sont confirmés mot pour mot, 15,1 tonnes, 1 019 803 mégots, 20 251 personnes sensibilisées lors de 405 actions de sensibilisation, distinctes de 336 ramassages. La source secondaire qui parlait de 3 tonnes était un point d'étape de mi-année couvrant avril à juin 2024. La réserve est levée et les trois chiffres ont leur lien.
+
+**La fiche de l'annuaire de la Fondation de France existe.** J'avais conclu le contraire après avoir cherché par leur moteur et sur six pages de l'annuaire. Elle est à `fondationdefrance.org/fr/annuaire-des-fondations/fondation-green-got`, je l'ai ouverte et lue. Elle entre dans le balisage `sameAs`. Elle confirme aussi deux choses, l'objectif de 15 millions d'euros d'ici 2030, qui a donc désormais une source officielle, et la part reversée par Green-Got, qui est de 5 % du chiffre d'affaires et non de 5 à 10 %.
+
+**Les deux fiches vides sont écrites.** Planète Urgence a maintenant son délégué national en Indonésie, Reonaldus Praembanan, la date de départ du projet Mahakam, trois chiffres sourcés sur le rapport d'activité 2025 et un récit en trois temps. Coral Guardian a son cofondateur Martin Colognoli, la date de 2015 pour le projet indonésien, trois chiffres sourcés sur le rapport d'activité 2024 et un récit. Tara Océan a Jean-François Ghiglione, directeur scientifique de la Mission Microplastiques. L'École de la Réparation a Stéphanie Calvino, sa directrice.
+
+**Les deux documentaires n'existent pas.** Ni « Les Rivières Mortes » ni « Éternels, vivre avec les PFAS » n'ont la moindre trace publique en dehors du site actuel de la Fondation. Ils ne figurent ni dans la base film-documentaire.fr, ni sur AlloCiné, ni dans la presse. Les fiches le disent maintenant, ce sont des films annoncés et non sortis, et la durée de 52 minutes, attestée par le seul site de la Fondation, est retirée. Attention à ne pas confondre le second avec « Tous empoisonnés, le fléau des PFAS », diffusé sur Arte en 2025, qui n'a aucun lien avec la Fondation.
+
+**La voie de don est documentée.** Une fondation abritée n'a pas la personnalité morale, le donataire juridique est la Fondation de France et c'est son statut d'utilité publique qui ouvre l'avantage fiscal. Écrire « don à la Fondation Green-Got » est donc inexact, la page Nous soutenir écrit maintenant « don à la Fondation de France, affecté à la Fondation Green-Got ». Le cadre fiscal est complété, report sur cinq ans, 75 % au titre de l'impôt sur la fortune immobilière dans la limite de 50 000 €, et le régime des entreprises, 60 % puis 40 % au-delà de deux millions.
+
+**La phrase « sans frais ni commission » est retirée.** Elle est fausse. La Fondation de France prélève une contribution aux charges communes, à l'entrée comme à la sortie, ce que son propre rapport financier et un rapport de la Cour des comptes documentent. Les 3 030 € du registre interne sont cohérents avec ce mécanisme. La page l'écrit désormais plutôt que de le nier.
+
+**Les mentions légales portent l'identité vérifiée de l'éditeur.** Domino, société par actions simplifiée exerçant sous le nom commercial Green-Got, SIREN 883 981 763, RCS Nanterre, siège au 20 bis rue Louis-Philippe à Neuilly-sur-Seine. Le statut d'établissement de paiement agréé est confirmé, agrément inscrit au REGAFI le 23 janvier 2026, sans établissement parent. Le site ne dit donc pas seulement que Green-Got n'est pas une banque, il dit ce qu'elle est, avec le registre pour le prouver.
+
+**Trois points que la recherche a soulevés et que je ne peux pas trancher.**
+
+Le capital social de Green-Got a trois valeurs différentes selon les sources, dont celle affichée sur green-got.com qui a deux augmentations de retard. Un extrait Kbis récent est nécessaire.
+
+Le directeur de la publication de green-got.com est désigné comme étant Clément Jaunault, qui n'est ni président ni directeur général au registre. Le directeur de la publication est de droit le représentant légal, en l'occurrence Maud Caillaux. Une délégation écrite est possible mais doit exister.
+
+Green-Got ne publie aucune politique de confidentialité. L'adresse qui porte ce nom sert une politique de cookies. C'est une lacune de conformité au règlement européen qui se reporterait sur le site de la Fondation, d'autant qu'il est question d'y collecter des dons.
+
+**Un point qui touche au problème de départ.** La fiche de l'annuaire de la Fondation de France décrit la Fondation autrement que le site, transition écologique et solidaire, générations futures, climat, biodiversité, santé et solidarité, là où le site dit santé environnementale, pesticides, pollution plastique, PFAS et recherche. Elle explique aussi le financement par la carte et l'arrondi, ce que les règles éditoriales du site interdisent. C'est une cinquième description de la Fondation en ligne, sur la source la plus officielle qui soit. Elle est à faire corriger auprès de la Fondation de France.
+
+Les mentions À VALIDER passent de 50 à 30.

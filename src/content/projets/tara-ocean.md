@@ -13,10 +13,10 @@ finance: Soutien aux expéditions scientifiques de la goélette Tara et de la Ta
 levier: Un laboratoire flottant, pour mesurer la contamination là où personne ne va la chercher. En 2019, 100 % des échantillons prélevés dans neuf fleuves européens contenaient des microplastiques.
 
 personne:
-  nom: null
-  role: null
-  lieu: Lorient
-  date: null
+  nom: Jean-François Ghiglione
+  role: Directeur scientifique de la Mission Microplastiques, directeur de recherche au CNRS
+  lieu: Banyuls-sur-Mer, laboratoire d'océanographie microbienne
+  date: '2019-05-23'
 
 chiffres:
   - valeur: 100 %

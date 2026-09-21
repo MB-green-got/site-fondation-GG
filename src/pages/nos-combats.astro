@@ -37,7 +37,13 @@ const pesticides = [
 const plastique = [
   { valeur: '460 Mt', libelle: 'de plastique produites, deux fois plus qu\'en 2000', date: '2019-12-31', sourceTitre: 'OCDE, Global Plastics Outlook, 2022', sourceUrl: 'https://www.oecd.org/en/publications/2022/02/global-plastics-outlook_a653d1c9.html' },
   { valeur: '22 Mt', libelle: 'rejetées dans l\'environnement la même année, et 9 % seulement des déchets plastique recyclés', date: '2019-12-31', sourceTitre: 'OCDE', sourceUrl: 'https://www.oecd.org/en/about/news/press-releases/2022/02/plastic-pollution-is-growing-relentlessly-as-waste-management-and-recycling-fall-short.html' },
-  { valeur: '12 000', libelle: 'substances au moins dans la famille des PFAS, selon l\'inventaire de l\'agence américaine de l\'environnement', date: null, sourceTitre: 'US EPA, CompTox, liste PFASMASTER', sourceUrl: 'https://comptox.epa.gov/dashboard/chemical-lists/PFASMASTER' },
+  /*
+    12 039 substances dans la liste PFASMASTER, version du 10 septembre 2025.
+    Cette liste a depuis été retirée par l'EPA et remplacée par PFASSTRUCT,
+    structures explicites, et PFASDEV, substances sans structure explicite.
+    On date donc le chiffre et on lie la liste en vigueur.
+  */
+  { valeur: '12 039', libelle: 'substances recensées dans la famille des PFAS par l\'agence américaine de l\'environnement, dans une liste depuis remplacée', date: '2025-09-10', sourceTitre: 'US EPA, CompTox, liste PFASSTRUCT', sourceUrl: 'https://comptox.epa.gov/dashboard/chemical-lists/PFASSTRUCT' },
   { valeur: '100 %', libelle: 'des échantillons d\'eau de neuf fleuves européens contenaient des microplastiques', date: '2019-11-30', sourceTitre: 'Fondation Tara Océan, Mission Microplastiques', sourceUrl: 'https://fondationtaraocean.org' },
 ];
 

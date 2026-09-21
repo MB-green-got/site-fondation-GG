@@ -5,17 +5,17 @@ titre: École de la Réparation, combien reste-t-il de cordonniers en France
 description: La Fondation Green-Got finance une formation rémunérée d'un an, à Roubaix, aux métiers de la cordonnerie, de la retouche et de la réparation de baskets.
 pilier: Recherche et éducation
 lieu: Roubaix
-lieuPrecision: ancienne usine textile Tissel
+lieuPrecision: Manufacture Tissel, 21 rue du Nouveau Monde
 portee: point
 coordonnees: { lon: 3.17, lat: 50.69 }
 
-finance: Formation rémunérée d'un an, pour des jeunes des quartiers prioritaires de Roubaix, aux métiers de la cordonnerie, de la retouche et de la réparation de baskets.
+finance: Formation rémunérée de onze mois, de septembre à juillet, pour des jeunes des quartiers prioritaires de Roubaix, aux métiers de la cordonnerie, de la retouche et de la réparation de baskets.
 levier: Il restait 45 000 à 50 000 cordonniers en France en 1950, il en reste 3 500 à 4 000. Réparer suppose des gens qui savent réparer. C'est un investissement dans des mains, pas dans une machine.
 
 personne:
-  nom: null
-  role: null
-  lieu: Roubaix
+  nom: Stéphanie Calvino
+  role: Directrice et fondatrice de l'École de la Réparation
+  lieu: Manufacture Tissel, 21 rue du Nouveau Monde, Roubaix
   date: '2024-09-01'
 
 chiffres:
@@ -24,9 +24,9 @@ chiffres:
     date: '2024-09-01'
     sourceTitre: École de la Réparation
     sourceUrl: https://www.lecoledelareparation.fr/
-  - valeur: 1 400 h
-    libelle: de formation, rémunérée au SMIC
-    date: '2024-09-01'
+  - valeur: 1 326 h
+    libelle: de formation sur onze mois, rémunérée au SMIC, dont 440 heures de cordonnerie et 228 de retouche textile
+    date: '2025-07-15'
     sourceTitre: École de la Réparation
     sourceUrl: https://www.lecoledelareparation.fr/
   - valeur: 3 500
@@ -41,7 +41,7 @@ partenaire:
 
 recit:
   - titre: Dans une usine que la mondialisation a tuée
-    texte: L'école, portée par Veja, ouvre en septembre 2024 dans la Manufacture Tissel, 11 000 m² d'ancienne usine textile à Roubaix, capitale française du textile au XXe siècle. Vingt élèves, payés au SMIC pendant un an, 1 400 heures de formation, dont 440 heures de cordonnerie et 228 de retouche.
+    texte: L'école, portée par Veja et dirigée par Stéphanie Calvino, ouvre en septembre 2024 dans la Manufacture Tissel, 11 000 m² d'ancienne usine textile au 21 rue du Nouveau Monde à Roubaix, capitale française du textile au XXe siècle. Vingt élèves, payés au SMIC pendant onze mois, de septembre à juillet, 1 326 heures de formation dont 440 de cordonnerie et 228 de retouche textile.
   - titre: Se réparer en réparant
     texte: Une élève a passé treize ans dans le travail social avant un épuisement professionnel. « J'ai envie de me servir de mes mains ici, c'est aussi une façon de me réparer moi‑même. » Une autre, petite‑fille du doyen du marché aux puces de Roubaix, a passé son enfance à restaurer des objets avec son grand‑père. Elle revient recoudre des baskets.
 

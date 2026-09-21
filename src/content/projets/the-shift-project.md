@@ -19,19 +19,19 @@ personne:
   date: '2024-11-29'
 
 chiffres:
-  - valeur: 8 000
-    libelle: contributions à la Grande Consultation des Agriculteurs
-    date: null
+  - valeur: 7 800
+    libelle: agriculteurs ont contribué à la Grande Consultation des Agriculteurs, dont 7 711 au volet quantitatif
+    date: '2024-12-17'
     sourceTitre: The Shift Project, Grande Consultation des Agriculteurs
     sourceUrl: https://theshiftproject.org/publications/grande-consultation-agriculteurs/
-  - valeur: 80 %
-    libelle: des agriculteurs inquiets pour la viabilité de leur ferme
-    date: null
+  - valeur: 86 %
+    libelle: des répondants considèrent que le changement climatique menace la viabilité de leur exploitation
+    date: '2024-12-17'
     sourceTitre: The Shift Project, Grande Consultation des Agriculteurs
     sourceUrl: https://theshiftproject.org/publications/grande-consultation-agriculteurs/
   - valeur: 7 %
-    libelle: seulement refusent d'engager la transition
-    date: null
+    libelle: seulement déclarent ne pas souhaiter s'engager ou accélérer la transition de leur ferme
+    date: '2024-12-17'
     sourceTitre: The Shift Project, Grande Consultation des Agriculteurs
     sourceUrl: https://theshiftproject.org/publications/grande-consultation-agriculteurs/
 
@@ -42,8 +42,8 @@ partenaire:
 recit:
   - titre: Seul dans sa barque
     texte: Clément Moy, 26 ans, agriculteur en groupement avec cinq associés en Ille‑et‑Vilaine. « Je mesure le risque de l'inaction mais je me sens un peu seul dans ma barque face à l'océan. » Il siège au comité de pilotage d'Agri2050, lancé le 29 novembre 2024 à la ferme d'Orsigny, sur le plateau de Saclay.
-  - titre: 8 000 agriculteurs consultés
-    texte: La Grande Consultation des Agriculteurs a recueilli près de 8 000 contributions. 80 % se disent inquiets pour la viabilité de leur ferme face au climat, 80 % veulent adopter ou ont adopté des pratiques plus sobres, 7 % seulement refusent d'engager une transition. Le réseau est non partisan et non syndical.
+  - titre: Près de 7 800 agriculteurs consultés
+    texte: La Grande Consultation des Agriculteurs a recueilli près de 7 800 contributions, dont 7 711 au volet quantitatif. 86 % des répondants considèrent que le changement climatique menace la viabilité de leur exploitation, 93 % se disent prêts à engager ou accélérer la transition de leur ferme, et 7 % seulement déclarent ne pas le souhaiter. 87 % se sentent mal représentés dans le débat public. Le réseau est non partisan et non syndical.
 
 source: The Shift Project, Grande Consultation des Agriculteurs et lancement d'Agri2050
 image:
