@@ -11,6 +11,7 @@ import AValider from '../components/AValider.astro';
 import { fondation } from '../data/fondation.js';
 
 const chemin = [{ libelle: 'Mentions légales' }];
+const f = fondation.fondateur;
 const publieLe = '2026-09-18';
 const modifieLe = '2026-09-18';
 ---
@@ -32,13 +33,13 @@ const modifieLe = '2026-09-18';
   <section class="sect">
     <div class="container">
       <h2>Éditeur du site</h2>
-      <p class="body">Green‑Got, {fondation.fondateur.qualite}.</p>
-      <p class="body">Contact, <a href="mailto:impact@green-got.com">impact@green-got.com</a>.</p>
-      <AValider quoi="La forme sociale, le capital, le numéro RCS et l'adresse du siège de Green-Got, et le nom du directeur de la publication." />
+      <p class="body">{f.raisonSociale}, {f.formeSociale} exerçant sous le nom commercial Green‑Got, {f.siren}, {f.rcs}, siège social {f.siege}. Contact, <a href={`mailto:${fondation.contact}`}>{fondation.contact}</a>.</p>
+      <p class="body">Green‑Got est un {f.qualite}. Elle est agréée en qualité d'établissement de paiement et inscrite à ce titre au registre des agents financiers tenu par la Banque de France. <a class="src" href={f.regafi} target="_blank" rel="noopener">REGAFI</a></p>
+      <AValider quoi="Le montant du capital social et le nom du directeur de la publication. Le capital de Green-Got change souvent et trois sources en donnent trois montants différents, un extrait Kbis récent est nécessaire pour le figer. Le directeur de la publication est de droit le représentant légal de la société, une délégation écrite à une autre personne est possible mais doit être formalisée." />
 
       <h2>La Fondation Green‑Got</h2>
-      <p class="body">La Fondation Green‑Got est une {fondation.statut}, fondation reconnue d'utilité publique, 40 avenue Hoche, 75008 Paris. Elle n'a pas de personnalité juridique propre. La Fondation de France porte son cadre juridique, fiscal et administratif, valide et exécute chaque versement et émet les reçus fiscaux.</p>
-      <AValider quoi="La qualification exacte, fonds abrité ou fondation abritée. La maquette écrivait « fonds abrité », qui n'est pas la même chose juridiquement. Cette page est celle où l'erreur coûte le plus cher." />
+      <p class="body">La Fondation Green‑Got est une {fondation.statut}. Une fondation abritée n'a pas de personnalité juridique propre, elle est un fonds individualisé au sein de sa fondation abritante. La <a href={fondation.abriteur.url} target="_blank" rel="noopener">Fondation de France</a>, elle, est reconnue d'utilité publique et son siège est au 40 avenue Hoche, 75008 Paris. Elle porte le cadre juridique, fiscal et administratif de la Fondation Green‑Got, valide et exécute chaque versement et émet les reçus fiscaux.</p>
+      <p class="body">La Fondation Green‑Got n'a donc ni numéro de registre, ni capital social propres. Elle figure à l'annuaire des fondations abritées de la Fondation de France. <a class="src" href="https://www.fondationdefrance.org/fr/annuaire-des-fondations/fondation-green-got" target="_blank" rel="noopener">Sa fiche</a></p>
 
       <h2>Hébergement</h2>
       <AValider quoi="Le nom, la raison sociale, l'adresse et le téléphone de l'hébergeur retenu." />

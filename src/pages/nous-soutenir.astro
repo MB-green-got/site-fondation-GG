@@ -2,17 +2,17 @@
 /*
   Nous soutenir.
 
-  Cette page existait sur le site en ligne et son adresse est indexée. Sa
-  seule voie de soutien passait par la carte Green-Got et l'arrondi des
-  dépenses, ce que les règles éditoriales interdisent, elle n'a donc pas été
-  reprise telle quelle et son adresse pointait vers Faits et chiffres, où la
-  réponse est marquée À VALIDER. Quelqu'un qui veut donner arrivait donc sur
-  une page qui lui disait qu'on ne savait pas le lui expliquer.
+  Réécrite le 21 septembre 2026 après recherche sur le cadre des fondations
+  abritées par la Fondation de France.
 
-  Elle dit maintenant ce qui est vrai et vérifiable, le cadre fiscal, qui
-  émet les reçus, et où déposer un projet. La voie de don elle-même reste
-  marquée À VALIDER, en clair, parce qu'elle n'existe pas encore sous une
-  forme qui ne passe pas par l'ouverture d'un compte.
+  Point de droit qui commande toute la page. Une fondation abritée n'a pas la
+  personnalité morale, elle est un fonds individualisé au sein de la Fondation
+  de France. Le donataire juridique est donc la Fondation de France, et c'est
+  ce qui ouvre l'avantage fiscal, puisque c'est elle qui est reconnue d'utilité
+  publique. Écrire « don à la Fondation Green-Got » est inexact, on écrit
+  « don à la Fondation de France, affecté à la Fondation Green-Got ».
+
+  Rien ici ne renvoie à l'ouverture d'un compte Green-Got.
 */
 import Base from '../layouts/Base.astro';
 import FilAriane from '../components/FilAriane.astro';
@@ -22,13 +22,13 @@ import { fondation } from '../data/fondation.js';
 
 const chemin = [{ libelle: 'Nous soutenir' }];
 const publieLe = '2026-09-18';
-const modifieLe = '2026-09-18';
+const modifieLe = '2026-09-21';
 
 const jsonLd = [{
   '@type': 'Article',
   '@id': 'https://fondation.green-got.com/nous-soutenir#article',
   headline: 'Soutenir la Fondation Green-Got',
-  description: 'Le cadre fiscal des dons à la Fondation Green-Got, qui émet les reçus, et les autres façons de soutenir son travail.',
+  description: 'Comment donner à la Fondation Green-Got, le cadre fiscal, qui émet les reçus et ce que prélève la Fondation de France.',
   inLanguage: 'fr-FR',
   datePublished: publieLe,
   dateModified: modifieLe,
@@ -37,39 +37,46 @@ const jsonLd = [{
 }];
 ---
 <Base
-  titre={`Comment soutenir la Fondation Green-Got ? · ${fondation.nom}`}
-  description="Le cadre fiscal des dons à la Fondation Green-Got, qui émet les reçus, et les autres façons de soutenir le travail des projets financés."
+  titre={`Comment donner à la Fondation Green-Got ? · ${fondation.nom}`}
+  description="Comment soutenir la Fondation Green-Got, par don à la Fondation de France affecté à la Fondation, le cadre fiscal pour les particuliers et les entreprises, et qui émet les reçus."
   route="/nous-soutenir"
   chemin={chemin}
-  image="/img/partage.jpg"
-  imageAlt="Fondation Green-Got, on finance ce qui ne rapporte rien"
   jsonLd={jsonLd}
 >
   <section class="phero simple">
     <div class="container lisible">
       <FilAriane chemin={chemin} />
       <h1>Nous soutenir.</h1>
-      <p class="body lg">La Fondation finance des projets que rien ne rembourse. Voici ce qu'on peut dire aujourd'hui de la façon de l'aider, et ce qui n'est pas encore arrêté.</p>
+      <p class="body lg">La Fondation finance des projets que rien ne rembourse. Voici comment donner, ce que le don ouvre comme droit et ce qu'il coûte en gestion.</p>
       <Signature publieLe={publieLe} modifieLe={modifieLe} />
     </div>
   </section>
 
   <section class="sect">
     <div class="container lisible">
-      <h2>Faire un don</h2>
-      <AValider quoi="La voie de don à la Fondation. Le site en ligne répondait par la carte Green-Got et l'arrondi des dépenses, ce qui revient à faire du soutien à la Fondation un argument d'ouverture de compte. Il manque une voie de don ouverte à tous, indépendante de l'ouverture d'un compte, et son adresse." />
+      <h2>À qui le don est-il fait</h2>
+      <p class="body">La Fondation Green‑Got est une {fondation.statut}. Une fondation abritée n'a pas de personnalité morale propre, elle est un fonds individualisé au sein de la Fondation de France. Un don est donc juridiquement fait à la <a href={fondation.abriteur.url} target="_blank" rel="noopener">Fondation de France</a>, reconnue d'utilité publique, et affecté à la Fondation Green‑Got. C'est ce qui ouvre l'avantage fiscal, et c'est la Fondation de France qui émet le reçu.</p>
 
-      <h2>Le cadre fiscal</h2>
-      <p class="body">Un don à la Fondation Green‑Got ouvre droit à une réduction d'impôt de 66 % du montant versé, dans la limite de 20 % du revenu imposable, au titre de l'article 200 du code général des impôts. C'est la <a href={fondation.abriteur.url} target="_blank" rel="noopener">Fondation de France</a>, reconnue d'utilité publique, qui émet les reçus fiscaux. Même lorsque le donateur déduit une partie de son don, les associations reçoivent 100 % de la somme.</p>
+      <h2>Comment donner</h2>
+      <p class="body">La Fondation de France met trois voies à disposition de ses fondations abritées, une page de don en ligne dédiée, le chèque et le virement, auxquelles s'ajoutent les legs et l'assurance vie. La page de don en ligne de la Fondation Green‑Got n'est pas encore ouverte.</p>
+      <AValider quoi="L'ouverture d'une page de don dédiée sur dons.fondationdefrance.org, à demander à la Fondation de France, ainsi que la formulation exacte à porter sur un chèque et les coordonnées bancaires à publier pour un virement. Tant que ces éléments ne sont pas confirmés par la Fondation de France, aucune instruction de paiement n'est publiée ici, le risque serait qu'un don parte au mauvais endroit." />
+      <p class="body">En attendant, écrivez-nous à <a href={`mailto:${fondation.contact}`}>{fondation.contact}</a>, nous vous indiquons la marche à suivre.</p>
+
+      <h2>Ce que le don ouvre comme droit</h2>
+      <p class="body">Pour un particulier, la réduction d'impôt sur le revenu est de 66 % du montant versé, dans la limite de 20 % du revenu imposable, au titre de l'article 200 du code général des impôts. Si le don dépasse ce plafond, l'excédent est reporté sur les cinq années suivantes. <a class="src" href="https://www.service-public.gouv.fr/particuliers/vosdroits/F426" target="_blank" rel="noopener">Service public, réduction d'impôt pour dons</a></p>
+      <p class="body">Au titre de l'impôt sur la fortune immobilière, la réduction est de 75 % du don, dans la limite de 50 000 € de réduction, au titre de l'article 978 du même code. <a class="src" href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051200406" target="_blank" rel="noopener">Légifrance, article 200 du code général des impôts</a></p>
+      <p class="body">Pour une entreprise, la réduction d'impôt est de 60 % du don jusqu'à deux millions d'euros et de 40 % au-delà, dans la limite de 20 000 € ou de 5 pour mille du chiffre d'affaires hors taxes, le plus élevé des deux, au titre de l'article 238 bis. L'excédent est reporté sur les cinq exercices suivants. <a class="src" href="https://entreprendre.service-public.gouv.fr/vosdroits/F22263" target="_blank" rel="noopener">Service public, mécénat d'entreprise</a></p>
+      <p class="body">Le reçu fiscal est établi et adressé par la Fondation de France, sur le formulaire 2041-RD pour les particuliers et 2041-MEC-SD pour les entreprises. <a class="src" href="https://www.impots.gouv.fr/formulaire/2041-rd/recu-des-dons-et-versements-effectues-par-les-particuliers-au-titre-des-articles" target="_blank" rel="noopener">Impots.gouv.fr, formulaire 2041-RD</a></p>
+
+      <h2>Ce que la gestion coûte</h2>
+      <p class="body">La Fondation de France prélève une contribution aux charges communes, qui couvre la gestion administrative, comptable et fiscale de la Fondation. Ce prélèvement existe, il porte à la fois sur les ressources et sur les dépenses, et il est normal. Nous préférons l'écrire plutôt que de laisser croire que cent pour cent d'un don arrive sans intermédiaire. <a class="src" href="https://www.fondationdefrance.org/images/pdf/2025/FDF_2024_RAPPORT_FINANCIER.pdf" target="_blank" rel="noopener">Fondation de France, rapport financier 2024</a></p>
+      <AValider quoi="Le barème exact de la contribution aux charges communes appliqué à la Fondation Green-Got. Il figure en annexe de la convention de création signée avec la Fondation de France, la Fondation de France ne le publie pas sur son site. Le registre financier interne montre 3 030 € prélevés, ce qui est cohérent avec le mécanisme documenté par la Cour des comptes, plancher annuel et pourcentage des dépenses." />
 
       <h2>Vous portez un projet</h2>
       <p class="body">La Fondation étudie les dossiers et répond sous un mois. Le dossier décrit le projet, son territoire, son budget et ce que le soutien permettrait de faire. <a href="/associations">Comment candidater</a>.</p>
 
       <h2>Venir voir</h2>
-      <p class="body">La façon la plus directe de soutenir ce travail est d'aller le voir et d'en parler. Les rendez‑vous sur le terrain disent le lieu, l'horaire et qui peut venir. <a href="/evenements">Les prochains rendez‑vous</a>.</p>
-
-      <h2>Comprendre avant de donner</h2>
-      <p class="body">Ce que la Fondation est, qui décide des projets financés et d'où vient l'argent sont écrits en clair. <a href="/faits-et-chiffres">Faits et chiffres</a>, la page de référence, et <a href="/la-fondation">La Fondation</a>.</p>
+      <p class="body">La façon la plus directe de soutenir ce travail est d'aller le voir et d'en parler. <a href="/evenements">Les prochains rendez‑vous</a>. Ce que la Fondation finance et qui décide est écrit en clair sur <a href="/faits-et-chiffres">Faits et chiffres</a> et sur <a href="/la-fondation">La Fondation</a>.</p>
     </div>
   </section>
 </Base>

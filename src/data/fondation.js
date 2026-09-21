@@ -41,9 +41,24 @@ export const fondation = {
   /* Message de fond du site. */
   accroche: 'Tout n\'est pas financier. Alors on donne.',
 
-  /* Green-Got est un établissement de paiement et un service financier. Jamais une banque. */
+  /*
+    Green-Got est un établissement de paiement et un service financier.
+    Jamais une banque.
+
+    Agrément d'établissement de paiement délivré par l'ACPR, inscrit au REGAFI
+    le 23 janvier 2026, code interbancaire 17928, sans établissement parent.
+    Green-Got n'est donc plus agent prestataire de services de paiement, la
+    mention encore portée par le pied de page de green-got.com est périmée.
+  */
   fondateur: {
     nom: 'Green-Got',
+    /* Dénomination sociale au registre, le nom commercial est Green-Got. */
+    raisonSociale: 'Domino',
+    formeSociale: 'société par actions simplifiée',
+    siren: '883 981 763',
+    rcs: 'RCS Nanterre',
+    siege: '20 bis rue Louis-Philippe, 92200 Neuilly-sur-Seine',
+    regafi: 'https://www.regafi.fr/',
     qualite: 'établissement de paiement et service financier',
     /* Phrase autonome, pour les endroits qui la citent seule. */
     qualitePhrase: 'un établissement de paiement et un service financier',
@@ -105,14 +120,18 @@ export const fondation = {
     de la Fondation. Elles ne seront pas inventées.
   */
   sameAs: [
+    /* Fiche officielle de l'annuaire des fondations abritées, vérifiée le 21 septembre 2026. */
+    'https://www.fondationdefrance.org/fr/annuaire-des-fondations/fondation-green-got',
     'https://fr.wikipedia.org/wiki/Green-Got',
     'https://www.instagram.com/fondation_green_got/',
     'https://www.youtube.com/@green-got',
   ],
-  sameAsManquants: [
-    'Fiche de la Fondation dans l\'annuaire de la Fondation de France',
-    'Page LinkedIn de la Fondation',
-  ],
+  /*
+    La Fondation n'a pas de page LinkedIn propre, vérifié le 21 septembre 2026,
+    seule Green-Got en a une. Il n'y a donc rien à lier, il y aurait une page
+    à créer.
+  */
+  sameAsManquants: [],
 
   /* Adresse de contact, arrêtée le 18 septembre 2026. */
   contact: 'impact@green-got.com',
