@@ -11,7 +11,7 @@ Ce document décrit ce qu'il reste à faire pour remplacer le site actuel par ce
 | Relire les 51 mentions À VALIDER affichées dans les pages | Elles sont visibles en orange, elles ne peuvent pas passer inaperçues. Le détail figure dans `CHANGELOG.md` |
 | Faire valider les mentions légales et la politique de confidentialité par le juridique | Les deux pages portent des champs à compléter |
 | Confirmer la qualification juridique auprès de la Fondation de France | Le site écrit « fondation abritée ». Un fonds abrité n'est pas la même chose et la phrase est recopiée sur trente-sept emplacements |
-| Trancher le montant cumulé affiché | Le site annonce plus de 2,5 millions, le registre en donne 1 668 582, et la page Soutiens passés publie le détail dont la somme est vérifiable. Voir la réserve dans `CHANGELOG.md` |
+| Trancher le montant cumulé affiché | Le site annonce plus de 2,5 millions et la page Soutiens passés publie le détail par association. Le rapprochement avec le registre est dans `NOTES-INTERNES.md`, hors dépôt |
 | Faire confirmer les chiffres de Wings of the Ocean par l'association | 15,1 tonnes sur la fiche, un peu plus de 3 tonnes selon une source secondaire |
 | Décider du sort des quatre rendez-vous envisagés | Ils sont marqués comme non confirmés et hors balisage, mais ils restent affichés |
 | Faire mettre à jour la FAQ de Green-Got | Elle annonce encore près de 2 millions d'euros, elle dit donc moins que le site |

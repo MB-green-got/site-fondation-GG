@@ -10,13 +10,8 @@
   décidées par le comité et arrondis fléchés par les membres confondus.
   Décision de Marie Bénédicte du 18 septembre 2026.
 
-  Réconciliation, consignée pour mémoire.
-    Subventions directes 2022 à 2025 ......  709 282,00 €
-    Arrondis 2023 à 2025 ..................  659 300,39 €
-    Sous-total fin 2025 ................... 1 368 582,39 €
-    Deux premières tranches 2026 ..........  300 000,00 €
-    Total versé à ce jour ................. 1 668 582,39 €
-    Si le plan 2026 est tenu jusqu'en décembre, 1 868 582,39 €.
+  Le détail de la réconciliation avec le registre est tenu hors du dépôt,
+  dans NOTES-INTERNES.md, le dépôt étant public.
 */
 
 /* Date d'arrêté des montants affichés. */

@@ -30,11 +30,7 @@ Le plan posait seize décisions. Elles ont été prises avec Marie Bénédicte l
 
 ### Trois réserves que ces décisions laissent ouvertes
 
-**Le montant cumulé.** Le site annonce plus de 2,5 millions d'euros. Les deux sources transmises, le registre Notion et les tableaux de suivi, donnent 1 668 582 € versés à ce jour et 1 868 582 € en fin d'année si le plan 2026 est tenu. L'écart est d'au moins 631 418 €. Il a été signalé deux fois, chiffres à l'appui, et la décision de maintenir 2,5 millions a été confirmée. Trois conséquences. La source liée, la FAQ de Green-Got, annonce encore près de 2 millions, elle dit donc moins que le site. La page Soutiens passés publie le détail par association, dont la somme, 1 668 582 €, est vérifiable par quiconque additionne. Et la règle éditoriale du chantier demande qu'aucun chiffre ne soit avancé sans source qui le porte.
-
-**Les chiffres de Wings of the Ocean.** Ce n'est pas un lien qui manque, c'est peut-être un chiffre faux. La fiche annonce 15,1 tonnes collectées en 2024, une source secondaire évoque un peu plus de 3 tonnes sur 103 ramassages. L'association ne publie aucun rapport, ses compteurs d'impact affichent zéro. À confirmer auprès d'elle.
-
-**Les quatre rendez-vous envisagés.** Ils sont clairement marqués, rangés dans une seconde liste sous le titre « Ce qu'on aimerait mettre en place », et aucun n'entre dans le balisage `Event`, ce que le contrôle vérifie à chaque construction. Rien n'y est présenté comme un fait. Reste qu'un site qui affiche des rendez-vous non décidés affiche des rendez-vous non décidés.
+Elles sont détaillées dans `NOTES-INTERNES.md`, qui n'est pas publié. Elles portent sur le montant cumulé affiché, sur les chiffres d'un partenaire et sur les quatre rendez-vous envisagés.
 
 ---
 
@@ -342,24 +338,13 @@ Le contrôle automatique vérifie aussi, désormais, que le sitemap et le llms.t
 
 Marie Bénédicte a transmis le registre de pilotage financier de la Fondation, page Notion « Financement associatif GG » arrêtée au 22 août 2026, puis deux tableaux de suivi détaillés. Les deux sources concordent au centime près, à 58 centimes près sur la ligne Lazare.
 
-**Ce que disent les sources.**
-
-```
-  Subventions directes 2022 à 2025 ......   709 282,00 €
-  Arrondis 2023 à 2025 ..................   659 300,39 €
-  Sous-total fin 2025 ................... 1 368 582,39 €
-  Deux premières tranches 2026 ..........   300 000,00 €
-  Total versé à ce jour ................. 1 668 582,39 €
-  Si le plan 2026 est tenu jusqu'en décembre, 1 868 582,39 €.
-```
+**Ce que disent les sources.** Le détail chiffré est dans `NOTES-INTERNES.md`, qui n'est pas publié.
 
 **Base retenue pour les fiches projet**, décision de Marie Bénédicte, tout ce qui a été versé à l'association, subventions décidées par le comité et arrondis fléchés par les membres confondus. Les huit fiches affichent donc Sungai Watch 280 000 €, FEVE 191 787 €, Wings of the Ocean 189 076 €, Planète Urgence 157 000 €, École de la Réparation 100 000 €, Coral Guardian 90 000 €, The Shift Project 60 000 € et Fondation Tara Océan 50 000 €, chacun avec sa date d'arrêté et, quand il existe, l'engagement annoncé pour 2026.
 
 J'avais signalé que cette base attribue à la Fondation des sommes qu'elle n'arbitre pas, le registre écrivant lui-même que pour les arrondis « la Fondation n'est qu'un intermédiaire de paiement ». La décision a été prise en connaissance de cause. La page Soutiens passés le rappelle en pied de page, sans employer le mot arrondi dans le corps du texte, conformément aux règles éditoriales.
 
-**Montant cumulé affiché, écart à consigner.** Le site annonce « Plus de 2,5 millions d'euros versés aux associations depuis 2022 ». Les deux sources transmises donnent 1 668 582 € versés à ce jour et 1 868 582 € en fin d'année si le plan est tenu. L'écart est donc de 631 418 € au minimum. J'ai signalé cet écart deux fois, chiffres à l'appui, la décision de maintenir 2,5 millions a été confirmée. Elle est appliquée.
-
-Trois conséquences que ce choix crée et qu'il faut connaître. La source liée au chiffre, la FAQ de Green-Got, annonce encore près de 2 millions, elle dit donc moins que le site. La page Soutiens passés publie le détail par association, dont la somme, 1 668 582 €, est vérifiable par quiconque additionne. Et la règle éditoriale du chantier demande qu'aucun chiffre ne soit présenté comme un fait sans source qui le porte.
+**Montant cumulé affiché.** Le chiffre retenu et l'écart avec le registre sont consignés dans `NOTES-INTERNES.md`, qui n'est pas publié.
 
 **Page Soutiens passés créée.** Le site présentait huit projets, le registre en compte vingt-trois. Les quinze autres associations y figurent avec leur montant et leurs années, de Refuge GroinGroin à QuotaClimat. La page explique l'écart plutôt que de le laisser ouvert, et publie le total vérifiable. Trois d'entre elles avaient reçu des subventions décidées par le comité sans figurer nulle part sur le site, EcoTree, Just Diggit et Climate Partner.
 
@@ -413,17 +398,11 @@ L'École de la Réparation forme sur onze mois et non un an, et son volume horai
 
 **La voie de don est documentée.** Une fondation abritée n'a pas la personnalité morale, le donataire juridique est la Fondation de France et c'est son statut d'utilité publique qui ouvre l'avantage fiscal. Écrire « don à la Fondation Green-Got » est donc inexact, la page Nous soutenir écrit maintenant « don à la Fondation de France, affecté à la Fondation Green-Got ». Le cadre fiscal est complété, report sur cinq ans, 75 % au titre de l'impôt sur la fortune immobilière dans la limite de 50 000 €, et le régime des entreprises, 60 % puis 40 % au-delà de deux millions.
 
-**La phrase « sans frais ni commission » est retirée.** Elle est fausse. La Fondation de France prélève une contribution aux charges communes, à l'entrée comme à la sortie, ce que son propre rapport financier et un rapport de la Cour des comptes documentent. Les 3 030 € du registre interne sont cohérents avec ce mécanisme. La page l'écrit désormais plutôt que de le nier.
+**La phrase « sans frais ni commission » est retirée.** Elle est fausse. La Fondation de France prélève une contribution aux charges communes, à l'entrée comme à la sortie, ce que son propre rapport financier et un rapport de la Cour des comptes documentent. Le prélèvement constaté dans le registre interne est cohérent avec ce mécanisme. La page l'écrit désormais plutôt que de le nier.
 
 **Les mentions légales portent l'identité vérifiée de l'éditeur.** Domino, société par actions simplifiée exerçant sous le nom commercial Green-Got, SIREN 883 981 763, RCS Nanterre, siège au 20 bis rue Louis-Philippe à Neuilly-sur-Seine. Le statut d'établissement de paiement agréé est confirmé, agrément inscrit au REGAFI le 23 janvier 2026, sans établissement parent. Le site ne dit donc pas seulement que Green-Got n'est pas une banque, il dit ce qu'elle est, avec le registre pour le prouver.
 
-**Trois points que la recherche a soulevés et que je ne peux pas trancher.**
-
-Le capital social de Green-Got a trois valeurs différentes selon les sources, dont celle affichée sur green-got.com qui a deux augmentations de retard. Un extrait Kbis récent est nécessaire.
-
-Le directeur de la publication de green-got.com est désigné comme étant Clément Jaunault, qui n'est ni président ni directeur général au registre. Le directeur de la publication est de droit le représentant légal, en l'occurrence Maud Caillaux. Une délégation écrite est possible mais doit exister.
-
-Green-Got ne publie aucune politique de confidentialité. L'adresse qui porte ce nom sert une politique de cookies. C'est une lacune de conformité au règlement européen qui se reporterait sur le site de la Fondation, d'autant qu'il est question d'y collecter des dons.
+**Trois points que la recherche a soulevés et que je ne peux pas trancher.** Ils concernent l'identité de l'éditeur et sa conformité, ils sont consignés dans `NOTES-INTERNES.md`, qui n'est pas publié.
 
 **Un point qui touche au problème de départ.** La fiche de l'annuaire de la Fondation de France décrit la Fondation autrement que le site, transition écologique et solidaire, générations futures, climat, biodiversité, santé et solidarité, là où le site dit santé environnementale, pesticides, pollution plastique, PFAS et recherche. Elle explique aussi le financement par la carte et l'arrondi, ce que les règles éditoriales du site interdisent. C'est une cinquième description de la Fondation en ligne, sur la source la plus officielle qui soit. Elle est à faire corriger auprès de la Fondation de France.
 
